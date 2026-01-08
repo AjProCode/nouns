@@ -1,836 +1,828 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <title>Noun Master Academy</title>
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" rel="stylesheet">
-    <script src="https://cdn.tailwindcss.com"></script>
+<html lang="en"><head>
+
+<script class="injected-ffc2e83d85">
+(function(){'use strict';function q(b){var c=0;return function(){return c<b.length?{done:!1,value:b[c++]}:{done:!0}}}function t(b){var c=typeof Symbol!="undefined"&&Symbol.iterator&&b[Symbol.iterator];if(c)return c.call(b);if(typeof b.length=="number")return{next:q(b)};throw Error(String(b)+" is not an iterable or ArrayLike");}var u=typeof Object.defineProperties=="function"?Object.defineProperty:function(b,c,g){if(b==Array.prototype||b==Object.prototype)return b;b[c]=g.value;return b};
+function v(b){b=["object"==typeof globalThis&&globalThis,b,"object"==typeof window&&window,"object"==typeof self&&self,"object"==typeof global&&global];for(var c=0;c<b.length;++c){var g=b[c];if(g&&g.Math==Math)return g}throw Error("Cannot find global object");}var w=v(this);function x(b,c){if(c)a:{var g=w;b=b.split(".");for(var h=0;h<b.length-1;h++){var l=b[h];if(!(l in g))break a;g=g[l]}b=b[b.length-1];h=g[b];c=c(h);c!=h&&c!=null&&u(g,b,{configurable:!0,writable:!0,value:c})}}
+function y(){this.j=!1;this.g=null;this.u=void 0;this.h=1;this.v=this.l=0;this.i=null}function z(b){if(b.j)throw new TypeError("Generator is already running");b.j=!0}y.prototype.o=function(b){this.u=b};function A(b,c){b.i={I:c,J:!0};b.h=b.l||b.v}y.prototype.return=function(b){this.i={return:b};this.h=this.v};function B(b){this.g=new y;this.h=b}function E(b,c){z(b.g);var g=b.g.g;if(g)return F(b,"return"in g?g["return"]:function(h){return{value:h,done:!0}},c,b.g.return);b.g.return(c);return G(b)}
+function F(b,c,g,h){try{var l=c.call(b.g.g,g);if(!(l instanceof Object))throw new TypeError("Iterator result "+l+" is not an object");if(!l.done)return b.g.j=!1,l;var m=l.value}catch(f){return b.g.g=null,A(b.g,f),G(b)}b.g.g=null;h.call(b.g,m);return G(b)}function G(b){for(;b.g.h;)try{var c=b.h(b.g);if(c)return b.g.j=!1,{value:c.value,done:!1}}catch(g){b.g.u=void 0,A(b.g,g)}b.g.j=!1;if(b.g.i){c=b.g.i;b.g.i=null;if(c.J)throw c.I;return{value:c.return,done:!0}}return{value:void 0,done:!0}}
+function H(b){this.next=function(c){z(b.g);b.g.g?c=F(b,b.g.g.next,c,b.g.o):(b.g.o(c),c=G(b));return c};this.throw=function(c){z(b.g);b.g.g?c=F(b,b.g.g["throw"],c,b.g.o):(A(b.g,c),c=G(b));return c};this.return=function(c){return E(b,c)};this[Symbol.iterator]=function(){return this}}function I(b){function c(h){return b.next(h)}function g(h){return b.throw(h)}return new Promise(function(h,l){function m(f){f.done?h(f.value):Promise.resolve(f.value).then(c,g).then(m,l)}m(b.next())})}
+x("Symbol",function(b){function c(m){if(this instanceof c)throw new TypeError("Symbol is not a constructor");return new g(h+(m||"")+"_"+l++,m)}function g(m,f){this.g=m;u(this,"description",{configurable:!0,writable:!0,value:f})}if(b)return b;g.prototype.toString=function(){return this.g};var h="jscomp_symbol_"+(Math.random()*1E9>>>0)+"_",l=0;return c});
+x("Symbol.iterator",function(b){if(b)return b;b=Symbol("Symbol.iterator");u(Array.prototype,b,{configurable:!0,writable:!0,value:function(){return J(q(this))}});return b});function J(b){b={next:b};b[Symbol.iterator]=function(){return this};return b}
+x("Promise",function(b){function c(f){this.h=0;this.i=void 0;this.g=[];this.u=!1;var a=this.j();try{f(a.resolve,a.reject)}catch(d){a.reject(d)}}function g(){this.g=null}function h(f){return f instanceof c?f:new c(function(a){a(f)})}if(b)return b;g.prototype.h=function(f){if(this.g==null){this.g=[];var a=this;this.i(function(){a.l()})}this.g.push(f)};var l=w.setTimeout;g.prototype.i=function(f){l(f,0)};g.prototype.l=function(){for(;this.g&&this.g.length;){var f=this.g;this.g=[];for(var a=0;a<f.length;++a){var d=
+f[a];f[a]=null;try{d()}catch(e){this.j(e)}}}this.g=null};g.prototype.j=function(f){this.i(function(){throw f;})};c.prototype.j=function(){function f(e){return function(k){d||(d=!0,e.call(a,k))}}var a=this,d=!1;return{resolve:f(this.D),reject:f(this.l)}};c.prototype.D=function(f){if(f===this)this.l(new TypeError("A Promise cannot resolve to itself"));else if(f instanceof c)this.G(f);else{a:switch(typeof f){case "object":var a=f!=null;break a;case "function":a=!0;break a;default:a=!1}a?this.C(f):this.o(f)}};
+c.prototype.C=function(f){var a=void 0;try{a=f.then}catch(d){this.l(d);return}typeof a=="function"?this.H(a,f):this.o(f)};c.prototype.l=function(f){this.v(2,f)};c.prototype.o=function(f){this.v(1,f)};c.prototype.v=function(f,a){if(this.h!=0)throw Error("Cannot settle("+f+", "+a+"): Promise already settled in state"+this.h);this.h=f;this.i=a;this.h===2&&this.F();this.K()};c.prototype.F=function(){var f=this;l(function(){if(f.B()){var a=w.console;typeof a!=="undefined"&&a.error(f.i)}},1)};c.prototype.B=
+function(){if(this.u)return!1;var f=w.CustomEvent,a=w.Event,d=w.dispatchEvent;if(typeof d==="undefined")return!0;typeof f==="function"?f=new f("unhandledrejection",{cancelable:!0}):typeof a==="function"?f=new a("unhandledrejection",{cancelable:!0}):(f=w.document.createEvent("CustomEvent"),f.initCustomEvent("unhandledrejection",!1,!0,f));f.promise=this;f.reason=this.i;return d(f)};c.prototype.K=function(){if(this.g!=null){for(var f=0;f<this.g.length;++f)m.h(this.g[f]);this.g=null}};var m=new g;c.prototype.G=
+function(f){var a=this.j();f.A(a.resolve,a.reject)};c.prototype.H=function(f,a){var d=this.j();try{f.call(a,d.resolve,d.reject)}catch(e){d.reject(e)}};c.prototype.then=function(f,a){function d(n,r){return typeof n=="function"?function(C){try{e(n(C))}catch(D){k(D)}}:r}var e,k,p=new c(function(n,r){e=n;k=r});this.A(d(f,e),d(a,k));return p};c.prototype.catch=function(f){return this.then(void 0,f)};c.prototype.A=function(f,a){function d(){switch(e.h){case 1:f(e.i);break;case 2:a(e.i);break;default:throw Error("Unexpected state: "+
+e.h);}}var e=this;this.g==null?m.h(d):this.g.push(d);this.u=!0};c.resolve=h;c.reject=function(f){return new c(function(a,d){d(f)})};c.race=function(f){return new c(function(a,d){for(var e=t(f),k=e.next();!k.done;k=e.next())h(k.value).A(a,d)})};c.all=function(f){var a=t(f),d=a.next();return d.done?h([]):new c(function(e,k){function p(C){return function(D){n[C]=D;r--;r==0&&e(n)}}var n=[],r=0;do n.push(void 0),r++,h(d.value).A(p(n.length-1),k),d=a.next();while(!d.done)})};return c});
+function K(b,c){return Object.prototype.hasOwnProperty.call(b,c)}x("Object.is",function(b){return b?b:function(c,g){return c===g?c!==0||1/c===1/g:c!==c&&g!==g}});x("Array.prototype.includes",function(b){return b?b:function(c,g){var h=this;h instanceof String&&(h=String(h));var l=h.length;g=g||0;for(g<0&&(g=Math.max(g+l,0));g<l;g++){var m=h[g];if(m===c||Object.is(m,c))return!0}return!1}});
+x("String.prototype.includes",function(b){return b?b:function(c,g){if(this==null)throw new TypeError("The 'this' value for String.prototype.includes must not be null or undefined");if(c instanceof RegExp)throw new TypeError("First argument to String.prototype.includes must not be a regular expression");return this.indexOf(c,g||0)!==-1}});
+x("WeakMap",function(b){function c(d){this.g=(a+=Math.random()+1).toString();if(d){d=t(d);for(var e;!(e=d.next()).done;)e=e.value,this.set(e[0],e[1])}}function g(){}function h(d){var e=typeof d;return e==="object"&&d!==null||e==="function"}function l(d){if(!K(d,f)){var e=new g;u(d,f,{value:e})}}function m(d){var e=Object[d];e&&(Object[d]=function(k){if(k instanceof g)return k;Object.isExtensible(k)&&l(k);return e(k)})}if(function(){if(!b||!Object.seal)return!1;try{var d=Object.seal({}),e=Object.seal({}),
+k=new b([[d,2],[e,3]]);if(k.get(d)!=2||k.get(e)!=3)return!1;k.delete(d);k.set(e,4);return!k.has(d)&&k.get(e)==4}catch(p){return!1}}())return b;var f="$jscomp_hidden_"+Math.random();m("freeze");m("preventExtensions");m("seal");var a=0;c.prototype.set=function(d,e){if(!h(d))throw Error("Invalid WeakMap key");l(d);if(!K(d,f))throw Error("WeakMap key fail: "+d);d[f][this.g]=e;return this};c.prototype.get=function(d){return h(d)&&K(d,f)?d[f][this.g]:void 0};c.prototype.has=function(d){return h(d)&&K(d,
+f)&&K(d[f],this.g)};c.prototype.delete=function(d){return h(d)&&K(d,f)&&K(d[f],this.g)?delete d[f][this.g]:!1};return c});
+x("Map",function(b){function c(){var a={};return a.m=a.next=a.head=a}function g(a,d){var e=a[1];return J(function(){if(e){for(;e.head!=a[1];)e=e.m;for(;e.next!=e.head;)return e=e.next,{done:!1,value:d(e)};e=null}return{done:!0,value:void 0}})}function h(a,d){var e=d&&typeof d;e=="object"||e=="function"?m.has(d)?e=m.get(d):(e=""+ ++f,m.set(d,e)):e="p_"+d;var k=a[0][e];if(k&&K(a[0],e))for(a=0;a<k.length;a++){var p=k[a];if(d!==d&&p.key!==p.key||d===p.key)return{id:e,list:k,index:a,entry:p}}return{id:e,
+list:k,index:-1,entry:void 0}}function l(a){this[0]={};this[1]=c();this.size=0;if(a){a=t(a);for(var d;!(d=a.next()).done;)d=d.value,this.set(d[0],d[1])}}if(function(){if(!b||typeof b!="function"||!b.prototype.entries||typeof Object.seal!="function")return!1;try{var a=Object.seal({x:4}),d=new b(t([[a,"s"]]));if(d.get(a)!="s"||d.size!=1||d.get({x:4})||d.set({x:4},"t")!=d||d.size!=2)return!1;var e=d.entries(),k=e.next();if(k.done||k.value[0]!=a||k.value[1]!="s")return!1;k=e.next();return k.done||k.value[0].x!=
+4||k.value[1]!="t"||!e.next().done?!1:!0}catch(p){return!1}}())return b;var m=new WeakMap;l.prototype.set=function(a,d){a=a===0?0:a;var e=h(this,a);e.list||(e.list=this[0][e.id]=[]);e.entry?e.entry.value=d:(e.entry={next:this[1],m:this[1].m,head:this[1],key:a,value:d},e.list.push(e.entry),this[1].m.next=e.entry,this[1].m=e.entry,this.size++);return this};l.prototype.delete=function(a){a=h(this,a);return a.entry&&a.list?(a.list.splice(a.index,1),a.list.length||delete this[0][a.id],a.entry.m.next=a.entry.next,
+a.entry.next.m=a.entry.m,a.entry.head=null,this.size--,!0):!1};l.prototype.clear=function(){this[0]={};this[1]=this[1].m=c();this.size=0};l.prototype.has=function(a){return!!h(this,a).entry};l.prototype.get=function(a){return(a=h(this,a).entry)&&a.value};l.prototype.entries=function(){return g(this,function(a){return[a.key,a.value]})};l.prototype.keys=function(){return g(this,function(a){return a.key})};l.prototype.values=function(){return g(this,function(a){return a.value})};l.prototype.forEach=
+function(a,d){for(var e=this.entries(),k;!(k=e.next()).done;)k=k.value,a.call(d,k[1],k[0],this)};l.prototype[Symbol.iterator]=l.prototype.entries;var f=0;return l});
+x("Set",function(b){function c(g){this.g=new Map;if(g){g=t(g);for(var h;!(h=g.next()).done;)this.add(h.value)}this.size=this.g.size}if(function(){if(!b||typeof b!="function"||!b.prototype.entries||typeof Object.seal!="function")return!1;try{var g=Object.seal({x:4}),h=new b(t([g]));if(!h.has(g)||h.size!=1||h.add(g)!=h||h.size!=1||h.add({x:4})!=h||h.size!=2)return!1;var l=h.entries(),m=l.next();if(m.done||m.value[0]!=g||m.value[1]!=g)return!1;m=l.next();return m.done||m.value[0]==g||m.value[0].x!=4||
+m.value[1]!=m.value[0]?!1:l.next().done}catch(f){return!1}}())return b;c.prototype.add=function(g){g=g===0?0:g;this.g.set(g,g);this.size=this.g.size;return this};c.prototype.delete=function(g){g=this.g.delete(g);this.size=this.g.size;return g};c.prototype.clear=function(){this.g.clear();this.size=0};c.prototype.has=function(g){return this.g.has(g)};c.prototype.entries=function(){return this.g.entries()};c.prototype.values=function(){return this.g.values()};c.prototype.keys=c.prototype.values;c.prototype[Symbol.iterator]=
+c.prototype.values;c.prototype.forEach=function(g,h){var l=this;this.g.forEach(function(m){return g.call(h,m,m,l)})};return c});(function(){function b(){return m?Promise.resolve(m):f?f:f=fetch("https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json").then(function(a){if(!a.ok)throw Error("HTTP error! status: "+a.status+" fetching https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json");return a.json()}).then(function(a){if(!Array.isArray(a))throw new TypeError("Fetched icon names from https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json is not an array.");
+return m=a}).catch(function(a){console.error("IconChecker: Failed to load valid icon names from https://www.gstatic.com/bard-maui/resources/material-design-icon-names.804824289.json.",a);f=null;throw a;})}function c(a){var d,e,k,p;return I(new H(new B(function(n){switch(n.h){case 1:d=(a.textContent||"").trim();if(!d||a.classList.contains("js-replaced-missing-icon")&&d==="radio_button_unchecked")return n.return();e=window.getComputedStyle(a);if(e.display==="none"||e.visibility==="hidden")return n.return();
+n.l=2;var r=b();n.h=4;return{value:r};case 4:k=n.u;n.h=3;n.l=0;break;case 2:return n.l=0,n.i=null,console.warn('IconChecker: Skipping check for icon "'+d+'" as valid names could not be loaded.'),n.return();case 3:(p=k.includes(d))?a.classList.contains("js-replaced-missing-icon")&&a.classList.remove("js-replaced-missing-icon"):d==="radio_button_unchecked"&&a.classList.contains("js-replaced-missing-icon")||(a.textContent="radio_button_unchecked",a.classList.add("js-replaced-missing-icon")),n.h=0}})))}
+function g(a){a=a===void 0?document.body:a;a.querySelectorAll(l).forEach(function(d){c(d)})}function h(){b().catch(function(){});document.fonts.ready.then(function(){requestAnimationFrame(function(){g(document.body);(new MutationObserver(function(a){var d=new Set;a=t(a);for(var e=a.next();!e.done;e=a.next())if(e=e.value,e.type==="childList")e.addedNodes.forEach(function(p){p.nodeType===Node.ELEMENT_NODE&&(p.matches(l)&&d.add(p),p.querySelectorAll(l).forEach(function(n){d.add(n)}))});else if(e.type===
+"attributes"&&e.attributeName==="class"){var k=e.target;e.target.nodeType===Node.ELEMENT_NODE&&k.matches(l)&&d.add(k)}else e.type==="characterData"&&e.target.parentNode&&(e=e.target.parentNode,e.nodeType===Node.ELEMENT_NODE&&e.matches(l)&&d.add(e));d.size>0&&setTimeout(function(){d.forEach(function(p){c(p)})},500)})).observe(document.body,{childList:!0,subtree:!0,attributes:!0,attributeFilter:["class"],characterData:!0})})}).catch(function(a){console.error("IconChecker: Font loading error. Scanning icons anyway.",
+a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons","material-symbols-outlined","material-symbols-rounded","material-symbols-sharp"].map(function(a){return"."+a}).join(","),m=null,f=null;document.readyState==="loading"?document.addEventListener("DOMContentLoaded",function(){h()}):h()})();}).call(this);
+
+
+</script>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Grammar Academy - Grade 6</title>
+<!-- Google Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Roboto+Slab:wght@700&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" rel="stylesheet">
+
+<style>
+    :root {
+        --primary: #4285f4; /* Google Blueish */
+        --primary-dark: #3367d6;
+        --secondary: #34a853; /* Green */
+        --accent: #fbbc05; /* Yellow */
+        --danger: #ea4335; /* Red */
+        --text: #202124;
+        --text-light: #5f6368;
+        --bg: #f8f9fa;
+        --card-bg: #ffffff;
+        --border: #dadce0;
+        --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+        --radius: 12px;
+    }
+
+    * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+    }
+
+    body {
+        font-family: 'Nunito', sans-serif;
+        background-color: var(--bg);
+        color: var(--text);
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden; /* Prevent body scroll, use inner scroll */
+    }
+
+    /* --- Header --- */
+    header {
+        background: var(--card-bg);
+        border-bottom: 1px solid var(--border);
+        padding: 0.75rem 1.5rem;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        z-index: 10;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-family: 'Roboto Slab', serif;
+        font-size: 1.5rem;
+        color: var(--text);
+    }
+
+    .logo span {
+        color: var(--primary);
+    }
+
+    .progress-container {
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .xp-badge {
+        background: #fff8e1;
+        color: #f57f17;
+        padding: 0.25rem 0.75rem;
+        border-radius: 20px;
+        font-weight: 800;
+        display: flex;
+        align-items: center;
+        gap: 0.25rem;
+        border: 1px solid #ffecb3;
+    }
+
+    /* --- Layout --- */
+    .main-layout {
+        display: flex;
+        flex: 1;
+        overflow: hidden;
+    }
+
+    /* --- Sidebar (Guide) --- */
+    .sidebar {
+        width: 320px;
+        background: white;
+        border-right: 1px solid var(--border);
+        display: flex;
+        flex-direction: column;
+        padding: 1.5rem;
+        overflow-y: auto;
+        flex-shrink: 0;
+    }
+
+    .guide-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        background-color: #e8f0fe;
+        margin: 0 auto 1rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 4px solid white;
+        box-shadow: var(--shadow);
+    }
+
+    .guide-avatar img {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    .dialogue-box {
+        background: #f1f3f4;
+        border-radius: var(--radius);
+        border-bottom-left-radius: 0;
+        padding: 1.25rem;
+        position: relative;
+        margin-top: 0.5rem;
+        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    }
+
+    .dialogue-box::before {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        background: #f1f3f4; /* Match bubble */
+        clip-path: polygon(0 0, 100% 0, 0 100%);
+    }
+
+    .guide-name {
+        font-weight: 800;
+        color: var(--primary-dark);
+        margin-bottom: 0.25rem;
+        text-align: center;
+    }
+
+    .action-btn {
+        background: var(--primary);
+        color: white;
+        border: none;
+        padding: 0.75rem 1.5rem;
+        border-radius: 50px;
+        font-weight: 700;
+        font-size: 1rem;
+        cursor: pointer;
+        width: 100%;
+        margin-top: 1rem;
+        transition: transform 0.1s, background 0.2s;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.5rem;
+        box-shadow: 0 4px 6px rgba(66, 133, 244, 0.2);
+    }
+
+    .action-btn:hover {
+        background: var(--primary-dark);
+        transform: translateY(-1px);
+    }
+
+    .action-btn:active {
+        transform: translateY(1px);
+    }
+
+    /* --- Content Area --- */
+    .content-area {
+        flex: 1;
+        padding: 2rem;
+        overflow-y: auto;
+        background-color: var(--bg);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .screen {
+        width: 100%;
+        max-width: 800px;
+        display: none; /* Hidden by default */
+        flex-direction: column;
+        gap: 1.5rem;
+        animation: fadeIn 0.4s ease-out;
+    }
+
+    .screen.active {
+        display: flex;
+    }
+
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(10px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- Cards & UI Elements --- */
+    .card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+        border: 1px solid var(--border);
+    }
+
+    .topic-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .topic-card {
+        background: white;
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.5rem;
+        text-align: center;
+        cursor: pointer;
+        transition: all 0.2s;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .topic-card:hover {
+        border-color: var(--primary);
+        transform: translateY(-4px);
+        box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+    }
+
+    .topic-card.locked {
+        opacity: 0.6;
+        cursor: not-allowed;
+        background: #f1f3f4;
+    }
+
+    .topic-icon {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        display: block;
+        color: var(--primary);
+    }
+
+    .topic-title {
+        font-weight: 800;
+        font-size: 1.25rem;
+        color: var(--text);
+        margin-bottom: 0.25rem;
+    }
+
+    /* Interactive Elements */
+    .option-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .option-btn {
+        background: white;
+        border: 2px solid var(--border);
+        padding: 1rem;
+        border-radius: var(--radius);
+        font-size: 1.1rem;
+        font-weight: 600;
+        color: var(--text);
+        cursor: pointer;
+        transition: all 0.2s;
+        text-align: left;
+    }
+
+    .option-btn:hover {
+        border-color: var(--primary);
+        background: #f8fbff;
+    }
+
+    .option-btn.correct {
+        background: #e6f4ea;
+        border-color: var(--secondary);
+        color: #137333;
+    }
+
+    .option-btn.wrong {
+        background: #fce8e6;
+        border-color: var(--danger);
+        color: #c5221f;
+    }
+
+    .info-box {
+        background: #e8f0fe;
+        border-left: 4px solid var(--primary);
+        padding: 1rem;
+        border-radius: 4px;
+        margin-bottom: 1rem;
+    }
+
+    /* --- Code Modal --- */
+    .modal-overlay {
+        position: fixed;
+        top: 0; left: 0; right: 0; bottom: 0;
+        background: rgba(0,0,0,0.5);
+        z-index: 100;
+        display: none;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .modal-window {
+        background: white;
+        width: 90%;
+        max-width: 900px;
+        height: 80vh;
+        border-radius: var(--radius);
+        display: flex;
+        flex-direction: column;
+        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    }
+
+    .modal-header {
+        padding: 1rem;
+        border-bottom: 1px solid var(--border);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background: #f8f9fa;
+    }
+
+    .modal-content {
+        flex: 1;
+        padding: 0;
+        overflow: hidden;
+    }
+
+    textarea.code-view {
+        width: 100%;
+        height: 100%;
+        border: none;
+        padding: 1rem;
+        font-family: 'Consolas', 'Monaco', monospace;
+        font-size: 0.9rem;
+        resize: none;
+        background: #282c34;
+        color: #abb2bf;
+    }
+
+    /* --- Utilities --- */
+    .hidden { display: none !important; }
+    
+    .code-float-btn {
+        position: fixed;
+        bottom: 2rem;
+        right: 2rem;
+        width: 56px;
+        height: 56px;
+        background: var(--text);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        cursor: pointer;
+        z-index: 50;
+        border: none;
+        transition: transform 0.2s;
+    }
+    
+    .code-float-btn:hover {
+        transform: scale(1.1);
+    }
+
+    /* Mobile */
+    @media (max-width: 768px) {
+        .main-layout { flex-direction: column; }
+        .sidebar { width: 100%; height: 200px; padding: 1rem; border-right: none; border-bottom: 1px solid var(--border); }
+        .content-area { padding: 1rem; }
+        .guide-avatar { width: 60px; height: 60px; margin: 0 auto; }
+        .option-grid { grid-template-columns: 1fr; }
+    }
+</style>
 </head>
 <body>
-</div>
-<h3 class="font-bold text-lg mb-2">Deep Classification</h3>
-<p class="text-slate-500 text-sm">Go beyond the basics. Master abstract, collective, and compound nuances.</p>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition">
-<div class="bg-purple-100 w-12 h-12 rounded-full flex items-center justify-center text-purple-600 mb-4">
-<span class="material-symbols-outlined">psychology</span>
-</div>
-<h3 class="font-bold text-lg mb-2">Critical Thinking</h3>
-<p class="text-slate-500 text-sm">Solve puzzles involving material nouns and complex countability rules.</p>
-</div>
-<div class="bg-white p-6 rounded-xl shadow-sm border border-slate-100 hover:shadow-md transition">
-<div class="bg-yellow-100 w-12 h-12 rounded-full flex items-center justify-center text-yellow-600 mb-4">
-<span class="material-symbols-outlined">workspace_premium</span>
-</div>
-<h3 class="font-bold text-lg mb-2">Certification</h3>
-<p class="text-slate-500 text-sm">Pass the Final Exam to earn your personalized, shareable certificate.</p>
-</div>
-</div>
-<button class="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-indigo-600 font-lg rounded-full hover:bg-indigo-700 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-600" onclick="nextStep()">
-            Enter the Academy
-            <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition">arrow_forward</span>
-</button>
-</div>
-</template>
 
-<!-- 1. ADVANCED TYPES -->
-<template id="view-types">
-<div class="space-y-8 fade-in">
-<div class="text-center max-w-3xl mx-auto">
-<span class="text-indigo-500 font-bold tracking-wider text-sm uppercase">Lesson 1</span>
-<h2 class="text-4xl font-bold text-slate-800 fun-font mb-4">The Noun Spectrum</h2>
-<p class="text-slate-600 text-lg">Nouns aren't just names. They are concepts, groups, and specific entities. Let's analyze the four core pillars.</p>
-</div>
-<!-- Theory Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
-<!-- Proper -->
-<div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-blue-500 hover:-translate-y-1 transition duration-300">
-<h3 class="font-bold text-xl text-slate-700 mb-2">Proper Nouns</h3>
-<p class="text-sm text-slate-500 mb-4">Specific names of unique entities. Always capitalized.</p>
-<ul class="text-sm space-y-1 bg-blue-50 p-3 rounded text-blue-800">
-<li>• <b>E</b>iffel <b>T</b>ower</li>
-<li>• <b>J</b>upiter</li>
-<li>• <b>S</b>aturday</li>
-</ul>
-</div>
-<!-- Common -->
-<div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-emerald-500 hover:-translate-y-1 transition duration-300">
-<h3 class="font-bold text-xl text-slate-700 mb-2">Common Nouns</h3>
-<p class="text-sm text-slate-500 mb-4">General names for a class of things.</p>
-<ul class="text-sm space-y-1 bg-emerald-50 p-3 rounded text-emerald-800">
-<li>• city (vs London)</li>
-<li>• planet (vs Mars)</li>
-<li>• teacher (vs Mr. Smith)</li>
-</ul>
-</div>
-<!-- Abstract -->
-<div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-purple-500 hover:-translate-y-1 transition duration-300">
-<h3 class="font-bold text-xl text-slate-700 mb-2">Abstract Nouns</h3>
-<p class="text-sm text-slate-500 mb-4">Ideas, qualities, or states. Invisible to the eye.</p>
-<ul class="text-sm space-y-1 bg-purple-50 p-3 rounded text-purple-800">
-<li>• Bravery</li>
-<li>• Childhood</li>
-<li>• Wisdom</li>
-</ul>
-</div>
-<!-- Collective -->
-<div class="bg-white p-6 rounded-xl shadow-sm border-t-4 border-orange-500 hover:-translate-y-1 transition duration-300">
-<h3 class="font-bold text-xl text-slate-700 mb-2">Collective Nouns</h3>
-<p class="text-sm text-slate-500 mb-4">A single word representing a group.</p>
-<ul class="text-sm space-y-1 bg-orange-50 p-3 rounded text-orange-800">
-<li>• A <b>pride</b> of lions</li>
-<li>• A <b>choir</b> of singers</li>
-<li>• A <b>fleet</b> of ships</li>
-</ul>
-</div>
-</div>
-<!-- Mini Game: The Sort -->
-<div class="bg-slate-900 rounded-2xl p-6 md:p-8 text-white mt-8 shadow-2xl">
-<div class="flex flex-col md:flex-row justify-between items-start md:items-center mb-6">
-<div>
-<h3 class="text-2xl font-bold text-yellow-400 fun-font flex items-center gap-2">
-<span class="material-symbols-outlined">sports_esports</span> Challenge: The Sorting Hat
-                    </h3>
-<p class="text-slate-400 text-sm">Click the correct category for the word displayed below.</p>
-</div>
-<div class="mt-4 md:mt-0 bg-slate-800 px-4 py-2 rounded-lg border border-slate-700">
-                    Score: <span class="text-yellow-400 font-bold" id="sort-score">0</span>/5
-                </div>
-</div>
-<div class="text-center py-8">
-<div class="text-4xl md:text-6xl font-black text-white mb-8 animate-bounce" id="sort-word-display">Loading...</div>
-<div class="grid grid-cols-2 md:grid-cols-4 gap-4 max-w-3xl mx-auto">
-<button class="bg-blue-600 hover:bg-blue-500 border-b-4 border-blue-800 py-4 rounded-xl font-bold transition active:scale-95" onclick="checkSort('Proper')">Proper</button>
-<button class="bg-emerald-600 hover:bg-emerald-500 border-b-4 border-emerald-800 py-4 rounded-xl font-bold transition active:scale-95" onclick="checkSort('Common')">Common</button>
-<button class="bg-purple-600 hover:bg-purple-500 border-b-4 border-purple-800 py-4 rounded-xl font-bold transition active:scale-95" onclick="checkSort('Abstract')">Abstract</button>
-<button class="bg-orange-600 hover:bg-orange-500 border-b-4 border-orange-800 py-4 rounded-xl font-bold transition active:scale-95" onclick="checkSort('Collective')">Collective</button>
-</div>
-<div class="h-8 mt-4 font-bold text-lg" id="sort-feedback"></div>
-</div>
-</div>
-<div class="flex justify-between pt-8">
-<button class="text-slate-500 hover:text-slate-800 font-bold flex items-center gap-2" onclick="prevStep()">
-<span class="material-symbols-outlined">arrow_back</span> Back
-            </button>
-<button class="bg-slate-300 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed flex items-center gap-2" disabled="" id="btn-next-1">
-                Complete Challenge to Continue <span class="material-symbols-outlined">lock</span>
-</button>
-</div>
-</div>
-</template>
-
-<!-- 2. CONCRETE VS MATERIAL -->
-<template id="view-material">
-<div class="space-y-8 fade-in">
-<div class="text-center max-w-3xl mx-auto">
-<span class="text-indigo-500 font-bold tracking-wider text-sm uppercase">Lesson 2</span>
-<h2 class="text-4xl font-bold text-slate-800 fun-font mb-4">Substance vs. Object</h2>
-</div>
-<!-- Deep Dive Explanation -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-<!-- Concrete -->
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
-<img alt="Gold Ring" class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?q=80&amp;w=2070&amp;auto=format&amp;fit=crop">
-<div class="p-6 flex-grow">
-<h3 class="text-2xl font-bold text-slate-800 mb-2">Concrete Noun</h3>
-<p class="text-slate-600 mb-4">Objects with a definite shape that you can perceive with your 5 senses. You can typically count them.</p>
-<div class="bg-slate-50 p-4 rounded-lg">
-<p class="font-bold text-slate-700">"The Ring"</p>
-<p class="text-sm text-slate-500">I can touch it, see it, and count it (one ring, two rings).</p>
-</div>
-</div>
-</div>
-<!-- Material -->
-<div class="bg-white rounded-2xl shadow-lg overflow-hidden flex flex-col">
-<img alt="Molten Gold" class="w-full h-48 object-cover" src="https://images.unsplash.com/photo-1610375461246-83df859d849d?q=80&amp;w=2070&amp;auto=format&amp;fit=crop">
-<div class="p-6 flex-grow">
-<h3 class="text-2xl font-bold text-slate-800 mb-2">Material Noun</h3>
-<p class="text-slate-600 mb-4">The substance, matter, or ingredient used to make things. Usually uncountable in its raw form.</p>
-<div class="bg-slate-50 p-4 rounded-lg">
-<p class="font-bold text-slate-700">"The Gold"</p>
-<p class="text-sm text-slate-500">I can't count "one gold". It is the material the ring is made of.</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Exercise: The Lab -->
-<div class="bg-indigo-50 border border-indigo-100 rounded-2xl p-6 md:p-8 mt-8">
-<h3 class="text-2xl font-bold text-indigo-900 fun-font mb-6 text-center">🧪 The Material Lab</h3>
-<p class="text-center text-indigo-700 mb-6">Identify the <b>Material Noun</b> hidden in the sentences below.</p>
-<div class="space-y-4 max-w-2xl mx-auto" id="material-quiz-container">
-<!-- Questions injected -->
-</div>
-</div>
-<div class="flex justify-between pt-8">
-<button class="text-slate-500 hover:text-slate-800 font-bold flex items-center gap-2" onclick="prevStep()">
-<span class="material-symbols-outlined">arrow_back</span> Back
-            </button>
-<button class="bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-8 rounded-full shadow-lg flex items-center gap-2 transition" id="btn-next-2" onclick="nextStep()">
-                Next Lesson <span class="material-symbols-outlined">arrow_forward</span>
-</button>
-</div>
-</div>
-</template>
-
-<!-- 3. COMPOUND NOUNS -->
-<template id="view-compound">
-<div class="space-y-8 fade-in">
-<div class="text-center max-w-3xl mx-auto">
-<span class="text-indigo-500 font-bold tracking-wider text-sm uppercase">Lesson 3</span>
-<h2 class="text-4xl font-bold text-slate-800 fun-font mb-4">Compound Constructors</h2>
-<p class="text-slate-600">Sometimes one word isn't enough. We weld words together to create new meanings.</p>
-</div>
-<div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-6 md:p-8">
-<h3 class="font-bold text-lg text-slate-700 mb-4">The 3 Forms of Compounds</h3>
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-<div class="bg-blue-50 p-4 rounded-xl text-center">
-<div class="font-bold text-blue-800 text-xl mb-1">Closed</div>
-<p class="text-sm text-blue-600 mb-2">No spaces</p>
-<div class="bg-white py-2 px-4 rounded shadow-sm inline-block font-mono text-slate-700">toothpaste</div>
-</div>
-<div class="bg-orange-50 p-4 rounded-xl text-center">
-<div class="font-bold text-orange-800 text-xl mb-1">Hyphenated</div>
-<p class="text-sm text-orange-600 mb-2">Connected by -</p>
-<div class="bg-white py-2 px-4 rounded shadow-sm inline-block font-mono text-slate-700">six-pack</div>
-</div>
-<div class="bg-purple-50 p-4 rounded-xl text-center">
-<div class="font-bold text-purple-800 text-xl mb-1">Open</div>
-<p class="text-sm text-purple-600 mb-2">Separate words</p>
-<div class="bg-white py-2 px-4 rounded shadow-sm inline-block font-mono text-slate-700">ice cream</div>
-</div>
-</div>
-</div>
-<!-- Builder Game -->
-<div class="bg-slate-800 rounded-2xl p-8 text-white shadow-xl relative overflow-hidden">
-<div class="relative z-10">
-<h3 class="text-2xl font-bold text-yellow-400 fun-font mb-2">🏭 The Word Factory</h3>
-<p class="text-slate-300 mb-8">Combine the correct base words to form the target Compound Noun.</p>
-<div class="bg-white/10 rounded-xl p-6 text-center mb-8">
-<p class="text-sm text-slate-400 uppercase tracking-widest mb-2">Target Word Definition</p>
-<p class="text-2xl md:text-3xl font-bold text-white" id="compound-def">"A light that guides ships at sea"</p>
-</div>
-<div class="grid grid-cols-2 gap-4 max-w-2xl mx-auto" id="compound-options">
-<!-- Options injected -->
-</div>
-<p class="text-center mt-4 h-6 font-bold text-green-400" id="compound-feedback"></p>
-</div>
-</div>
-<div class="flex justify-between pt-8">
-<button class="text-slate-500 hover:text-slate-800 font-bold flex items-center gap-2" onclick="prevStep()">
-<span class="material-symbols-outlined">arrow_back</span> Back
-            </button>
-<button class="bg-slate-300 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed flex items-center gap-2" disabled="" id="btn-next-3">
-                Complete Factory to Continue <span class="material-symbols-outlined">lock</span>
-</button>
-</div>
-</div>
-</template>
-
-<!-- 4. COUNTABLE VS UNCOUNTABLE -->
-<template id="view-countable">
-<div class="space-y-8 fade-in">
-<div class="text-center max-w-3xl mx-auto">
-<span class="text-indigo-500 font-bold tracking-wider text-sm uppercase">Lesson 4</span>
-<h2 class="text-4xl font-bold text-slate-800 fun-font mb-4">The Quantifier Kitchen</h2>
-</div>
-<!-- Advanced Rule Cards -->
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="bg-white p-6 rounded-xl border-l-4 border-rose-500 shadow-sm">
-<h3 class="font-bold text-xl text-rose-600 mb-2">Advanced Uncountable Rules</h3>
-<ul class="space-y-2 text-sm text-slate-600">
-<li class="flex items-start gap-2"><span class="material-symbols-outlined text-rose-500 text-sm mt-0.5">block</span> <b>Liquids &amp; Powders:</b> Milk, water, rice, sugar.</li>
-<li class="flex items-start gap-2"><span class="material-symbols-outlined text-rose-500 text-sm mt-0.5">block</span> <b>Abstract Ideas:</b> Information, advice, news.</li>
-<li class="flex items-start gap-2"><span class="material-symbols-outlined text-rose-500 text-sm mt-0.5">block</span> <b>Materials:</b> Wood, glass, gold.</li>
-</ul>
-</div>
-<div class="bg-white p-6 rounded-xl border-l-4 border-teal-500 shadow-sm">
-<h3 class="font-bold text-xl text-teal-600 mb-2">Measuring the Unmeasurable</h3>
-<p class="text-sm text-slate-600 mb-3">To count them, we use <b>Partitives</b> (containers or units):</p>
-<div class="grid grid-cols-2 gap-2 text-sm font-bold text-slate-700">
-<div class="bg-teal-50 p-2 rounded">A <u>loaf</u> of bread</div>
-<div class="bg-teal-50 p-2 rounded">A <u>bar</u> of chocolate</div>
-<div class="bg-teal-50 p-2 rounded">A <u>grain</u> of rice</div>
-<div class="bg-teal-50 p-2 rounded">A <u>piece</u> of advice</div>
-</div>
-</div>
-</div>
-<!-- Interactive Fridge -->
-<div class="bg-blue-50 rounded-3xl p-6 md:p-8 border-4 border-white shadow-xl relative">
-<h3 class="text-center text-2xl font-bold text-blue-900 fun-font mb-6">🥑 Fridge Sorter</h3>
-<p class="text-center text-blue-700 mb-6">Click the item to place it in the correct container.</p>
-<div class="flex justify-center mb-8">
-<div class="bg-white w-40 h-40 rounded-full flex flex-col items-center justify-center shadow-lg border-4 border-yellow-300 transform transition-all duration-300 cursor-pointer" id="fridge-item">
-<!-- Item Image & Name Injected -->
-</div>
-</div>
-<div class="grid grid-cols-2 gap-8 max-w-2xl mx-auto">
-<button class="bg-white hover:bg-green-50 border-2 border-dashed border-green-400 rounded-2xl p-6 flex flex-col items-center transition group" onclick="sortFridge('Countable')">
-<span class="material-symbols-outlined text-4xl text-green-500 mb-2 group-hover:scale-110 transition">looks_one</span>
-<span class="font-bold text-green-700">Countable Basket</span>
-<span class="text-xs text-green-500">(1, 2, 3...)</span>
-</button>
-<button class="bg-white hover:bg-rose-50 border-2 border-dashed border-rose-400 rounded-2xl p-6 flex flex-col items-center transition group" onclick="sortFridge('Uncountable')">
-<span class="material-symbols-outlined text-4xl text-rose-500 mb-2 group-hover:scale-110 transition">water_drop</span>
-<span class="font-bold text-rose-700">Uncountable Jar</span>
-<span class="text-xs text-rose-500">(Some, A little...)</span>
-</button>
-</div>
-<p class="text-center mt-6 font-bold text-blue-800" id="fridge-status">Items sorted: 0/6</p>
-</div>
-<div class="flex justify-between pt-8">
-<button class="text-slate-500 hover:text-slate-800 font-bold flex items-center gap-2" onclick="prevStep()">
-<span class="material-symbols-outlined">arrow_back</span> Back
-            </button>
-<button class="bg-slate-300 text-white font-bold py-3 px-8 rounded-full cursor-not-allowed flex items-center gap-2" disabled="" id="btn-next-4">
-                Finish Sorting to Continue <span class="material-symbols-outlined">lock</span>
-</button>
-</div>
-</div>
-</template>
-
-<!-- 5. FINAL EXAM -->
-<template id="view-exam">
-<div class="max-w-2xl mx-auto space-y-8 fade-in">
-<div class="text-center">
-<div class="inline-block bg-indigo-100 text-indigo-700 p-3 rounded-full mb-4">
-<span class="material-symbols-outlined text-3xl">edit_document</span>
-</div>
-<h2 class="text-3xl font-bold text-slate-800 fun-font">Final Certification Exam</h2>
-<p class="text-slate-600 mt-2">10 Questions. Prove your mastery.</p>
-<div class="w-full bg-slate-200 rounded-full h-3 mt-6">
-<div class="bg-indigo-600 h-3 rounded-full transition-all duration-500" id="exam-progress" style="width: 0%"></div>
-</div>
-<div class="flex justify-between text-xs text-slate-500 mt-1 font-bold">
-<span>Start</span>
-<span id="exam-counter">1/10</span>
-</div>
-</div>
-<div class="bg-white p-8 rounded-2xl shadow-xl border-t-4 border-indigo-600 min-h-[300px] flex flex-col justify-center" id="exam-card">
-<!-- Question Injected -->
-</div>
-</div>
-</template>
-
-<!-- 6. CERTIFICATE VIEW -->
-<template id="view-certificate">
-<div class="flex flex-col items-center justify-center min-h-[60vh] fade-in space-y-8">
-<h2 class="text-3xl font-bold text-slate-800 fun-font text-center">Congratulations, Graduate!</h2>
-<!-- Certificate Input -->
-<div class="bg-white p-6 rounded-xl shadow-lg border border-slate-200 w-full max-w-md text-center space-y-4" id="cert-input-area">
-<p class="text-slate-600">Enter your name to generate your official certificate.</p>
-<input class="w-full p-3 border-2 border-slate-300 rounded-lg font-bold text-center text-lg focus:border-indigo-500 focus:outline-none" id="student-name" placeholder="Your Name Here" type="text">
-<button class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 rounded-lg shadow-md transition" onclick="generateCertificate()">Generate Certificate</button>
-</div>
-<!-- The Certificate (Hidden initially) -->
-<div class="hidden w-full max-w-4xl" id="certificate-display">
-<!-- Print/Share Actions -->
-<div class="flex flex-wrap justify-center gap-4 mb-8 no-print">
-<button class="bg-slate-800 hover:bg-slate-900 text-white font-bold py-2 px-6 rounded-full flex items-center gap-2 shadow-lg" onclick="window.print()">
-<span class="material-symbols-outlined">print</span> Print / Save PDF
-                </button>
-<button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-full flex items-center gap-2 shadow-lg" onclick="shareResult()">
-<span class="material-symbols-outlined">share</span> Share Score
-                </button>
-<button class="bg-white border-2 border-slate-200 text-slate-600 hover:bg-slate-50 font-bold py-2 px-6 rounded-full flex items-center gap-2 shadow-lg" onclick="resetApp()">
-<span class="material-symbols-outlined">refresh</span> New Student
-                </button>
-</div>
-<!-- Actual Certificate DOM -->
-<div class="bg-white p-10 border-8 border-double border-slate-800 relative text-center certificate-bg shadow-2xl mx-auto aspect-[1.414/1] flex flex-col justify-between max-w-[800px]" id="certificate-area">
-<!-- Decorative Corners -->
-<div class="absolute top-4 left-4 border-t-4 border-l-4 border-yellow-500 w-16 h-16"></div>
-<div class="absolute top-4 right-4 border-t-4 border-r-4 border-yellow-500 w-16 h-16"></div>
-<div class="absolute bottom-4 left-4 border-b-4 border-l-4 border-yellow-500 w-16 h-16"></div>
-<div class="absolute bottom-4 right-4 border-b-4 border-r-4 border-yellow-500 w-16 h-16"></div>
 <!-- Header -->
-<div class="mt-8">
-<div class="inline-block bg-slate-800 text-white px-4 py-1 rounded mb-4 text-sm font-bold tracking-[0.2em] uppercase">Certificate of Excellence</div>
-<h1 class="text-5xl md:text-6xl font-serif text-slate-800 mb-2">Noun Master Academy</h1>
-<div class="w-32 h-1 bg-yellow-500 mx-auto"></div>
+<header>
+    <div class="logo">
+        <span class="material-symbols-rounded" style="font-size: 2rem;">school</span>
+        Grammar<span>Academy</span>
+    </div>
+    <div class="progress-container">
+        <div class="xp-badge">
+            <span class="material-symbols-rounded">bolt</span>
+            <span id="xp-display">0 XP</span>
+        </div>
+    </div>
+</header>
+
+<!-- Main App Layout -->
+<div class="main-layout">
+    
+    <!-- Sidebar: The Guide -->
+    <aside class="sidebar">
+        <div class="guide-avatar">
+            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Professor&amp;backgroundColor=e8f0fe" alt="Professor">
+        </div>
+        <div class="guide-name">Professor Lexicon</div>
+        <div class="dialogue-box">
+            <p id="guide-text">Please select the 'Nouns' module to begin your journey.</p>
+        </div>
+        <div id="guide-controls"></div>
+    </aside>
+
+    <!-- Main Content Area -->
+    <main class="content-area">
+        
+        <!-- DASHBOARD VIEW -->
+        <div id="view-dashboard" class="screen active">
+            <div class="card">
+                <h2 style="margin-bottom: 1.5rem; color: var(--text);">Grade 6 Curriculum</h2>
+                <div class="topic-grid">
+                    
+                    <!-- Module 1 -->
+                    <div class="topic-card" onclick="loadModule('nouns')">
+                        <span class="material-symbols-rounded topic-icon">category</span>
+                        <div class="topic-title">Nouns</div>
+                        <div style="color: var(--text-light); font-size: 0.9rem;">Naming the World</div>
+                        <div style="margin-top: 1rem; height: 6px; background: #e0e0e0; border-radius: 3px;">
+                            <div id="progress-nouns" style="width: 0%; height: 100%; background: var(--secondary); border-radius: 3px;"></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 -->
+                    <div id="card-pronouns" class="topic-card locked" onclick="loadModule('pronouns')">
+                        <span class="material-symbols-rounded topic-icon" style="color: var(--text-light);">group</span>
+                        <div class="topic-title">Pronouns</div>
+                        <div style="color: var(--text-light); font-size: 0.9rem;">Replacing Names</div>
+                        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--danger); font-weight: bold;">
+                            <span class="material-symbols-rounded" style="font-size: 1rem; vertical-align: middle;">lock</span> Locked
+                        </div>
+                    </div>
+
+                    <!-- Module 3 -->
+                    <div id="card-adjectives" class="topic-card locked" onclick="loadModule('adjectives')">
+                        <span class="material-symbols-rounded topic-icon" style="color: var(--text-light);">palette</span>
+                        <div class="topic-title">Adjectives</div>
+                        <div style="color: var(--text-light); font-size: 0.9rem;">Describing Things</div>
+                        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--danger); font-weight: bold;">
+                            <span class="material-symbols-rounded" style="font-size: 1rem; vertical-align: middle;">lock</span> Locked
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON VIEW -->
+        <div id="view-lesson" class="screen">
+            <!-- Dynamic Content Injected Here -->
+        </div>
+
+        <!-- CERTIFICATE VIEW -->
+        <div id="view-cert" class="screen">
+            <div class="card" style="text-align: center; border: 8px double var(--primary); padding: 3rem;">
+                <span class="material-symbols-rounded" style="font-size: 5rem; color: var(--accent);">workspace_premium</span>
+                <h1 style="color: var(--primary-dark); font-size: 2.5rem; margin: 1rem 0;">Certificate of Mastery</h1>
+                <p style="font-size: 1.25rem; color: var(--text-light);">This is to certify that</p>
+                <h2 style="font-size: 2rem; margin: 1rem 0; border-bottom: 2px solid var(--border); display: inline-block; padding: 0 2rem;">Student Name</h2>
+                <p style="font-size: 1.1rem; color: var(--text);">Has successfully completed the <b>Grade 6 Grammar Course</b>.</p>
+                <div style="margin-top: 2rem;">
+                    <button class="action-btn" style="width: auto; display: inline-flex;" onclick="location.reload()">Restart Course</button>
+                </div>
+            </div>
+        </div>
+
+    </main>
 </div>
-<!-- Body -->
-<div class="flex-grow flex flex-col justify-center space-y-2">
-<p class="text-slate-500 text-lg italic">This certifies that</p>
-<h2 class="text-4xl md:text-5xl font-bold text-indigo-700 fun-font py-4 border-b border-slate-200 mx-12" id="cert-name">Student Name</h2>
-<p class="text-slate-600 text-lg mt-4">Has successfully completed the <b>Grade 6 Advanced Noun Module</b><br>demonstrating superior knowledge in Noun Classification and Usage.</p>
-<p class="text-xl font-bold text-slate-800 mt-4">Final Score: <span class="text-indigo-600" id="cert-score">100%</span></p>
+
+<!-- Source Code Float Button -->
+<button class="code-float-btn" onclick="openCode()" title="View Source Code">
+    <span class="material-symbols-rounded">code</span>
+</button>
+
+<!-- Code Modal -->
+<div class="modal-overlay" id="code-modal">
+    <div class="modal-window">
+        <div class="modal-header">
+            <h3 style="margin:0;">Source Code</h3>
+            <div style="display:flex; gap: 0.5rem;">
+                <button onclick="copyCode()" style="padding: 0.5rem 1rem; border:1px solid var(--border); background:white; cursor:pointer; border-radius:4px; font-weight:bold;">Copy</button>
+                <button onclick="closeCode()" style="padding: 0.5rem 1rem; border:1px solid var(--border); background:var(--danger); color:white; cursor:pointer; border-radius:4px; font-weight:bold;">Close</button>
+            </div>
+        </div>
+        <div class="modal-content">
+            <textarea id="code-area" class="code-view" readonly=""></textarea>
+        </div>
+    </div>
 </div>
-<!-- Footer -->
-<div class="flex justify-between items-end px-12 pb-8 mt-8">
-<div class="text-center">
-<div class="w-40 border-b-2 border-slate-400 mb-2"></div>
-<p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Date</p>
-<p class="font-serif text-slate-600" id="cert-date"></p>
-</div>
-<div class="w-24 h-24 bg-yellow-400 rounded-full flex items-center justify-center text-yellow-800 border-4 border-yellow-200 shadow-inner">
-<span class="material-symbols-outlined text-5xl">verified</span>
-</div>
-<div class="text-center">
-<div class="w-40 border-b-2 border-slate-400 mb-2 font-dancing text-2xl text-indigo-800" style="font-family: cursive;">Prof. Grammar</div>
-<p class="text-xs font-bold text-slate-400 uppercase tracking-wider">Head of Department</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-</template>
 
 <script>
-        // === DATASETS ===
-
-        // 1. Sorting Game Data
-        const sortingWords = [
-            { word: "Happiness", type: "Abstract" },
-            { word: "New York", type: "Proper" },
-            { word: "Team", type: "Collective" },
-            { word: "Computer", type: "Common" },
-            { word: "Flock", type: "Collective" }
-        ];
-
-        // 2. Material Quiz Data
-        const materialQuestions = [
-            { sentence: "The sturdy table was made of <span class='text-indigo-600 font-bold'>Oak</span>.", answer: "Oak", options: ["Table", "Oak", "Sturdy"] },
-            { sentence: "She wore a scarf made of <span class='text-indigo-600 font-bold'>Silk</span>.", answer: "Silk", options: ["Scarf", "She", "Silk"] },
-            { sentence: "The wall is built from <span class='text-indigo-600 font-bold'>Brick</span>.", answer: "Brick", options: ["Wall", "Brick", "Built"] }
-        ];
-
-        // 3. Compound Builder Data
-        const compoundLevels = [
-            { def: "A structured guiding light for ships", part1: ["Light", "Sea", "Ship"], part2: ["House", "Home", "Beam"], answer: "Lighthouse" },
-            { def: "A brush used for cleaning teeth", part1: ["Mouth", "Tooth", "Gum"], part2: ["Paste", "Stick", "Brush"], answer: "Toothbrush" },
-            { def: "Frozen precipitation that falls gently", part1: ["Ice", "Cold", "Snow"], part2: ["Drop", "Fall", "Flake"], answer: "Snowflake" }
-        ];
-
-        // 4. Fridge Items
-        const fridgeItems = [
-            { name: "Apples", type: "Countable", icon: "nutrition" },
-            { name: "Milk", type: "Uncountable", icon: "water_drop" },
-            { name: "Eggs", type: "Countable", icon: "egg" },
-            { name: "Rice", type: "Uncountable", icon: "grain" },
-            { name: "Information", type: "Uncountable", icon: "info" }, // tricky abstract!
-            { name: "Burgers", type: "Countable", icon: "lunch_dining" }
-        ];
-
-        // 5. Final Exam
-        const examQuestions = [
-            { q: "Which word is a Proper Noun?", options: ["city", "Paris", "country", "village"], a: 1 },
-            { q: "Identify the Abstract Noun.", options: ["Book", "Smart", "Intelligence", "Brain"], a: 2 },
-            { q: "Which is a Collective Noun?", options: ["Swarm", "Bee", "Hive", "Honey"], a: 0 },
-            { q: "Is 'Butter' Countable or Uncountable?", options: ["Countable", "Uncountable"], a: 1 },
-            { q: "Select the Compound Noun.", options: ["Running", "Fastest", "Bedroom", "Silly"], a: 2 },
-            { q: "'A fleet of ships'. 'Fleet' is:", options: ["Common", "Proper", "Collective", "Abstract"], a: 2 },
-            { q: "Which is a Material Noun?", options: ["Chair", "Wood", "Table", "Tree"], a: 1 },
-            { q: "How do we count 'Water'?", options: ["One water", "A glass of water", "Many waters", "A water"], a: 1 },
-            { q: "Find the Concrete Noun.", options: ["Freedom", "Idea", "Pizza", "Dream"], a: 2 },
-            { q: "Plural of 'Child'?", options: ["Childs", "Children", "Childrens", "Childes"], a: 1 }
-        ];
-
-        // === STATE ===
-        let currentState = {
-            step: 0,
-            score: 0,
-            sortIndex: 0,
-            sortScore: 0,
-            compoundIndex: 0,
-            fridgeIndex: 0,
-            fridgeScore: 0,
-            examIndex: 0,
-            examScore: 0
-        };
-
-        const steps = ['view-welcome', 'view-types', 'view-material', 'view-compound', 'view-countable', 'view-exam', 'view-certificate'];
-
-        // === CORE FUNCTIONS ===
-        function init() {
-            renderStep(0);
-        }
-
-        function renderStep(index) {
-            currentState.step = index;
-            const container = document.getElementById('app-container');
-            const template = document.getElementById(steps[index]);
-            container.innerHTML = '';
-            container.appendChild(template.content.cloneNode(true));
-            
-            updateHeader();
-            
-            // View specific inits
-            if(steps[index] === 'view-types') initSortGame();
-            if(steps[index] === 'view-material') initMaterialQuiz();
-            if(steps[index] === 'view-compound') initCompoundGame();
-            if(steps[index] === 'view-countable') initFridgeGame();
-            if(steps[index] === 'view-exam') initExam();
-            
-            window.scrollTo(0,0);
-        }
-
-        function nextStep() {
-            if(currentState.step < steps.length - 1) renderStep(currentState.step + 1);
-        }
-
-        function prevStep() {
-            if(currentState.step > 0) renderStep(currentState.step - 1);
-        }
-
-        function updateHeader() {
-            const bar = document.getElementById('progress-bar-container');
-            bar.innerHTML = '';
-            steps.forEach((_, i) => {
-                const dot = document.createElement('div');
-                dot.className = `h-2 w-2 rounded-full transition-all ${i === currentState.step ? 'bg-indigo-600 w-6' : i < currentState.step ? 'bg-indigo-300' : 'bg-slate-200'}`;
-                bar.appendChild(dot);
-            });
-            document.getElementById('global-score').innerText = currentState.score;
-        }
-
-        function addScore(points) {
-            currentState.score += points;
-            document.getElementById('global-score').innerText = currentState.score;
-            // animate score
-            const badge = document.getElementById('global-score').parentElement;
-            badge.classList.add('scale-110', 'bg-yellow-100');
-            setTimeout(() => badge.classList.remove('scale-110', 'bg-yellow-100'), 200);
-        }
-
-        // === 1. SORT GAME LOGIC ===
-        function initSortGame() {
-            updateSortWord();
-        }
-
-        function updateSortWord() {
-            if(currentState.sortIndex >= sortingWords.length) {
-                // Win state
-                document.getElementById('sort-word-display').innerText = "All Sorted!";
-                document.getElementById('sort-word-display').classList.remove('animate-bounce');
-                document.getElementById('sort-word-display').classList.add('text-green-400');
-                document.getElementById('sort-feedback').innerText = "Excellent work!";
-                
-                const btn = document.getElementById('btn-next-1');
-                btn.disabled = false;
-                btn.classList.remove('bg-slate-300', 'cursor-not-allowed');
-                btn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
-                btn.innerHTML = `Next Lesson <span class="material-symbols-outlined">arrow_forward</span>`;
-                btn.onclick = nextStep;
-                return;
+    // --- Course Data ---
+    // structured as a sequence of steps for 1-1 interaction
+    const courseData = {
+        nouns: [
+            {
+                guide: "Let's start with the basics. A <b>Noun</b> is a person, place, animal, or thing. Look at the card on the screen. Which one represents a 'Place'?",
+                type: "grid",
+                options: [
+                    { text: "Teacher", icon: "school", type: "Person" },
+                    { text: "School", icon: "apartment", type: "Place", correct: true },
+                    { text: "Pencil", icon: "edit", type: "Thing" },
+                    { text: "Happiness", icon: "sentiment_satisfied", type: "Idea" }
+                ]
+            },
+            {
+                guide: "Correct! A School is a place. Now, Nouns can be <b>Common</b> (general) or <b>Proper</b> (specific). Proper nouns always start with a CAPITAL letter. Find the Proper Noun.",
+                type: "quiz",
+                options: [
+                    { text: "city", correct: false },
+                    { text: "London", correct: true },
+                    { text: "country", correct: false },
+                    { text: "village", correct: false }
+                ]
+            },
+            {
+                guide: "Well done. 'London' is specific. Now, let's talk about <b>Concrete</b> vs <b>Material</b> nouns. Concrete you can touch (Book). Material is what something is made of (Wood, Gold). Select the MATERIAL noun.",
+                type: "quiz",
+                options: [
+                    { text: "Table", correct: false },
+                    { text: "Chair", correct: false },
+                    { text: "Wood", correct: true },
+                    { text: "Desk", correct: false }
+                ]
+            },
+            {
+                guide: "Excellent. Finally for Nouns: <b>Countable</b> vs <b>Uncountable</b>. If you can say 'one x, two x', it's countable. If it's a liquid or powder, it's usually Uncountable. Which one can you NOT count easily?",
+                type: "quiz",
+                options: [
+                    { text: "Apples", correct: false },
+                    { text: "Cars", correct: false },
+                    { text: "Milk", correct: true },
+                    { text: "Books", correct: false }
+                ]
             }
-            document.getElementById('sort-word-display').innerText = sortingWords[currentState.sortIndex].word;
+        ],
+        pronouns: [
+            {
+                guide: "Welcome to Pronouns! These are words that replace nouns so we don't repeat them. Instead of 'John likes John's car', we say 'John likes <b>his</b> car'. Select the Pronoun in this list.",
+                type: "quiz",
+                options: [
+                    { text: "Run", correct: false },
+                    { text: "Blue", correct: false },
+                    { text: "She", correct: true },
+                    { text: "Quickly", correct: false }
+                ]
+            },
+            {
+                guide: "There are <b>Subject Pronouns</b> (I, He, She, We, They) who DO the action. And <b>Object Pronouns</b> (Me, Him, Her, Us, Them) who RECEIVE the action. Fill in the blank: '____ went to the park.'",
+                type: "quiz",
+                options: [
+                    { text: "Him", correct: false },
+                    { text: "Her", correct: false },
+                    { text: "They", correct: true },
+                    { text: "Them", correct: false }
+                ]
+            },
+            {
+                guide: "Good! Now <b>Reflexive Pronouns</b> reflect back to the subject (Myself, Yourself, Themselves). Which is correct: 'The cat cleaned ____.'",
+                type: "quiz",
+                options: [
+                    { text: "Himself", correct: false },
+                    { text: "Itself", correct: true },
+                    { text: "It", correct: false },
+                    { text: "Myself", correct: false }
+                ]
+            }
+        ],
+        adjectives: [
+            {
+                guide: "Adjectives describe nouns! They tell us about color, size, age, or opinion. In the phrase 'The <b>big</b> dog', which word is the adjective?",
+                type: "quiz",
+                options: [
+                    { text: "The", correct: false },
+                    { text: "Big", correct: true },
+                    { text: "Dog", correct: false },
+                    { text: "Bark", correct: false }
+                ]
+            },
+            {
+                guide: "Adjectives have a strict order! <b>Opinion</b> comes first, then <b>Fact</b>. Which sounds correct?",
+                type: "quiz",
+                options: [
+                    { text: "A beautiful red dress", correct: true },
+                    { text: "A red beautiful dress", correct: false }
+                ]
+            },
+            {
+                guide: "Last step: <b>Comparison</b>. <br>1 item: Big.<br>2 items: Bigg<b>er</b>.<br>3+ items: Bigg<b>est</b>.<br>Which is correct for comparing 3 mountains?",
+                type: "quiz",
+                options: [
+                    { text: "High", correct: false },
+                    { text: "Higher", correct: false },
+                    { text: "Highest", correct: true },
+                    { text: "Highness", correct: false }
+                ]
+            }
+        ]
+    };
+
+    // --- State ---
+    let state = {
+        currentModule: null,
+        stepIndex: 0,
+        xp: 0,
+        unlocked: { nouns: true, pronouns: false, adjectives: false }
+    };
+
+    // --- Core Functions ---
+
+    function startCourse() {
+        document.getElementById('view-dashboard').classList.add('active');
+        updateGuide("Please select the 'Nouns' module to begin your journey.", false);
+    }
+
+    function loadModule(moduleKey) {
+        if (!state.unlocked[moduleKey]) {
+            updateGuide("That module is locked! You must complete the previous lessons first.", false);
+            return;
         }
 
-        function checkSort(type) {
-            if(currentState.sortIndex >= sortingWords.length) return;
-            
-            const currentItem = sortingWords[currentState.sortIndex];
-            const feedback = document.getElementById('sort-feedback');
-            
-            if(type === currentItem.type) {
-                feedback.innerText = "Correct! " + currentItem.word + " is a " + type + " noun.";
-                feedback.className = "h-8 mt-4 font-bold text-lg text-green-400";
-                addScore(10);
-                document.getElementById('sort-score').innerText = (currentState.sortIndex + 1);
-                currentState.sortIndex++;
-                setTimeout(() => {
-                    feedback.innerText = "";
-                    updateSortWord();
-                }, 1000);
+        state.currentModule = moduleKey;
+        state.stepIndex = 0;
+        
+        // Hide dashboard, Show Lesson
+        document.querySelector('.active').classList.remove('active');
+        document.getElementById('view-lesson').classList.add('active');
+        
+        renderStep();
+    }
+
+    function renderStep() {
+        const module = courseData[state.currentModule];
+        
+        // Check if finished
+        if (state.stepIndex >= module.length) {
+            finishModule();
+            return;
+        }
+
+        const step = module[state.stepIndex];
+        
+        // 1. Update Guide
+        updateGuide(step.guide, false);
+
+        // 2. Render Content
+        const container = document.getElementById('view-lesson');
+        container.innerHTML = ''; // Clear previous
+
+        // Create main card
+        const card = document.createElement('div');
+        card.className = 'card';
+        card.style.width = '100%';
+        card.style.maxWidth = '600px';
+
+        // Render Options based on type
+        const optionsDiv = document.createElement('div');
+        optionsDiv.className = step.type === 'grid' ? 'topic-grid' : 'option-grid';
+        
+        step.options.forEach((opt, idx) => {
+            let btn;
+            if (step.type === 'grid') {
+                btn = document.createElement('div');
+                btn.className = 'topic-card';
+                btn.innerHTML = `<span class="material-symbols-rounded topic-icon">${opt.icon}</span><div class="topic-title">${opt.text}</div>`;
             } else {
-                feedback.innerText = "Try again!";
-                feedback.className = "h-8 mt-4 font-bold text-lg text-red-400";
-            }
-        }
-
-        // === 2. MATERIAL QUIZ LOGIC ===
-        function initMaterialQuiz() {
-            const container = document.getElementById('material-quiz-container');
-            materialQuestions.forEach((q, idx) => {
-                const div = document.createElement('div');
-                div.className = "bg-white p-4 rounded-xl shadow-sm border border-slate-200";
-                div.innerHTML = `
-                    <p class="font-serif text-lg mb-3">"${q.sentence}"</p>
-                    <div class="flex gap-2">
-                        ${q.options.map(opt => `
-                            <button onclick="checkMaterial(this, '${opt}', '${q.answer}')" class="px-4 py-2 rounded-lg bg-slate-100 hover:bg-slate-200 text-sm font-bold text-slate-700 transition">${opt}</button>
-                        `).join('')}
-                    </div>
-                `;
-                container.appendChild(div);
-            });
-        }
-
-        function checkMaterial(btn, selected, correct) {
-            if(btn.disabled) return;
-            const parent = btn.parentElement;
-            const buttons = parent.querySelectorAll('button');
-            buttons.forEach(b => b.disabled = true);
-
-            if(selected === correct) {
-                btn.classList.remove('bg-slate-100');
-                btn.classList.add('bg-green-500', 'text-white');
-                addScore(10);
-            } else {
-                btn.classList.remove('bg-slate-100');
-                btn.classList.add('bg-red-500', 'text-white');
-            }
-        }
-
-        // === 3. COMPOUND BUILDER LOGIC ===
-        function initCompoundGame() {
-            loadCompoundLevel();
-        }
-
-        function loadCompoundLevel() {
-            if(currentState.compoundIndex >= compoundLevels.length) {
-                document.getElementById('compound-def').innerText = "Factory Complete!";
-                document.getElementById('compound-options').innerHTML = "";
-                const btn = document.getElementById('btn-next-3');
-                btn.disabled = false;
-                btn.classList.remove('bg-slate-300', 'cursor-not-allowed');
-                btn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
-                btn.innerHTML = `Next Lesson <span class="material-symbols-outlined">arrow_forward</span>`;
-                btn.onclick = nextStep;
-                return;
+                btn = document.createElement('button');
+                btn.className = 'option-btn';
+                btn.textContent = opt.text;
             }
 
-            const level = compoundLevels[currentState.compoundIndex];
-            document.getElementById('compound-def').innerText = level.def;
-            
-            const container = document.getElementById('compound-options');
-            container.innerHTML = `
-                <div class="space-y-2">
-                    <p class="text-xs uppercase text-slate-400">Part 1</p>
-                    ${level.part1.map(w => `<button onclick="selectCompoundPart(1, '${w}')" id="p1-${w}" class="w-full p-3 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold part-btn-1">${w}</button>`).join('')}
-                </div>
-                <div class="space-y-2">
-                    <p class="text-xs uppercase text-slate-400">Part 2</p>
-                    ${level.part2.map(w => `<button onclick="selectCompoundPart(2, '${w}')" id="p2-${w}" class="w-full p-3 bg-slate-700 hover:bg-slate-600 rounded-lg font-bold part-btn-2">${w}</button>`).join('')}
-                </div>
-            `;
+            btn.onclick = () => handleAnswer(btn, opt.correct, step.explanation);
+            optionsDiv.appendChild(btn);
+        });
+
+        card.appendChild(optionsDiv);
+        container.appendChild(card);
+    }
+
+    function handleAnswer(element, isCorrect, explanation) {
+        if (isCorrect) {
+            // Visuals
+            element.classList.add('correct');
+            // Logic
+            state.xp += 50;
+            updateXP();
+            updateGuide("Correct! " + (explanation || "Well done. Let's proceed."), true, "Next Step", nextStep);
+        } else {
+            element.classList.add('wrong');
+            updateGuide("Not quite right. Try again!", false);
+        }
+    }
+
+    function nextStep() {
+        state.stepIndex++;
+        renderStep();
+    }
+
+    function finishModule() {
+        // Logic to unlock next
+        if (state.currentModule === 'nouns') {
+            state.unlocked.pronouns = true;
+            document.getElementById('card-pronouns').classList.remove('locked');
+            document.querySelector('#card-pronouns .material-symbols-rounded').style.color = '#34a853'; // visual unlock
+            document.querySelector('#card-pronouns .topic-icon').style.color = '#34a853';
+            document.getElementById('progress-nouns').style.width = "100%";
+        } else if (state.currentModule === 'pronouns') {
+            state.unlocked.adjectives = true;
+            document.getElementById('card-adjectives').classList.remove('locked');
+            document.querySelector('#card-adjectives .topic-icon').style.color = '#fbbc05';
+        } else if (state.currentModule === 'adjectives') {
+            // Course finished
+            showCertificate();
+            return;
         }
 
-        let selectedP1 = null;
-        let selectedP2 = null;
+        // Return to dashboard
+        document.getElementById('view-lesson').classList.remove('active');
+        document.getElementById('view-dashboard').classList.add('active');
+        updateGuide("Module Complete! Great job. Select the next module.", false);
+    }
 
-        function selectCompoundPart(part, word) {
-            if(part === 1) {
-                document.querySelectorAll('.part-btn-1').forEach(b => b.classList.remove('bg-yellow-500', 'text-black'));
-                document.getElementById(`p1-${word}`).classList.add('bg-yellow-500', 'text-black');
-                selectedP1 = word;
-            } else {
-                document.querySelectorAll('.part-btn-2').forEach(b => b.classList.remove('bg-yellow-500', 'text-black'));
-                document.getElementById(`p2-${word}`).classList.add('bg-yellow-500', 'text-black');
-                selectedP2 = word;
-            }
+    function showCertificate() {
+        document.getElementById('view-lesson').classList.remove('active');
+        document.getElementById('view-cert').classList.add('active');
+        updateGuide("Congratulations! You have mastered the curriculum.", false);
+    }
 
-            if(selectedP1 && selectedP2) checkCompound();
+    // --- Helper Functions ---
+
+    function updateGuide(text, showButton, btnText, btnAction) {
+        document.getElementById('guide-text').innerHTML = text;
+        const controls = document.getElementById('guide-controls');
+        controls.innerHTML = '';
+        
+        if (showButton) {
+            const btn = document.createElement('button');
+            btn.className = 'action-btn';
+            btn.innerHTML = `${btnText} <span class="material-symbols-rounded">arrow_forward</span>`;
+            btn.onclick = btnAction;
+            controls.appendChild(btn);
         }
+    }
 
-        function checkCompound() {
-            const level = compoundLevels[currentState.compoundIndex];
-            const combined = selectedP1 + selectedP2;
-            
-            if(combined.toLowerCase() === level.answer.toLowerCase()) {
-                document.getElementById('compound-feedback').innerText = "Built: " + combined + " ✅";
-                addScore(20);
-                currentState.compoundIndex++;
-                selectedP1 = null;
-                selectedP2 = null;
-                setTimeout(() => {
-                    document.getElementById('compound-feedback').innerText = "";
-                    loadCompoundLevel();
-                }, 1000);
-            } else {
-                document.getElementById('compound-feedback').innerText = "Invalid: " + combined + " ❌";
-                document.getElementById('compound-feedback').classList.replace('text-green-400', 'text-red-400');
-                setTimeout(() => {
-                    document.getElementById('compound-feedback').innerText = "";
-                    document.getElementById('compound-feedback').classList.replace('text-red-400', 'text-green-400');
-                    // Reset selection visuals
-                     document.querySelectorAll('button').forEach(b => b.classList.remove('bg-yellow-500', 'text-black'));
-                     selectedP1 = null;
-                     selectedP2 = null;
-                }, 1000);
-            }
-        }
+    function updateXP() {
+        const xp = document.getElementById('xp-display');
+        xp.innerText = state.xp + " XP";
+        xp.parentElement.style.transform = "scale(1.2)";
+        setTimeout(() => xp.parentElement.style.transform = "scale(1)", 200);
+    }
 
-        // === 4. FRIDGE GAME LOGIC ===
-        function initFridgeGame() {
-            loadFridgeItem();
-        }
+    // --- Code Viewer Functions ---
+    function openCode() {
+        const modal = document.getElementById('code-modal');
+        const area = document.getElementById('code-area');
+        area.value = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+        modal.style.display = 'flex';
+    }
 
-        function loadFridgeItem() {
-            if(currentState.fridgeIndex >= fridgeItems.length) {
-                document.getElementById('fridge-item').parentElement.innerHTML = "<div class='text-2xl font-bold text-green-600'>Fridge Stocked!</div>";
-                const btn = document.getElementById('btn-next-4');
-                btn.disabled = false;
-                btn.classList.remove('bg-slate-300', 'cursor-not-allowed');
-                btn.classList.add('bg-indigo-600', 'hover:bg-indigo-700');
-                btn.innerHTML = `Start Final Exam <span class="material-symbols-outlined">edit_document</span>`;
-                btn.onclick = nextStep;
-                return;
-            }
+    function closeCode() {
+        document.getElementById('code-modal').style.display = 'none';
+    }
 
-            const item = fridgeItems[currentState.fridgeIndex];
-            document.getElementById('fridge-item').innerHTML = `
-                <span class="material-symbols-outlined text-5xl text-yellow-600 mb-2">${item.icon}</span>
-                <span class="font-bold text-slate-700">${item.name}</span>
-            `;
-            document.getElementById('fridge-status').innerText = `Items sorted: ${currentState.fridgeIndex}/${fridgeItems.length}`;
-        }
+    function copyCode() {
+        const area = document.getElementById('code-area');
+        area.select();
+        document.execCommand('copy');
+        alert("Code copied to clipboard!");
+    }
 
-        function sortFridge(bucket) {
-            if(currentState.fridgeIndex >= fridgeItems.length) return;
-            const item = fridgeItems[currentState.fridgeIndex];
-            
-            if(item.type === bucket) {
-                addScore(10);
-                currentState.fridgeIndex++;
-                // Animation
-                const el = document.getElementById('fridge-item');
-                el.classList.add('scale-0', 'opacity-0');
-                setTimeout(() => {
-                    el.classList.remove('scale-0', 'opacity-0');
-                    loadFridgeItem();
-                }, 300);
-            } else {
-                alert("Oops! Think again. Can you count " + item.name + " individually?");
-            }
-        }
-
-        // === 5. EXAM LOGIC ===
-        function initExam() {
-            loadExamQuestion();
-        }
-
-        function loadExamQuestion() {
-            if(currentState.examIndex >= examQuestions.length) {
-                // Exam Done
-                nextStep(); // Go to certificate
-                return;
-            }
-
-            const q = examQuestions[currentState.examIndex];
-            const card = document.getElementById('exam-card');
-            
-            document.getElementById('exam-counter').innerText = `${currentState.examIndex + 1}/${examQuestions.length}`;
-            document.getElementById('exam-progress').style.width = `${((currentState.examIndex)/examQuestions.length)*100}%`;
-
-            card.innerHTML = `
-                <h3 class="text-xl md:text-2xl font-bold text-slate-800 mb-8">${q.q}</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    ${q.options.map((opt, i) => `
-                        <button onclick="answerExam(${i})" class="text-left p-4 rounded-xl border-2 border-slate-200 hover:border-indigo-500 hover:bg-indigo-50 transition font-semibold text-slate-700">${opt}</button>
-                    `).join('')}
-                </div>
-            `;
-        }
-
-        function answerExam(choiceIdx) {
-            const q = examQuestions[currentState.examIndex];
-            if(choiceIdx === q.a) {
-                currentState.examScore++;
-                addScore(20); // Big points for exam
-            }
-            currentState.examIndex++;
-            loadExamQuestion();
-        }
-
-        // === 6. CERTIFICATE ===
-        function generateCertificate() {
-            const name = document.getElementById('student-name').value;
-            if(!name) {
-                alert("Please enter your name!");
-                return;
-            }
-            
-            document.getElementById('cert-name').innerText = name;
-            
-            // Calculate final percentage based on total possible questions (approx)
-            // Sort(5*10) + Material(3*10) + Compound(3*20) + Fridge(6*10) + Exam(10*20) = 50+30+60+60+200 = 400
-            const percentage = Math.min(100, Math.round((currentState.score / 400) * 100));
-            document.getElementById('cert-score').innerText = percentage + "%";
-            
-            const d = new Date();
-            document.getElementById('cert-date').innerText = d.toLocaleDateString();
-
-            document.getElementById('cert-input-area').classList.add('hidden');
-            document.getElementById('certificate-display').classList.remove('hidden');
-            document.getElementById('certificate-display').classList.add('fade-in');
-        }
-
-        function shareResult() {
-            const score = document.getElementById('global-score').innerText;
-            const text = `I just became a Certified Noun Master with a score of ${score} points! 🎓 #NounMaster`;
-            
-            if (navigator.share) {
-                navigator.share({
-                    title: 'Noun Master Academy',
-                    text: text,
-                    url: window.location.href,
-                }).catch(console.error);
-            } else {
-                // Fallback to clipboard
-                navigator.clipboard.writeText(text).then(() => {
-                    alert("Result copied to clipboard!");
-                });
-            }
-        }
-
-        function resetApp() {
-            currentState = {
-                step: 0,
-                score: 0,
-                sortIndex: 0,
-                sortScore: 0,
-                compoundIndex: 0,
-                fridgeIndex: 0,
-                fridgeScore: 0,
-                examIndex: 0,
-                examScore: 0
-            };
-            init();
-        }
-
-        // === SOURCE CODE VIEWER ===
-        function showSourceCode() {
-            const html = '<!DOCTYPE html>\n' + document.documentElement.outerHTML;
-            const modal = document.getElementById('code-viewer-modal');
-            const textarea = document.getElementById('source-code-area');
-            
-            textarea.value = html;
-            modal.classList.remove('hidden');
-            modal.classList.add('flex');
-            document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }
-
-        function closeSourceCode() {
-            const modal = document.getElementById('code-viewer-modal');
-            modal.classList.add('hidden');
-            modal.classList.remove('flex');
-            document.body.style.overflow = 'auto'; // Restore scrolling
-        }
-
-        async function copyToClipboard() {
-            const textarea = document.getElementById('source-code-area');
-            try {
-                await navigator.clipboard.writeText(textarea.value);
-                const btn = document.querySelector('#code-viewer-modal button:first-child');
-                const originalText = btn.innerHTML;
-                
-                btn.innerHTML = '<span class="material-symbols-outlined text-sm">check</span> Copied!';
-                btn.classList.replace('bg-indigo-600', 'bg-green-600');
-                
-                setTimeout(() => {
-                    btn.innerHTML = originalText;
-                    btn.classList.replace('bg-green-600', 'bg-indigo-600');
-                }, 2000);
-            } catch (err) {
-                alert('Failed to copy text.');
-            }
-        }
-
-        // Start
-        init();
-
-    </script>
+</script>
 
 </body></html>
