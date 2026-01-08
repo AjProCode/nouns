@@ -37,28 +37,27 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
 
 </script>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grammar Academy Pro - Grade 6</title>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<title>Grammar Academy Pro - Grade 6 Advanced</title>
 <!-- Fonts & Icons -->
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&amp;family=Merriweather:ital,wght@0,300;0,700;1,400&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" rel="stylesheet">
-
 <style>
     :root {
-        --primary: #2563eb; /* Royal Blue */
-        --primary-light: #eff6ff;
+        --primary: #4f46e5; /* Indigo */
+        --primary-light: #eef2ff;
         --secondary: #059669; /* Emerald */
         --secondary-light: #ecfdf5;
         --accent: #d97706; /* Amber */
-        --bg-body: #f3f4f6;
+        --accent-light: #fffbeb;
+        --bg-body: #f8fafc;
         --bg-card: #ffffff;
-        --text-main: #1f2937;
-        --text-muted: #6b7280;
-        --border: #e5e7eb;
+        --text-main: #1e293b;
+        --text-muted: #64748b;
+        --border: #e2e8f0;
         --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
         --radius: 16px;
     }
 
@@ -75,8 +74,10 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
 
     /* --- Typography --- */
-    h1, h2, h3 { font-family: 'Merriweather', serif; color: #111827; }
+    h1, h2, h3, h4 { font-family: 'Merriweather', serif; color: #0f172a; }
     p { line-height: 1.7; margin-bottom: 1rem; font-size: 1.05rem; }
+    strong { color: var(--primary); font-weight: 700; }
+    em { font-style: italic; color: #475569; }
     .text-sm { font-size: 0.875rem; }
     .font-bold { font-weight: 700; }
 
@@ -107,7 +108,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
 
     .xp-pill {
-        background: #fffbeb;
+        background: var(--accent-light);
         color: #b45309;
         border: 1px solid #fcd34d;
         padding: 0.25rem 1rem;
@@ -116,6 +117,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         display: flex;
         align-items: center;
         gap: 0.25rem;
+        transition: transform 0.2s;
     }
 
     /* --- Main Layout --- */
@@ -158,7 +160,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
 
     .prof-bubble {
-        background: #f8fafc;
+        background: #f1f5f9;
         border: 1px solid var(--border);
         border-radius: var(--radius);
         border-top-left-radius: 0;
@@ -174,13 +176,15 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         position: absolute;
         top: 0; left: -10px;
         width: 0; height: 0;
-        border-top: 10px solid #f8fafc; /* Match bubble bg */
+        border-top: 10px solid #f1f5f9;
         border-left: 10px solid transparent;
-        /* Note: border hack for speech bubble triangle */
     }
 
     .sidebar-footer {
         margin-top: 1.5rem;
+        display: flex;
+        flex-direction: column;
+        gap: 0.5rem;
     }
 
     .btn {
@@ -201,14 +205,25 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     .btn-primary {
         background: var(--primary);
         color: white;
-        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
+        box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
     }
-    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    .btn-primary:hover { background: #4338ca; transform: translateY(-1px); }
     
     .btn-disabled {
         background: #9ca3af;
         color: white;
         cursor: not-allowed;
+    }
+
+    .btn-text {
+        background: transparent;
+        color: var(--text-muted);
+        font-size: 0.85rem;
+        font-weight: 500;
+    }
+    .btn-text:hover {
+        color: #ef4444; /* Red on hover for reset */
+        text-decoration: underline;
     }
 
     /* --- Content Area --- */
@@ -223,7 +238,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
 
     .container {
         width: 100%;
-        max-width: 800px;
+        max-width: 900px;
     }
 
     /* --- Views --- */
@@ -238,7 +253,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     /* Dashboard */
     .module-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
         gap: 1.5rem;
     }
 
@@ -255,13 +270,13 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
 
     .module-card:hover:not(.locked) {
         transform: translateY(-4px);
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow-md);
         border-color: var(--primary);
     }
 
     .module-card.locked {
         opacity: 0.7;
-        background: #f9fafb;
+        background: #f8fafc;
         cursor: not-allowed;
     }
 
@@ -276,7 +291,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
 
     .progress-bar {
         height: 6px;
-        background: #e5e7eb;
+        background: #e2e8f0;
         border-radius: 3px;
         margin-top: 1rem;
         overflow: hidden;
@@ -294,7 +309,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
 
     .lesson-header {
-        border-bottom: 2px solid #f3f4f6;
+        border-bottom: 2px solid #f1f5f9;
         padding-bottom: 1.5rem;
         margin-bottom: 2rem;
     }
@@ -324,6 +339,15 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         border-radius: 2px;
         font-weight: 600;
         color: #92400e;
+    }
+
+    ul.bullet-list {
+        margin-left: 1.5rem;
+        margin-bottom: 1rem;
+        list-style-type: disc;
+    }
+    ul.bullet-list li {
+        margin-bottom: 0.5rem;
     }
 
     /* Quiz Interactions */
@@ -381,7 +405,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         flex: 1;
         background: #1e1e1e; color: #d4d4d4;
         border: none; padding: 1.5rem;
-        font-family: 'Fira Code', monospace;
+        font-family: 'Courier New', monospace;
         font-size: 0.9rem;
         resize: none;
     }
@@ -389,9 +413,9 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         position: fixed; bottom: 2rem; right: 2rem;
         width: 56px; height: 56px;
         border-radius: 50%;
-        background: #111827; color: white;
+        background: #0f172a; color: white;
         display: flex; align-items: center; justify-content: center;
-        box-shadow: var(--shadow-lg);
+        box-shadow: var(--shadow-md);
         cursor: pointer;
         border: none;
         z-index: 50;
@@ -399,320 +423,368 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
     .float-btn:hover { transform: scale(1.1); }
 
+    /* Locked State Text Helpers */
+    .locked-text {
+        margin-top:1rem; font-size:0.8rem; font-weight:700; color:#9ca3af; display:flex; gap:0.25rem;
+    }
+
     /* Responsive */
     @media(max-width: 800px) {
         .app-container { flex-direction: column; overflow-y: auto; }
-        aside { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; flex-direction: row; align-items: center; gap: 1rem; }
-        .prof-profile { display: flex; text-align: left; align-items: center; gap: 1rem; margin: 0; }
+        aside { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; flex-direction: row; align-items: center; gap: 1rem; flex-wrap: wrap;}
+        .prof-profile { display: flex; text-align: left; align-items: center; gap: 1rem; margin: 0; flex-shrink: 0;}
         .prof-img { width: 50px; height: 50px; font-size: 1.5rem; margin: 0; }
-        .sidebar-footer { margin: 0; width: 150px; }
+        .sidebar-footer { margin: 0; width: 100%; flex-direction: row; }
+        .prof-bubble { width: 100%; margin-top: 1rem; }
         main { padding: 1rem; }
         .lesson-card { padding: 1.5rem; }
     }
 </style>
 </head>
 <body>
-
 <header>
-    <div class="brand">
-        <span class="material-symbols-rounded" style="color:var(--primary); font-size: 2rem;">school</span>
+<div class="brand">
+<span class="material-symbols-rounded" style="color:var(--primary); font-size: 2rem;">school</span>
         Grammar Academy Pro
     </div>
-    <div class="status-bar">
-        <div class="xp-pill">
-            <span class="material-symbols-rounded">bolt</span>
-            <span id="xp-display">0 XP</span>
-        </div>
-    </div>
+<div class="status-bar">
+<div class="xp-pill">
+<span class="material-symbols-rounded">bolt</span>
+<span id="xp-display">0 XP</span>
+</div>
+</div>
 </header>
-
 <div class="app-container">
-    <!-- Sidebar -->
-    <aside>
-        <div class="prof-profile">
-            <div class="prof-img">👨‍🏫</div>
-            <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">Prof. Lexicon</h3>
-            <div class="text-sm text-muted" style="color:var(--text-muted)">Your Guide</div>
-        </div>
-        <div class="prof-bubble">
-            <p id="guide-text" class="text-sm" style="opacity: 1;">Analyze the sentence. Find the abstract concept.</p>
-        </div>
-        <div class="sidebar-footer">
-            <button id="main-action-btn" class="btn btn-disabled" disabled="">Next Step</button>
-        </div>
-    </aside>
-
-    <!-- Main Content -->
-    <main>
-        
-        <!-- DASHBOARD -->
-        <div id="view-dashboard" class="view container">
-            <h2 style="margin-bottom: 0.5rem;">Grade 6 Curriculum</h2>
-            <p style="color: var(--text-muted); margin-bottom: 2rem;">Select a topic to start learning.</p>
-            
-            <div class="module-grid">
-                <!-- Nouns Module -->
-                <div class="module-card" onclick="startModule('nouns')">
-                    <div class="module-icon" style="background: var(--primary);">
-                        <span class="material-symbols-rounded">category</span>
+<!-- Sidebar -->
+<aside>
+<div class="prof-profile">
+<div class="prof-img">👨‍🏫</div>
+<h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">Prof. Lexicon</h3>
+<div class="text-sm text-muted" style="color:var(--text-muted)">Your Guide</div>
+</div>
+<div class="prof-bubble">
+<p class="text-sm" id="guide-text">Welcome to the advanced grammar module. We will cover comprehensive topics for Grade 6. Please select a module to begin.</p>
+</div>
+<div class="sidebar-footer">
+<button class="btn btn-disabled" disabled="" id="main-action-btn">Continue</button>
+<button class="btn btn-text" onclick="resetProgress()">Reset Progress</button>
+</div>
+</aside>
+<!-- Main Content -->
+<main>
+<!-- DASHBOARD -->
+<div class="view active container" id="view-dashboard">
+<h2 style="margin-bottom: 0.5rem;">Grade 6 Advanced Curriculum</h2>
+<p style="color: var(--text-muted); margin-bottom: 2rem;">Complete the modules sequentially to master each topic.</p>
+<div class="module-grid">
+<!-- Nouns Module -->
+<div class="module-card" onclick="startModule('nouns')">
+<div class="module-icon" style="background: var(--primary);">
+<span class="material-symbols-rounded">category</span>
+</div>
+<h3>1. Nouns: The Foundation</h3>
+<p class="text-sm text-muted" style="margin-top:0.5rem;">Proper, Common, Abstract, Concrete, Countable.</p>
+<div class="progress-bar"><div class="progress-fill" id="bar-nouns" style="background: var(--primary);"></div></div>
+</div>
+<!-- Pronouns Module -->
+<div class="module-card locked" id="card-pronouns" onclick="startModule('pronouns')">
+<div class="module-icon" style="background: var(--secondary);">
+<span class="material-symbols-rounded">group</span>
+</div>
+<h3>2. Pronouns: Comprehensive</h3>
+<p class="text-sm text-muted" style="margin-top:0.5rem;">Personal, Possessive, Reflexive, Relative, etc.</p>
+<div class="locked-text">
+<span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
                     </div>
-                    <h3>Nouns: The Foundation</h3>
-                    <p class="text-sm text-muted" style="margin-top:0.5rem;">Proper, Common, Abstract, Concrete.</p>
-                    <div class="progress-bar"><div id="bar-nouns" class="progress-fill" style="background: var(--primary);"></div></div>
-                </div>
-
-                <!-- Pronouns Module -->
-                <div id="card-pronouns" class="module-card locked" onclick="startModule('pronouns')">
-                    <div class="module-icon" style="background: var(--secondary);">
-                        <span class="material-symbols-rounded">group</span>
+</div>
+<!-- Adjectives Module -->
+<div class="module-card locked" id="card-adjectives" onclick="startModule('adjectives')">
+<div class="module-icon" style="background: var(--accent);">
+<span class="material-symbols-rounded">palette</span>
+</div>
+<h3>3. Adjectives: Master Class</h3>
+<p class="text-sm text-muted" style="margin-top:0.5rem;">Types, Formation, Order, Comparison.</p>
+<div class="locked-text">
+<span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
                     </div>
-                    <h3>Pronouns: The Replacers</h3>
-                    <p class="text-sm text-muted" style="margin-top:0.5rem;">Subject, Object, Reflexive.</p>
-                    <div style="margin-top:1rem; font-size:0.8rem; font-weight:700; color:#9ca3af; display:flex; gap:0.25rem;">
-                        <span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
-                    </div>
-                </div>
-
-                <!-- Adjectives Module -->
-                <div id="card-adjectives" class="module-card locked" onclick="startModule('adjectives')">
-                    <div class="module-icon" style="background: var(--accent);">
-                        <span class="material-symbols-rounded">palette</span>
-                    </div>
-                    <h3>Adjectives: The Artists</h3>
-                    <p class="text-sm text-muted" style="margin-top:0.5rem;">Description, Order, Comparison.</p>
-                    <div style="margin-top:1rem; font-size:0.8rem; font-weight:700; color:#9ca3af; display:flex; gap:0.25rem;">
-                        <span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- LESSON CONTAINER -->
-        <div id="view-lesson" class="view container active"><div class="lesson-card fade-in"><div class="lesson-header">
-            <span class="lesson-tag">Module: nouns • Step 2/6</span>
-            <h2>Knowledge Check</h2>
-        </div><div><p style="font-size:1.2rem; font-weight:600; margin-bottom:1.5rem;">Which word in this sentence is a Noun representing an 'Idea'?</p><p style="background:#f3f4f6; padding:1rem; border-radius:8px; font-style:italic; border-left:4px solid #9ca3af;">"The boy shouted with joy."</p><div class="quiz-options"><button class="option-btn">The</button><button class="option-btn">Boy</button><button class="option-btn">Shouted</button><button class="option-btn">Joy</button></div></div></div></div>
-
-        <!-- CERTIFICATE CONTAINER -->
-        <div id="view-certificate" class="view container">
-            <div class="lesson-card" style="text-align: center; border-top: 8px solid var(--primary);">
-                <div style="width: 80px; height: 80px; background: #fef3c7; color: #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 3rem;">
+</div>
+</div>
+</div>
+<!-- LESSON CONTAINER -->
+<div class="view container" id="view-lesson">
+<!-- Content injected via JS -->
+</div>
+<!-- CERTIFICATE CONTAINER -->
+<div class="view container" id="view-certificate">
+<div class="lesson-card" style="text-align: center; border-top: 8px solid var(--primary);">
+<div style="width: 80px; height: 80px; background: #fef3c7; color: #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 3rem;">
                     🏆
                 </div>
-                <h1 style="color: var(--primary); margin-bottom: 1rem;">Certificate of Excellence</h1>
-                <p>This certifies that the student has successfully mastered the</p>
-                <h2 style="font-size: 2rem; margin: 1rem 0;">Grade 6 Grammar Course</h2>
-                <p class="text-muted">Demonstrating proficiency in Nouns, Pronouns, and Adjectives.</p>
-                
-                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
-                    <button class="btn btn-primary" style="width: auto; padding: 0.75rem 2rem;" onclick="location.reload()">Restart Course</button>
-                </div>
-            </div>
-        </div>
-
-    </main>
+<h1 style="color: var(--primary); margin-bottom: 1rem;">Certificate of Excellence</h1>
+<p>This certifies that the student has successfully mastered the</p>
+<h2 style="font-size: 2rem; margin: 1rem 0;">Grade 6 Advanced Grammar</h2>
+<p class="text-muted">Demonstrating expert proficiency in Nouns, Pronouns, and Adjectives.</p>
+<div style="margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
+<button class="btn btn-primary" onclick="resetProgress()" style="width: auto; padding: 0.75rem 2rem;">Restart Course</button>
 </div>
-
+</div>
+</div>
+</main>
+</div>
 <!-- Float Code Button -->
 <button class="float-btn" onclick="openCode()">
-    <span class="material-symbols-rounded">code</span>
+<span class="material-symbols-rounded">code</span>
 </button>
-
 <!-- Code Modal -->
-<div id="code-modal" class="code-modal">
-    <div class="code-window">
-        <div class="code-header">
-            <span style="font-weight: 700; display:flex; gap:0.5rem; align-items:center;"><span class="material-symbols-rounded">html</span> Source Code</span>
-            <div style="display:flex; gap:0.5rem;">
-                <button onclick="copyCode()" class="btn btn-primary" style="padding:0.25rem 1rem; font-size:0.8rem;">Copy</button>
-                <button onclick="closeCode()" class="btn" style="background:#444; color:white; padding:0.25rem 1rem; font-size:0.8rem;">Close</button>
-            </div>
-        </div>
-        <textarea id="source-code" class="source-code" readonly=""></textarea>
-    </div>
+<div class="code-modal" id="code-modal">
+<div class="code-window">
+<div class="code-header">
+<span style="font-weight: 700; display:flex; gap:0.5rem; align-items:center;"><span class="material-symbols-rounded">html</span> Source Code</span>
+<div style="display:flex; gap:0.5rem;">
+<button class="btn btn-primary" onclick="copyCode()" style="padding:0.25rem 1rem; font-size:0.8rem;">Copy</button>
+<button class="btn" onclick="closeCode()" style="background:#444; color:white; padding:0.25rem 1rem; font-size:0.8rem;">Close</button>
 </div>
-
+</div>
+<textarea class="source-code" id="source-code" readonly=""></textarea>
+</div>
+</div>
 <script>
     // --- Data Model ---
-    // Steps can be "read" (informational) or "quiz" (interactive)
     const curriculum = {
         nouns: [
             {
                 type: "read",
-                title: "What is a Noun?",
+                title: "Chapter 1: Defining Nouns",
                 content: `
-                    <p>A <b>Noun</b> is one of the most important building blocks of language. Simply put, a noun is a word that names a <span class="highlight">person</span>, <span class="highlight">place</span>, <span class="highlight">thing</span>, or <span class="highlight">idea</span>.</p>
-                    <p>Without nouns, we wouldn't be able to talk about the world around us. Everything you can see, touch, or think about has a name, and that name is a noun.</p>
+                    <p>A <b>Noun</b> is the name of a person, place, animal, thing, or idea. It is the most basic building block of a sentence.</p>
                     <div class="example-box">
-                        <strong>Examples:</strong>
-                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
-                            <li>Person: <em>Teacher, Pilot, Mom</em></li>
-                            <li>Place: <em>School, Paris, Kitchen</em></li>
-                            <li>Thing: <em>Computer, Dog, Pencil</em></li>
-                            <li>Idea: <em>Freedom, Happiness, Science</em></li>
+                        <ul class="bullet-list">
+                            <li><strong>Person:</strong> Teacher, Pilot, Mom</li>
+                            <li><strong>Place:</strong> School, Paris, Kitchen</li>
+                            <li><strong>Thing:</strong> Pencil, Sandwich, Tree</li>
+                            <li><strong>Idea:</strong> Justice, Love, Speed</li>
                         </ul>
                     </div>
-                    <p>Click continue to verify your understanding.</p>
                 `,
-                guide: "Read the definition carefully. Nouns are everywhere! When you are ready, click 'Continue'."
+                guide: "Let's start with the basics. Read about what nouns are."
             },
             {
                 type: "quiz",
-                question: "Which word in this sentence is a Noun representing an 'Idea'?",
+                question: "Which word is a noun representing an 'Idea'?",
                 context: "The boy shouted with joy.",
                 options: [
-                    { text: "The", correct: false },
-                    { text: "Boy", correct: false }, // It is a noun, but represents a Person
+                    { text: "Boy", correct: false },
+                    { text: "Joy", correct: true },
                     { text: "Shouted", correct: false },
-                    { text: "Joy", correct: true }
+                    { text: "With", correct: false }
                 ],
-                explanation: "Correct! 'Joy' is an emotion or idea. 'Boy' is also a noun, but it represents a person.",
-                guide: "Analyze the sentence. Find the abstract concept."
+                explanation: "'Joy' is an abstract idea or emotion.",
+                guide: "Find the abstract concept."
             },
             {
                 type: "read",
                 title: "Common vs. Proper Nouns",
                 content: `
-                    <p>Nouns come in two main flavors: <b>Common</b> and <b>Proper</b>.</p>
-                    <p>A <span class="highlight">Common Noun</span> names a general item. It does not start with a capital letter unless it's at the beginning of a sentence (e.g., <em>city, dog, month</em>).</p>
-                    <p>A <span class="highlight">Proper Noun</span> names a <strong>specific</strong> person, place, or organization. It <strong>always</strong> starts with a capital letter (e.g., <em>London, Fido, October</em>).</p>
-                    <div class="example-box">
-                        <strong>Comparison:</strong><br>
-                        Common: <em>The <strong>president</strong> gave a speech.</em><br>
-                        Proper: <em><strong>President Lincoln</strong> gave a speech.</em>
-                    </div>
+                    <p><b>Common Nouns</b> are general names (city, dog). They are not capitalized unless they start a sentence.</p>
+                    <p><b>Proper Nouns</b> are specific names (London, Fido). They are <strong>always</strong> capitalized.</p>
                 `,
-                guide: "Capitalization is the key clue here. Remember it!"
+                guide: "Proper nouns are specific and capitalized."
             },
             {
                 type: "quiz",
-                question: "Identify the Proper Noun in the list below.",
+                question: "Identify the Proper Noun.",
                 options: [
-                    { text: "planet", correct: false },
-                    { text: "Mars", correct: true },
-                    { text: "star", correct: false },
-                    { text: "galaxy", correct: false }
+                    { text: "ocean", correct: false },
+                    { text: "Pacific", correct: true },
+                    { text: "river", correct: false },
+                    { text: "mountain", correct: false }
                 ],
-                explanation: "Yes! 'Mars' is the specific name of a planet, so it is capitalized.",
-                guide: "Look for the specific name that requires a capital letter."
-            },
-            {
-                type: "read",
-                title: "Concrete vs. Abstract",
-                content: `
-                    <p>Let's dive deeper. Nouns can also be categorized by whether you can detect them with your five senses.</p>
-                    <p><span class="highlight">Concrete Nouns</span> are things you can see, touch, hear, smell, or taste. Examples: <em>pizza, rain, music, velvet</em>.</p>
-                    <p><span class="highlight">Abstract Nouns</span> are ideas, qualities, or conditions. You cannot physically touch them. Examples: <em>courage, time, education, trust</em>.</p>
-                `,
-                guide: "Think: Can I put it in a box? If yes, it's concrete. If no, it's abstract."
-            },
-            {
-                type: "quiz",
-                question: "Select the Abstract Noun.",
-                options: [
-                    { text: "Cloud", correct: false },
-                    { text: "Thunder", correct: false },
-                    { text: "Fear", correct: true },
-                    { text: "Rain", correct: false }
-                ],
-                explanation: "Correct. Fear is an emotion you feel internally; you cannot touch or hold it.",
-                guide: "Which of these exists only in the mind or heart?"
+                explanation: "'Pacific' is the specific name of an ocean.",
+                guide: "Which one names a specific place?"
             }
         ],
+        // EXPANDED PRONOUNS SECTION
         pronouns: [
             {
                 type: "read",
-                title: "The Role of Pronouns",
+                title: "1. Personal Pronouns",
                 content: `
-                    <p>Imagine if we had to say: <em>'John picked up John's bag because John was leaving.'</em> That sounds repetitive!</p>
-                    <p><b>Pronouns</b> are words that replace nouns to make sentences flow better. The noun being replaced is called the <strong>antecedent</strong>.</p>
-                    <div class="example-box">
-                        <em>'John picked up <span class="highlight">his</span> bag because <span class="highlight">he</span> was leaving.'</em>
-                    </div>
-                    <p>Common pronouns: <em>he, she, it, they, we, us, them</em>.</p>
-                `,
-                guide: "Pronouns are the stunt doubles of the grammar movie. They stand in for the main stars (nouns)."
-            },
-            {
-                type: "quiz",
-                question: "What is the pronoun in this sentence?",
-                context: "Sarah forgot her keys on the table.",
-                options: [
-                    { text: "Sarah", correct: false },
-                    { text: "Her", correct: true },
-                    { text: "Keys", correct: false },
-                    { text: "Table", correct: false }
-                ],
-                explanation: "Right! 'Her' replaces 'Sarah's'.",
-                guide: "Find the word referring back to Sarah."
-            },
-            {
-                type: "read",
-                title: "Subject vs. Object Pronouns",
-                content: `
-                    <p>Pronouns change form depending on their job in the sentence.</p>
-                    <ul>
-                        <li><b>Subject Pronouns</b> (I, He, She, We, They): They <strong>do</strong> the action. <br><em><span class="highlight">She</span> ate the cake.</em></li>
-                        <li><b>Object Pronouns</b> (Me, Him, Her, Us, Them): They <strong>receive</strong> the action. <br><em>The dog chased <span class="highlight">him</span>.</em></li>
+                    <p><b>Personal Pronouns</b> stand in for persons or things. They change form depending on whether they are the subject or object.</p>
+                    <ul class="bullet-list">
+                        <li><strong>Subject (Doer):</strong> I, We, You, He, She, It, They. <br><em>"<span class="highlight">She</span> runs fast."</em></li>
+                        <li><strong>Object (Receiver):</strong> Me, Us, You, Him, Her, It, Them. <br><em>"Give it to <span class="highlight">him</span>."</em></li>
                     </ul>
-                    <p>A common mistake is saying 'Me and him went out'. It should be 'He and I went out' because they are subjects!</p>
                 `,
-                guide: "If it's doing the verb, it's a Subject. If the verb happens to it, it's an Object."
+                guide: "Personal pronouns change based on their job (subject vs object)."
             },
             {
                 type: "quiz",
-                question: "Choose the correct pronoun to complete the sentence.",
-                context: "____ and I are going to the movies.",
+                question: "Choose the correct pronoun: '____ and I are friends.'",
                 options: [
                     { text: "Him", correct: false },
                     { text: "He", correct: true },
                     { text: "His", correct: false },
                     { text: "Himself", correct: false }
                 ],
-                explanation: "Correct! 'He' is a subject doing the action (going).",
-                guide: "Who is doing the going? We need a Subject pronoun."
+                explanation: "Correct! You need a Subject pronoun here.",
+                guide: "Who is the subject? Use a Subject pronoun."
+            },
+            {
+                type: "read",
+                title: "2. Possessive Pronouns",
+                content: `
+                    <p><b>Possessive Pronouns</b> show ownership. They stand alone and do not need a noun after them.</p>
+                    <div class="example-box">
+                        Mine, Ours, Yours, His, Hers, Theirs.<br>
+                        <em>"This book is <span class="highlight">mine</span>."</em>
+                    </div>
+                    <p><strong>Note:</strong> Don't confuse them with Possessive <em>Adjectives</em> (My, Our, Your) which come <em>before</em> a noun ("My book").</p>
+                `,
+                guide: "Possessive pronouns stand alone to show ownership."
+            },
+            {
+                type: "quiz",
+                question: "Which sentence uses a Possessive Pronoun?",
+                options: [
+                    { text: "This is my car.", correct: false },
+                    { text: "The car is mine.", correct: true },
+                    { text: "I drive the car.", correct: false },
+                    { text: "It is a red car.", correct: false }
+                ],
+                explanation: "'Mine' stands alone and shows ownership.",
+                guide: "Find the word that shows ownership without a noun following it."
+            },
+            {
+                type: "read",
+                title: "3. Reflexive vs. Emphatic",
+                content: `
+                    <p>Both end in <em>-self</em> or <em>-selves</em> (myself, yourself, himself, etc.), but their jobs are different.</p>
+                    <ul class="bullet-list">
+                        <li><strong>Reflexive:</strong> The action reflects back to the subject. Essential to meaning. <br><em>"I cut <span class="highlight">myself</span>."</em> (Subject and object are the same).</li>
+                        <li><strong>Emphatic:</strong> Emphasizes the noun. Can be removed without changing the main meaning. <br><em>"I <span class="highlight">myself</span> locked the door."</em> (I did it, not someone else).</li>
+                    </ul>
+                `,
+                guide: "Reflexive reflects action. Emphatic adds stress."
+            },
+            {
+                type: "quiz",
+                question: "Is the bold word Reflexive or Emphatic? 'She <b>herself</b> told me the news.'",
+                options: [
+                    { text: "Reflexive", correct: false },
+                    { text: "Emphatic", correct: true }
+                ],
+                explanation: "Correct! You could remove 'herself' and the sentence 'She told me the news' still makes sense. It is used for emphasis.",
+                guide: "Can you remove it from the sentence? If yes, it's Emphatic."
+            },
+            {
+                type: "read",
+                title: "4. Demonstrative Pronouns",
+                content: `
+                    <p>These point out specific people or things. <b>This, That, These, Those.</b></p>
+                    <div class="example-box">
+                        <em>"<span class="highlight">This</span> is my house."</em> (Pronoun)<br>
+                        <em>"<span class="highlight">This</span> house is mine."</em> (Adjective)
+                    </div>
+                    <p>If it stands alone, it is a Demonstrative Pronoun.</p>
+                `,
+                guide: "Demonstratives point things out."
+            },
+            {
+                type: "read",
+                title: "5. Interrogative & Relative",
+                content: `
+                    <p><strong>Interrogative Pronouns</strong> ask questions: <em>Who, Whom, Whose, Which, What</em>.<br>
+                    <em>"<span class="highlight">Who</span> is there?"</em></p>
+                    <p><strong>Relative Pronouns</strong> relate a clause to a noun used earlier: <em>Who, Which, That, Whom, Whose</em>.<br>
+                    <em>"The man <span class="highlight">who</span> called is here."</em></p>
+                `,
+                guide: "Interrogative asks. Relative connects."
+            },
+            {
+                type: "quiz",
+                question: "Identify the Relative Pronoun.",
+                context: "The book that I bought is interesting.",
+                options: [
+                    { text: "The", correct: false },
+                    { text: "Book", correct: false },
+                    { text: "That", correct: true },
+                    { text: "Is", correct: false }
+                ],
+                explanation: "'That' connects the clause 'I bought' to 'The book'.",
+                guide: "Find the connecting word."
+            },
+            {
+                type: "read",
+                title: "6. Indefinite & Distributive",
+                content: `
+                    <p><strong>Indefinite Pronouns</strong> refer to non-specific people or things: <em>Someone, Everybody, None, Few, Many, All.</em></p>
+                    <p><strong>Distributive Pronouns</strong> refer to persons or things one at a time: <em>Each, Either, Neither.</em> They are always singular.</p>
+                    <div class="example-box">
+                        <em>"<span class="highlight">Each</span> of the boys got a prize."</em>
+                    </div>
+                `,
+                guide: "Indefinite is vague. Distributive separates."
             }
         ],
+        // ADJECTIVES SECTION (From previous)
         adjectives: [
             {
                 type: "read",
-                title: "What is an Adjective?",
+                title: "Adjective Types 1: Quality & Quantity",
                 content: `
-                    <p><b>Adjectives</b> are describing words. They modify nouns or pronouns to give us more information about them.</p>
-                    <p>They answer questions like: <em>What kind? Which one? How many?</em></p>
-                    <div class="example-box">
-                        The <span class="highlight">angry</span> bear.<br>
-                        <span class="highlight">Three</span> blind mice.<br>
-                        The <span class="highlight">blue</span> sky.
-                    </div>
+                    <p><b>Adjectives of Quality</b> describe the kind/shape/color. <br><em>"A <span class="highlight">brave</span> soldier."</em></p>
+                    <p><b>Adjectives of Quantity</b> answer 'How much?' (for uncountable nouns). <br><em>"Some rice, little water."</em></p>
                 `,
-                guide: "Adjectives add color and detail to our black and white nouns."
+                guide: "Quality describes. Quantity measures (uncountable)."
+            },
+            {
+                type: "read",
+                title: "Adjective Types 2: Number & Demonstrative",
+                content: `
+                    <p><b>Adjectives of Number</b> answer 'How many?' (for countable nouns). <br><em>"Two hands, many days."</em></p>
+                    <p><b>Demonstrative Adjectives</b> point out a noun. <br><em>"This book, those birds."</em></p>
+                `,
+                guide: "Number counts. Demonstrative points."
+            },
+            {
+                type: "read",
+                title: "Adjective Types 3: Interrogative & Possessive",
+                content: `
+                    <p><b>Interrogative Adjectives</b> ask questions with a noun. <br><em>"Which way? Whose bag?"</em></p>
+                    <p><b>Possessive Adjectives</b> show ownership before a noun. <br><em>"My car, Your house."</em></p>
+                `,
+                guide: "Interrogative asks. Possessive owns."
             },
             {
                 type: "read",
                 title: "Order of Adjectives",
                 content: `
-                    <p>Did you know English has a strict rule for the order of adjectives? Native speakers do it naturally, but there is a specific order:</p>
-                    <ol style="margin-left:1.5rem; margin-bottom:1rem;">
-                        <li><b>Opinion</b> (Beautiful, Ugly)</li>
-                        <li><b>Size</b> (Big, Small)</li>
-                        <li><b>Age</b> (Old, Young)</li>
-                        <li><b>Color</b> (Red, Blue)</li>
-                        <li><b>Material</b> (Wooden, Metal)</li>
-                    </ol>
-                    <p>We say "A <span class="highlight">lovely little old red</span> car", not "A red old little lovely car".</p>
+                    <p><b>OSASCOMP:</b> Opinion, Size, Age, Shape, Color, Origin, Material, Purpose.</p>
+                    <p>Example: <em>"A <span class="highlight">lovely small old red</span> car."</em></p>
                 `,
-                guide: "Opinion first, facts later. Remember that rule!"
+                guide: "Remember OSASCOMP for ordering multiple adjectives."
             },
             {
                 type: "quiz",
-                question: "Which sentence uses the correct adjective order?",
+                question: "Choose the correct order.",
                 options: [
-                    { text: "A leather comfortable chair.", correct: false },
-                    { text: "A comfortable leather chair.", correct: true } // Opinion (Comfortable) before Material (Leather)
+                    { text: "A leather comfortable chair", correct: false },
+                    { text: "A comfortable leather chair", correct: true } // Opinion -> Material
                 ],
-                explanation: "Correct! Opinion (comfortable) must come before Material (leather).",
-                guide: "Check: Opinion vs Material. Which comes first?"
+                explanation: "Opinion (Comfortable) comes before Material (Leather).",
+                guide: "Opinion comes first."
+            },
+            {
+                type: "read",
+                title: "Degrees of Comparison",
+                content: `
+                    <ul class="bullet-list">
+                        <li><strong>Positive:</strong> Big</li>
+                        <li><strong>Comparative:</strong> Bigger (Comparing 2)</li>
+                        <li><strong>Superlative:</strong> Biggest (Comparing 3+)</li>
+                    </ul>
+                `,
+                guide: "Use Comparative for 2, Superlative for 3 or more."
             }
         ]
     };
@@ -730,7 +802,6 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     function updateXP(amount) {
         state.xp += amount;
         document.getElementById('xp-display').innerText = state.xp + " XP";
-        // Simple visual pulse
         const pill = document.querySelector('.xp-pill');
         pill.style.transform = "scale(1.1)";
         setTimeout(() => pill.style.transform = "scale(1)", 200);
@@ -740,7 +811,6 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
         document.getElementById(viewId).classList.add('active');
         
-        // Reset sidebar button on dashboard return
         if(viewId === 'view-dashboard') {
             updateSidebar("Welcome back to the dashboard. Choose your next path.", true);
         }
@@ -772,8 +842,7 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
 
     function startModule(id) {
-        if (!state.unlocked[id]) return; // Locked
-        
+        if (!state.unlocked[id]) return;
         state.currentModuleId = id;
         state.stepIndex = 0;
         switchView('view-lesson');
@@ -783,7 +852,6 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     function renderStep() {
         const module = curriculum[state.currentModuleId];
         
-        // Check completion
         if (state.stepIndex >= module.length) {
             completeModule();
             return;
@@ -791,29 +859,25 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
 
         const step = module[state.stepIndex];
         const container = document.getElementById('view-lesson');
-        container.innerHTML = ''; // Clear
+        container.innerHTML = ''; 
 
-        // Update Guide
         updateSidebar(step.guide, step.type === "quiz", "Next Step", nextStep);
 
         const card = document.createElement('div');
         card.className = "lesson-card fade-in";
 
-        // Header
         const header = document.createElement('div');
         header.className = "lesson-header";
         header.innerHTML = `
-            <span class="lesson-tag">Module: ${state.currentModuleId} • Step ${state.stepIndex + 1}/${module.length}</span>
+            <span class="lesson-tag">Module: ${state.currentModuleId.toUpperCase()} • Step ${state.stepIndex + 1}/${module.length}</span>
             <h2>${step.type === 'read' ? step.title : "Knowledge Check"}</h2>
         `;
         card.appendChild(header);
 
-        // Content
         const content = document.createElement('div');
         if (step.type === 'read') {
             content.innerHTML = step.content;
         } else {
-            // Quiz Layout
             content.innerHTML = `<p style="font-size:1.2rem; font-weight:600; margin-bottom:1.5rem;">${step.question}</p>`;
             if (step.context) {
                 content.innerHTML += `<p style="background:#f3f4f6; padding:1rem; border-radius:8px; font-style:italic; border-left:4px solid #9ca3af;">"${step.context}"</p>`;
@@ -833,10 +897,10 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         }
         card.appendChild(content);
         container.appendChild(card);
+        document.querySelector('main').scrollTop = 0;
     }
 
     function handleAnswer(btn, isCorrect, explanation) {
-        // Disable all options
         const allBtns = document.querySelectorAll('.option-btn');
         allBtns.forEach(b => b.disabled = true);
 
@@ -846,7 +910,6 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
             updateSidebar(`<strong>Correct!</strong> ${explanation}`, false, "Continue", nextStep);
         } else {
             btn.classList.add('wrong');
-            // Highlight correct one (optional, or force retry. Here we just explain and move on for flow)
             updateSidebar(`<strong>Not quite.</strong> ${explanation}`, false, "Continue", nextStep);
         }
     }
@@ -857,23 +920,44 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
 
     function completeModule() {
-        // Unlock Logic
         if (state.currentModuleId === 'nouns') {
             state.unlocked.pronouns = true;
             document.getElementById('card-pronouns').classList.remove('locked');
-            document.getElementById('card-pronouns').querySelector('.text-muted').nextElementSibling.style.display = 'none'; // hide locked text
+            document.getElementById('card-pronouns').querySelector('.locked-text').style.display = 'none';
             document.getElementById('bar-nouns').style.width = '100%';
         } else if (state.currentModuleId === 'pronouns') {
             state.unlocked.adjectives = true;
             document.getElementById('card-adjectives').classList.remove('locked');
-            document.getElementById('card-adjectives').querySelector('.text-muted').nextElementSibling.style.display = 'none';
+            document.getElementById('card-adjectives').querySelector('.locked-text').style.display = 'none';
         } else if (state.currentModuleId === 'adjectives') {
             switchView('view-certificate');
-            updateSidebar("You did it! I am so proud. Here is your certificate.", true);
+            updateSidebar("Congratulations! You have completed the curriculum. You are now a Grammar Master.", true, "Reset Course", resetProgress);
             return;
         }
 
         switchView('view-dashboard');
+    }
+
+    function resetProgress() {
+        state.currentModuleId = null;
+        state.stepIndex = 0;
+        state.xp = 0;
+        state.unlocked = { nouns: true, pronouns: false, adjectives: false };
+
+        document.getElementById('xp-display').innerText = "0 XP";
+
+        const pCard = document.getElementById('card-pronouns');
+        pCard.classList.add('locked');
+        pCard.querySelector('.locked-text').style.display = 'flex';
+
+        const aCard = document.getElementById('card-adjectives');
+        aCard.classList.add('locked');
+        aCard.querySelector('.locked-text').style.display = 'flex';
+
+        document.getElementById('bar-nouns').style.width = '0%';
+
+        switchView('view-dashboard');
+        updateSidebar("Progress reset. Ready for a fresh start?", true);
     }
 
     // --- Source Code Tools ---
