@@ -39,941 +39,793 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
 
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<title>Grammar Academy Pro - Grade 6 Advanced</title>
+<title>Grammar Master Pro: Advanced Curriculum</title>
 <!-- Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&amp;family=Merriweather:ital,wght@0,300;0,700;1,400&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&amp;family=Playfair+Display:ital,wght@0,600;1,600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" rel="stylesheet">
+<!-- Tailwind CSS (via CDN for styling utility) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                fontFamily: {
+                    sans: ['Inter', 'sans-serif'],
+                    serif: ['Playfair Display', 'serif'],
+                },
+                colors: {
+                    primary: '#2563eb',
+                    secondary: '#059669',
+                    accent: '#d97706',
+                    paper: '#ffffff',
+                    surface: '#f3f4f6',
+                }
+            }
+        }
+    }
+</script>
 <style>
-    :root {
-        --primary: #4f46e5; /* Indigo */
-        --primary-light: #eef2ff;
-        --secondary: #059669; /* Emerald */
-        --secondary-light: #ecfdf5;
-        --accent: #d97706; /* Amber */
-        --accent-light: #fffbeb;
-        --bg-body: #f8fafc;
-        --bg-card: #ffffff;
-        --text-main: #1e293b;
-        --text-muted: #64748b;
-        --border: #e2e8f0;
-        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
-        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-        --radius: 16px;
+    /* Custom Scrollbar */
+    ::-webkit-scrollbar { width: 8px; }
+    ::-webkit-scrollbar-track { background: #f1f1f1; }
+    ::-webkit-scrollbar-thumb { background: #c1c1c1; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #a8a8a8; }
+
+    /* Transitions */
+    .fade-enter {
+        opacity: 0;
+        transform: translateY(10px);
+        animation: fadeIn 0.4s forwards cubic-bezier(0.16, 1, 0.3, 1);
     }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    body {
-        font-family: 'Inter', sans-serif;
-        background-color: var(--bg-body);
-        color: var(--text-main);
-        height: 100vh;
-        display: flex;
-        flex-direction: column;
-        overflow: hidden;
-    }
-
-    /* --- Typography --- */
-    h1, h2, h3, h4 { font-family: 'Merriweather', serif; color: #0f172a; }
-    p { line-height: 1.7; margin-bottom: 1rem; font-size: 1.05rem; }
-    strong { color: var(--primary); font-weight: 700; }
-    em { font-style: italic; color: #475569; }
-    .text-sm { font-size: 0.875rem; }
-    .font-bold { font-weight: 700; }
-
-    /* --- Header --- */
-    header {
-        background: var(--bg-card);
-        border-bottom: 1px solid var(--border);
-        padding: 0.75rem 2rem;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        z-index: 20;
-    }
-
-    .brand {
-        display: flex;
-        align-items: center;
-        gap: 0.5rem;
-        font-size: 1.25rem;
-        font-weight: 800;
-        color: var(--primary);
-    }
-
-    .status-bar {
-        display: flex;
-        gap: 1.5rem;
-        align-items: center;
-    }
-
-    .xp-pill {
-        background: var(--accent-light);
-        color: #b45309;
-        border: 1px solid #fcd34d;
-        padding: 0.25rem 1rem;
-        border-radius: 99px;
-        font-weight: 700;
-        display: flex;
-        align-items: center;
-        gap: 0.25rem;
-        transition: transform 0.2s;
-    }
-
-    /* --- Main Layout --- */
-    .app-container {
-        display: flex;
-        flex: 1;
-        overflow: hidden;
-    }
-
-    /* --- Sidebar (The Professor) --- */
-    aside {
-        width: 350px;
-        background: white;
-        border-right: 1px solid var(--border);
-        display: flex;
-        flex-direction: column;
-        padding: 1.5rem;
-        flex-shrink: 0;
-        z-index: 10;
-        box-shadow: 4px 0 24px rgba(0,0,0,0.02);
-    }
-
-    .prof-profile {
-        text-align: center;
-        margin-bottom: 1.5rem;
-    }
-
-    .prof-img {
-        width: 100px;
-        height: 100px;
-        border-radius: 50%;
-        background: #e0e7ff;
-        margin: 0 auto 0.75rem;
-        border: 4px solid white;
-        box-shadow: var(--shadow-md);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 3rem;
-    }
-
-    .prof-bubble {
-        background: #f1f5f9;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        border-top-left-radius: 0;
-        padding: 1.25rem;
-        position: relative;
-        box-shadow: var(--shadow-sm);
-        flex-grow: 1;
-        overflow-y: auto;
-    }
-
-    .prof-bubble::before {
-        content: "";
-        position: absolute;
-        top: 0; left: -10px;
-        width: 0; height: 0;
-        border-top: 10px solid #f1f5f9;
-        border-left: 10px solid transparent;
-    }
-
-    .sidebar-footer {
-        margin-top: 1.5rem;
-        display: flex;
-        flex-direction: column;
-        gap: 0.5rem;
-    }
-
-    .btn {
-        width: 100%;
-        padding: 0.875rem;
-        border-radius: 8px;
-        border: none;
-        font-weight: 600;
-        font-size: 1rem;
-        cursor: pointer;
-        transition: all 0.2s;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 0.5rem;
-    }
-
-    .btn-primary {
-        background: var(--primary);
-        color: white;
-        box-shadow: 0 4px 6px rgba(79, 70, 229, 0.2);
-    }
-    .btn-primary:hover { background: #4338ca; transform: translateY(-1px); }
-    
-    .btn-disabled {
-        background: #9ca3af;
-        color: white;
-        cursor: not-allowed;
-    }
-
-    .btn-text {
-        background: transparent;
-        color: var(--text-muted);
-        font-size: 0.85rem;
-        font-weight: 500;
-    }
-    .btn-text:hover {
-        color: #ef4444; /* Red on hover for reset */
-        text-decoration: underline;
-    }
-
-    /* --- Content Area --- */
-    main {
-        flex: 1;
-        overflow-y: auto;
-        padding: 2rem;
-        display: flex;
-        justify-content: center;
-        position: relative;
-    }
-
-    .container {
-        width: 100%;
-        max-width: 900px;
-    }
-
-    /* --- Views --- */
-    .view { display: none; animation: fadeIn 0.4s ease-out; }
-    .view.active { display: block; }
-
     @keyframes fadeIn {
-        from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* Dashboard */
-    .module-grid {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-        gap: 1.5rem;
-    }
-
-    .module-card {
-        background: white;
-        border: 1px solid var(--border);
-        border-radius: var(--radius);
-        padding: 1.5rem;
-        transition: all 0.2s;
-        cursor: pointer;
-        position: relative;
-        overflow: hidden;
-    }
-
-    .module-card:hover:not(.locked) {
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-md);
-        border-color: var(--primary);
-    }
-
-    .module-card.locked {
-        opacity: 0.7;
-        background: #f8fafc;
-        cursor: not-allowed;
-    }
-
-    .module-icon {
-        width: 48px; height: 48px;
-        border-radius: 12px;
-        display: flex; align-items: center; justify-content: center;
-        color: white;
-        margin-bottom: 1rem;
-        font-size: 1.5rem;
-    }
-
-    .progress-bar {
-        height: 6px;
-        background: #e2e8f0;
-        border-radius: 3px;
-        margin-top: 1rem;
-        overflow: hidden;
-    }
-    .progress-fill { height: 100%; width: 0%; transition: width 0.5s ease; }
-
     /* Lesson Content Styling */
-    .lesson-card {
-        background: white;
-        border-radius: var(--radius);
-        padding: 3rem;
-        box-shadow: var(--shadow-md);
-        border: 1px solid var(--border);
-        margin-bottom: 2rem;
-    }
-
-    .lesson-header {
-        border-bottom: 2px solid #f1f5f9;
-        padding-bottom: 1.5rem;
-        margin-bottom: 2rem;
-    }
-
-    .lesson-tag {
-        text-transform: uppercase;
-        font-size: 0.75rem;
-        letter-spacing: 0.05em;
-        font-weight: 700;
-        color: var(--primary);
-        margin-bottom: 0.5rem;
-        display: block;
-    }
-
-    .example-box {
-        background: var(--secondary-light);
-        border-left: 4px solid var(--secondary);
+    .prose p { margin-bottom: 1.25em; line-height: 1.8; color: #374151; font-size: 1.05rem; }
+    .prose strong { color: #111827; font-weight: 700; }
+    .prose ul { list-style-type: disc; padding-left: 1.5em; margin-bottom: 1.25em; }
+    .prose li { margin-bottom: 0.5em; }
+    .highlight { background-color: #fef3c7; padding: 2px 4px; border-radius: 2px; color: #92400e; font-weight: 500; }
+    
+    /* Example Box */
+    .example-card {
+        background: #f0f9ff;
+        border-left: 4px solid #3b82f6;
         padding: 1.5rem;
-        border-radius: 4px;
+        border-radius: 0 8px 8px 0;
         margin: 1.5rem 0;
-        color: #064e3b;
+        font-style: italic;
+        color: #1e40af;
     }
 
-    .highlight {
-        background: #fef3c7;
-        padding: 0 4px;
-        border-radius: 2px;
-        font-weight: 600;
-        color: #92400e;
-    }
+    /* Option Button State */
+    .option-btn.selected { border-color: #2563eb; background-color: #eff6ff; }
+    .option-btn.correct { border-color: #059669; background-color: #d1fae5; color: #065f46; }
+    .option-btn.wrong { border-color: #ef4444; background-color: #fee2e2; color: #991b1b; }
+    .option-btn:disabled { cursor: default; }
 
-    ul.bullet-list {
-        margin-left: 1.5rem;
-        margin-bottom: 1rem;
-        list-style-type: disc;
-    }
-    ul.bullet-list li {
-        margin-bottom: 0.5rem;
-    }
-
-    /* Quiz Interactions */
-    .quiz-options {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 1rem;
-        margin-top: 2rem;
-    }
-
-    .option-btn {
-        text-align: left;
-        padding: 1.25rem;
-        background: white;
-        border: 2px solid var(--border);
-        border-radius: 12px;
-        font-size: 1rem;
-        font-weight: 500;
-        cursor: pointer;
-        transition: all 0.2s;
-    }
-
-    .option-btn:hover { border-color: var(--primary); background: var(--primary-light); }
-    .option-btn.correct { border-color: var(--secondary); background: #d1fae5; color: #065f46; }
-    .option-btn.wrong { border-color: #ef4444; background: #fee2e2; color: #991b1b; }
-
-    /* Code Modal */
-    .code-modal {
-        position: fixed;
-        inset: 0;
-        background: rgba(0,0,0,0.6);
-        backdrop-filter: blur(4px);
-        z-index: 100;
-        display: none;
-        align-items: center;
-        justify-content: center;
-        padding: 2rem;
-    }
-    .code-modal.active { display: flex; }
-    .code-window {
-        background: #1e1e1e;
-        width: 100%; max-width: 900px; height: 85vh;
-        border-radius: var(--radius);
-        display: flex; flex-direction: column;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-    }
-    .code-header {
-        background: #252526;
-        padding: 1rem;
-        display: flex; justify-content: space-between; align-items: center;
-        border-bottom: 1px solid #333;
-        color: #ccc;
-    }
-    textarea.source-code {
-        flex: 1;
-        background: #1e1e1e; color: #d4d4d4;
-        border: none; padding: 1.5rem;
-        font-family: 'Courier New', monospace;
-        font-size: 0.9rem;
-        resize: none;
-    }
-    .float-btn {
-        position: fixed; bottom: 2rem; right: 2rem;
-        width: 56px; height: 56px;
-        border-radius: 50%;
-        background: #0f172a; color: white;
-        display: flex; align-items: center; justify-content: center;
-        box-shadow: var(--shadow-md);
-        cursor: pointer;
-        border: none;
-        z-index: 50;
-        transition: transform 0.2s;
-    }
-    .float-btn:hover { transform: scale(1.1); }
-
-    /* Locked State Text Helpers */
-    .locked-text {
-        margin-top:1rem; font-size:0.8rem; font-weight:700; color:#9ca3af; display:flex; gap:0.25rem;
-    }
-
-    /* Responsive */
-    @media(max-width: 800px) {
-        .app-container { flex-direction: column; overflow-y: auto; }
-        aside { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; flex-direction: row; align-items: center; gap: 1rem; flex-wrap: wrap;}
-        .prof-profile { display: flex; text-align: left; align-items: center; gap: 1rem; margin: 0; flex-shrink: 0;}
-        .prof-img { width: 50px; height: 50px; font-size: 1.5rem; margin: 0; }
-        .sidebar-footer { margin: 0; width: 100%; flex-direction: row; }
-        .prof-bubble { width: 100%; margin-top: 1rem; }
-        main { padding: 1rem; }
-        .lesson-card { padding: 1.5rem; }
+    /* Glass Modal */
+    .glass-modal {
+        background: rgba(255, 255, 255, 0.95);
+        backdrop-filter: blur(10px);
     }
 </style>
-</head>
-<body>
-<header>
-<div class="brand">
-<span class="material-symbols-rounded" style="color:var(--primary); font-size: 2rem;">school</span>
-        Grammar Academy Pro
+<style>*, ::before, ::after{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }::backdrop{--tw-border-spacing-x:0;--tw-border-spacing-y:0;--tw-translate-x:0;--tw-translate-y:0;--tw-rotate:0;--tw-skew-x:0;--tw-skew-y:0;--tw-scale-x:1;--tw-scale-y:1;--tw-pan-x: ;--tw-pan-y: ;--tw-pinch-zoom: ;--tw-scroll-snap-strictness:proximity;--tw-gradient-from-position: ;--tw-gradient-via-position: ;--tw-gradient-to-position: ;--tw-ordinal: ;--tw-slashed-zero: ;--tw-numeric-figure: ;--tw-numeric-spacing: ;--tw-numeric-fraction: ;--tw-ring-inset: ;--tw-ring-offset-width:0px;--tw-ring-offset-color:#fff;--tw-ring-color:rgb(59 130 246 / 0.5);--tw-ring-offset-shadow:0 0 #0000;--tw-ring-shadow:0 0 #0000;--tw-shadow:0 0 #0000;--tw-shadow-colored:0 0 #0000;--tw-blur: ;--tw-brightness: ;--tw-contrast: ;--tw-grayscale: ;--tw-hue-rotate: ;--tw-invert: ;--tw-saturate: ;--tw-sepia: ;--tw-drop-shadow: ;--tw-backdrop-blur: ;--tw-backdrop-brightness: ;--tw-backdrop-contrast: ;--tw-backdrop-grayscale: ;--tw-backdrop-hue-rotate: ;--tw-backdrop-invert: ;--tw-backdrop-opacity: ;--tw-backdrop-saturate: ;--tw-backdrop-sepia: ;--tw-contain-size: ;--tw-contain-layout: ;--tw-contain-paint: ;--tw-contain-style: }/* ! tailwindcss v3.4.17 | MIT License | https://tailwindcss.com */*,::after,::before{box-sizing:border-box;border-width:0;border-style:solid;border-color:#e5e7eb}::after,::before{--tw-content:''}:host,html{line-height:1.5;-webkit-text-size-adjust:100%;-moz-tab-size:4;tab-size:4;font-family:Inter, sans-serif;font-feature-settings:normal;font-variation-settings:normal;-webkit-tap-highlight-color:transparent}body{margin:0;line-height:inherit}hr{height:0;color:inherit;border-top-width:1px}abbr:where([title]){-webkit-text-decoration:underline dotted;text-decoration:underline dotted}h1,h2,h3,h4,h5,h6{font-size:inherit;font-weight:inherit}a{color:inherit;text-decoration:inherit}b,strong{font-weight:bolder}code,kbd,pre,samp{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;font-feature-settings:normal;font-variation-settings:normal;font-size:1em}small{font-size:80%}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline}sub{bottom:-.25em}sup{top:-.5em}table{text-indent:0;border-color:inherit;border-collapse:collapse}button,input,optgroup,select,textarea{font-family:inherit;font-feature-settings:inherit;font-variation-settings:inherit;font-size:100%;font-weight:inherit;line-height:inherit;letter-spacing:inherit;color:inherit;margin:0;padding:0}button,select{text-transform:none}button,input:where([type=button]),input:where([type=reset]),input:where([type=submit]){-webkit-appearance:button;background-color:transparent;background-image:none}:-moz-focusring{outline:auto}:-moz-ui-invalid{box-shadow:none}progress{vertical-align:baseline}::-webkit-inner-spin-button,::-webkit-outer-spin-button{height:auto}[type=search]{-webkit-appearance:textfield;outline-offset:-2px}::-webkit-search-decoration{-webkit-appearance:none}::-webkit-file-upload-button{-webkit-appearance:button;font:inherit}summary{display:list-item}blockquote,dd,dl,figure,h1,h2,h3,h4,h5,h6,hr,p,pre{margin:0}fieldset{margin:0;padding:0}legend{padding:0}menu,ol,ul{list-style:none;margin:0;padding:0}dialog{padding:0}textarea{resize:vertical}input::placeholder,textarea::placeholder{opacity:1;color:#9ca3af}[role=button],button{cursor:pointer}:disabled{cursor:default}audio,canvas,embed,iframe,img,object,svg,video{display:block;vertical-align:middle}img,video{max-width:100%;height:auto}[hidden]:where(:not([hidden=until-found])){display:none}.fixed{position:fixed}.absolute{position:absolute}.relative{position:relative}.inset-0{inset:0px}.-top-3{top:-0.75rem}.bottom-6{bottom:1.5rem}.left-0{left:0px}.right-0{right:0px}.right-6{right:1.5rem}.top-0{top:0px}.z-10{z-index:10}.z-20{z-index:20}.z-30{z-index:30}.z-50{z-index:50}.mx-auto{margin-left:auto;margin-right:auto}.mb-1{margin-bottom:0.25rem}.mb-2{margin-bottom:0.5rem}.mb-3{margin-bottom:0.75rem}.mb-4{margin-bottom:1rem}.mb-6{margin-bottom:1.5rem}.mb-8{margin-bottom:2rem}.inline-block{display:inline-block}.flex{display:flex}.grid{display:grid}.hidden{display:none}.h-12{height:3rem}.h-16{height:4rem}.h-2{height:0.5rem}.h-20{height:5rem}.h-24{height:6rem}.h-\[80vh\]{height:80vh}.h-full{height:100%}.h-screen{height:100vh}.min-h-\[400px\]{min-height:400px}.w-0{width:0px}.w-12{width:3rem}.w-20{width:5rem}.w-24{width:6rem}.w-64{width:16rem}.w-80{width:20rem}.w-full{width:100%}.max-w-2xl{max-width:42rem}.max-w-3xl{max-width:48rem}.max-w-4xl{max-width:56rem}.flex-1{flex:1 1 0%}.flex-shrink-0{flex-shrink:0}.cursor-not-allowed{cursor:not-allowed}.cursor-pointer{cursor:pointer}.resize-none{resize:none}.grid-cols-1{grid-template-columns:repeat(1, minmax(0, 1fr))}.flex-col{flex-direction:column}.items-start{align-items:flex-start}.items-center{align-items:center}.justify-center{justify-content:center}.justify-between{justify-content:space-between}.gap-2{gap:0.5rem}.gap-3{gap:0.75rem}.gap-6{gap:1.5rem}.space-y-2 > :not([hidden]) ~ :not([hidden]){--tw-space-y-reverse:0;margin-top:calc(0.5rem * calc(1 - var(--tw-space-y-reverse)));margin-bottom:calc(0.5rem * var(--tw-space-y-reverse))}.overflow-hidden{overflow:hidden}.overflow-y-auto{overflow-y:auto}.rounded{border-radius:0.25rem}.rounded-2xl{border-radius:1rem}.rounded-full{border-radius:9999px}.rounded-lg{border-radius:0.5rem}.rounded-xl{border-radius:0.75rem}.rounded-tl-none{border-top-left-radius:0px}.border{border-width:1px}.border-4{border-width:4px}.border-b{border-bottom-width:1px}.border-r{border-right-width:1px}.border-t{border-top-width:1px}.border-amber-200{--tw-border-opacity:1;border-color:rgb(253 230 138 / var(--tw-border-opacity, 1))}.border-gray-100{--tw-border-opacity:1;border-color:rgb(243 244 246 / var(--tw-border-opacity, 1))}.border-gray-200{--tw-border-opacity:1;border-color:rgb(229 231 235 / var(--tw-border-opacity, 1))}.border-primary{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.border-white{--tw-border-opacity:1;border-color:rgb(255 255 255 / var(--tw-border-opacity, 1))}.bg-amber-100{--tw-bg-opacity:1;background-color:rgb(254 243 199 / var(--tw-bg-opacity, 1))}.bg-amber-50{--tw-bg-opacity:1;background-color:rgb(255 251 235 / var(--tw-bg-opacity, 1))}.bg-black\/50{background-color:rgb(0 0 0 / 0.5)}.bg-blue-100{--tw-bg-opacity:1;background-color:rgb(219 234 254 / var(--tw-bg-opacity, 1))}.bg-emerald-100{--tw-bg-opacity:1;background-color:rgb(209 250 229 / var(--tw-bg-opacity, 1))}.bg-gray-100{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-gray-200{--tw-bg-opacity:1;background-color:rgb(229 231 235 / var(--tw-bg-opacity, 1))}.bg-gray-50{--tw-bg-opacity:1;background-color:rgb(249 250 251 / var(--tw-bg-opacity, 1))}.bg-gray-900{--tw-bg-opacity:1;background-color:rgb(17 24 39 / var(--tw-bg-opacity, 1))}.bg-indigo-50{--tw-bg-opacity:1;background-color:rgb(238 242 255 / var(--tw-bg-opacity, 1))}.bg-primary{--tw-bg-opacity:1;background-color:rgb(37 99 235 / var(--tw-bg-opacity, 1))}.bg-slate-50{--tw-bg-opacity:1;background-color:rgb(248 250 252 / var(--tw-bg-opacity, 1))}.bg-slate-900{--tw-bg-opacity:1;background-color:rgb(15 23 42 / var(--tw-bg-opacity, 1))}.bg-surface{--tw-bg-opacity:1;background-color:rgb(243 244 246 / var(--tw-bg-opacity, 1))}.bg-white{--tw-bg-opacity:1;background-color:rgb(255 255 255 / var(--tw-bg-opacity, 1))}.bg-yellow-100{--tw-bg-opacity:1;background-color:rgb(254 249 195 / var(--tw-bg-opacity, 1))}.bg-gradient-to-r{background-image:linear-gradient(to right, var(--tw-gradient-stops))}.from-blue-500{--tw-gradient-from:#3b82f6 var(--tw-gradient-from-position);--tw-gradient-to:rgb(59 130 246 / 0) var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), var(--tw-gradient-to)}.via-indigo-500{--tw-gradient-to:rgb(99 102 241 / 0)  var(--tw-gradient-to-position);--tw-gradient-stops:var(--tw-gradient-from), #6366f1 var(--tw-gradient-via-position), var(--tw-gradient-to)}.to-purple-500{--tw-gradient-to:#a855f7 var(--tw-gradient-to-position)}.p-10{padding:2.5rem}.p-4{padding:1rem}.p-6{padding:1.5rem}.p-8{padding:2rem}.px-12{padding-left:3rem;padding-right:3rem}.px-3{padding-left:0.75rem;padding-right:0.75rem}.px-4{padding-left:1rem;padding-right:1rem}.px-6{padding-left:1.5rem;padding-right:1.5rem}.px-8{padding-left:2rem;padding-right:2rem}.py-1\.5{padding-top:0.375rem;padding-bottom:0.375rem}.py-2{padding-top:0.5rem;padding-bottom:0.5rem}.py-3{padding-top:0.75rem;padding-bottom:0.75rem}.pb-2{padding-bottom:0.5rem}.pb-20{padding-bottom:5rem}.text-center{text-align:center}.font-mono{font-family:ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace}.font-serif{font-family:Playfair Display, serif}.text-2xl{font-size:1.5rem;line-height:2rem}.text-3xl{font-size:1.875rem;line-height:2.25rem}.text-4xl{font-size:2.25rem;line-height:2.5rem}.text-5xl{font-size:3rem;line-height:1}.text-8xl{font-size:6rem;line-height:1}.text-lg{font-size:1.125rem;line-height:1.75rem}.text-sm{font-size:0.875rem;line-height:1.25rem}.text-xl{font-size:1.25rem;line-height:1.75rem}.text-xs{font-size:0.75rem;line-height:1rem}.font-bold{font-weight:700}.font-medium{font-weight:500}.font-semibold{font-weight:600}.uppercase{text-transform:uppercase}.leading-none{line-height:1}.leading-relaxed{line-height:1.625}.tracking-wide{letter-spacing:0.025em}.tracking-wider{letter-spacing:0.05em}.tracking-widest{letter-spacing:0.1em}.text-amber-600{--tw-text-opacity:1;color:rgb(217 119 6 / var(--tw-text-opacity, 1))}.text-amber-800{--tw-text-opacity:1;color:rgb(146 64 14 / var(--tw-text-opacity, 1))}.text-emerald-600{--tw-text-opacity:1;color:rgb(5 150 105 / var(--tw-text-opacity, 1))}.text-gray-400{--tw-text-opacity:1;color:rgb(156 163 175 / var(--tw-text-opacity, 1))}.text-gray-500{--tw-text-opacity:1;color:rgb(107 114 128 / var(--tw-text-opacity, 1))}.text-gray-600{--tw-text-opacity:1;color:rgb(75 85 99 / var(--tw-text-opacity, 1))}.text-gray-700{--tw-text-opacity:1;color:rgb(55 65 81 / var(--tw-text-opacity, 1))}.text-gray-800{--tw-text-opacity:1;color:rgb(31 41 55 / var(--tw-text-opacity, 1))}.text-gray-900{--tw-text-opacity:1;color:rgb(17 24 39 / var(--tw-text-opacity, 1))}.text-green-600{--tw-text-opacity:1;color:rgb(22 163 74 / var(--tw-text-opacity, 1))}.text-primary{--tw-text-opacity:1;color:rgb(37 99 235 / var(--tw-text-opacity, 1))}.text-slate-300{--tw-text-opacity:1;color:rgb(203 213 225 / var(--tw-text-opacity, 1))}.text-slate-50{--tw-text-opacity:1;color:rgb(248 250 252 / var(--tw-text-opacity, 1))}.text-white{--tw-text-opacity:1;color:rgb(255 255 255 / var(--tw-text-opacity, 1))}.text-yellow-600{--tw-text-opacity:1;color:rgb(202 138 4 / var(--tw-text-opacity, 1))}.opacity-10{opacity:0.1}.opacity-50{opacity:0.5}.opacity-60{opacity:0.6}.shadow-2xl{--tw-shadow:0 25px 50px -12px rgb(0 0 0 / 0.25);--tw-shadow-colored:0 25px 50px -12px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-\[4px_0_24px_rgba\(0\2c 0\2c 0\2c 0\.02\)\]{--tw-shadow:4px 0 24px rgba(0,0,0,0.02);--tw-shadow-colored:4px 0 24px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-lg{--tw-shadow:0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 10px 15px -3px var(--tw-shadow-color), 0 4px 6px -4px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-md{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-sm{--tw-shadow:0 1px 2px 0 rgb(0 0 0 / 0.05);--tw-shadow-colored:0 1px 2px 0 var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.shadow-xl{--tw-shadow:0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 20px 25px -5px var(--tw-shadow-color), 0 8px 10px -6px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.backdrop-blur-sm{--tw-backdrop-blur:blur(4px);-webkit-backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia);backdrop-filter:var(--tw-backdrop-blur) var(--tw-backdrop-brightness) var(--tw-backdrop-contrast) var(--tw-backdrop-grayscale) var(--tw-backdrop-hue-rotate) var(--tw-backdrop-invert) var(--tw-backdrop-opacity) var(--tw-backdrop-saturate) var(--tw-backdrop-sepia)}.transition-all{transition-property:all;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-colors{transition-property:color, background-color, border-color, fill, stroke, -webkit-text-decoration-color;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke;transition-property:color, background-color, border-color, text-decoration-color, fill, stroke, -webkit-text-decoration-color;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-opacity{transition-property:opacity;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.transition-transform{transition-property:transform;transition-timing-function:cubic-bezier(0.4, 0, 0.2, 1);transition-duration:150ms}.duration-500{transition-duration:500ms}.hover\:scale-110:hover{--tw-scale-x:1.1;--tw-scale-y:1.1;transform:translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y))}.hover\:border-primary:hover{--tw-border-opacity:1;border-color:rgb(37 99 235 / var(--tw-border-opacity, 1))}.hover\:bg-black:hover{--tw-bg-opacity:1;background-color:rgb(0 0 0 / var(--tw-bg-opacity, 1))}.hover\:bg-blue-700:hover{--tw-bg-opacity:1;background-color:rgb(29 78 216 / var(--tw-bg-opacity, 1))}.hover\:bg-gray-300:hover{--tw-bg-opacity:1;background-color:rgb(209 213 219 / var(--tw-bg-opacity, 1))}.hover\:text-red-500:hover{--tw-text-opacity:1;color:rgb(239 68 68 / var(--tw-text-opacity, 1))}.hover\:shadow-md:hover{--tw-shadow:0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);--tw-shadow-colored:0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);box-shadow:var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow)}.focus\:outline-none:focus{outline:2px solid transparent;outline-offset:2px}.group:hover .group-hover\:opacity-20{opacity:0.2}@media (min-width: 768px){.md\:grid-cols-2{grid-template-columns:repeat(2, minmax(0, 1fr))}.md\:p-8{padding:2rem}}@media (min-width: 1024px){.lg\:grid-cols-3{grid-template-columns:repeat(3, minmax(0, 1fr))}}</style></head>
+<body class="bg-surface text-gray-800 h-screen flex flex-col overflow-hidden">
+
+<!-- Header -->
+<header class="bg-white border-b border-gray-200 h-16 flex items-center justify-between px-6 z-20 shadow-sm flex-shrink-0">
+    <div class="flex items-center gap-2 cursor-pointer" onclick="goHome()">
+        <span class="material-symbols-rounded text-primary text-3xl">school</span>
+        <div>
+            <h1 class="font-serif text-xl font-bold text-gray-900 leading-none">GrammarMaster</h1>
+            <span class="text-xs text-gray-500 font-medium tracking-wider uppercase">Pro Edition</span>
+        </div>
     </div>
-<div class="status-bar">
-<div class="xp-pill">
-<span class="material-symbols-rounded">bolt</span>
-<span id="xp-display">0 XP</span>
-</div>
-</div>
+    
+    <div class="flex items-center gap-6">
+        <!-- Progress Indicator (Visible inside lesson) -->
+        <div id="lesson-progress-container" class="items-center gap-3 w-64">
+            <div class="flex justify-between w-full text-xs font-bold text-gray-500 mb-1">
+                <span>Progress</span>
+                <span id="step-counter">1/50</span>
+            </div>
+            <div class="h-2 w-full bg-gray-200 rounded-full overflow-hidden">
+                <div id="progress-bar-fill" class="h-full bg-primary transition-all duration-500 w-0" style="width: 0%;"></div>
+            </div>
+        </div>
+
+        <div class="flex items-center gap-2 bg-amber-50 px-3 py-1.5 rounded-full border border-amber-200">
+            <span class="material-symbols-rounded text-amber-600 text-lg">bolt</span>
+            <span id="xp-display" class="font-bold text-amber-800 text-sm">0 XP</span>
+        </div>
+    </div>
 </header>
-<div class="app-container">
-<!-- Sidebar -->
-<aside>
-<div class="prof-profile">
-<div class="prof-img">👨‍🏫</div>
-<h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">Prof. Lexicon</h3>
-<div class="text-sm text-muted" style="color:var(--text-muted)">Your Guide</div>
-</div>
-<div class="prof-bubble">
-<p class="text-sm" id="guide-text">Welcome to the advanced grammar module. We will cover comprehensive topics for Grade 6. Please select a module to begin.</p>
-</div>
-<div class="sidebar-footer">
-<button class="btn btn-disabled" disabled="" id="main-action-btn">Continue</button>
-<button class="btn btn-text" onclick="resetProgress()">Reset Progress</button>
-</div>
-</aside>
-<!-- Main Content -->
-<main>
-<!-- DASHBOARD -->
-<div class="view active container" id="view-dashboard">
-<h2 style="margin-bottom: 0.5rem;">Grade 6 Advanced Curriculum</h2>
-<p style="color: var(--text-muted); margin-bottom: 2rem;">Complete the modules sequentially to master each topic.</p>
-<div class="module-grid">
-<!-- Nouns Module -->
-<div class="module-card" onclick="startModule('nouns')">
-<div class="module-icon" style="background: var(--primary);">
-<span class="material-symbols-rounded">category</span>
-</div>
-<h3>1. Nouns: The Foundation</h3>
-<p class="text-sm text-muted" style="margin-top:0.5rem;">Proper, Common, Abstract, Concrete, Countable.</p>
-<div class="progress-bar"><div class="progress-fill" id="bar-nouns" style="background: var(--primary);"></div></div>
-</div>
-<!-- Pronouns Module -->
-<div class="module-card locked" id="card-pronouns" onclick="startModule('pronouns')">
-<div class="module-icon" style="background: var(--secondary);">
-<span class="material-symbols-rounded">group</span>
-</div>
-<h3>2. Pronouns: Comprehensive</h3>
-<p class="text-sm text-muted" style="margin-top:0.5rem;">Personal, Possessive, Reflexive, Relative, etc.</p>
-<div class="locked-text">
-<span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
-                    </div>
-</div>
-<!-- Adjectives Module -->
-<div class="module-card locked" id="card-adjectives" onclick="startModule('adjectives')">
-<div class="module-icon" style="background: var(--accent);">
-<span class="material-symbols-rounded">palette</span>
-</div>
-<h3>3. Adjectives: Master Class</h3>
-<p class="text-sm text-muted" style="margin-top:0.5rem;">Types, Formation, Order, Comparison.</p>
-<div class="locked-text">
-<span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
-                    </div>
-</div>
-</div>
-</div>
-<!-- LESSON CONTAINER -->
-<div class="view container" id="view-lesson">
-<!-- Content injected via JS -->
-</div>
-<!-- CERTIFICATE CONTAINER -->
-<div class="view container" id="view-certificate">
-<div class="lesson-card" style="text-align: center; border-top: 8px solid var(--primary);">
-<div style="width: 80px; height: 80px; background: #fef3c7; color: #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 3rem;">
-                    🏆
+
+<!-- Main Layout -->
+<div class="flex flex-1 overflow-hidden">
+    
+    <!-- Sidebar / Guide -->
+    <aside class="w-80 bg-white border-r border-gray-200 flex flex-col z-10 shadow-[4px_0_24px_rgba(0,0,0,0.02)] flex-shrink-0">
+        <div class="p-6 flex flex-col items-center border-b border-gray-100">
+            <div class="w-20 h-20 rounded-full bg-indigo-50 border-4 border-white shadow-md flex items-center justify-center mb-3 text-4xl">
+                👨‍🏫
+            </div>
+            <h3 class="font-serif font-bold text-lg text-gray-800">Prof. Syntax</h3>
+            <p class="text-xs text-gray-500 uppercase tracking-wide font-semibold">Your Personal Tutor</p>
+        </div>
+        
+        <div class="flex-1 overflow-y-auto p-6 bg-slate-50">
+            <div class="bg-white p-4 rounded-xl rounded-tl-none border border-gray-200 shadow-sm relative text-sm leading-relaxed text-gray-600">
+                <span class="absolute -top-3 left-0 text-slate-50 text-2xl" style="transform: rotate(180deg) translateY(2px);">◢</span>
+                <p id="guide-text">Let's begin by grounding ourselves in the definition.</p>
+            </div>
+        </div>
+
+        <div class="p-4 border-t border-gray-200 bg-white space-y-2">
+            <button id="next-btn" class="w-full bg-primary hover:bg-blue-700 text-white font-semibold py-3 px-4 rounded-lg shadow-sm transition-all flex items-center justify-center gap-2" onclick="nextStep()">
+                Continue <span class="material-symbols-rounded text-lg">arrow_forward</span>
+            </button>
+            <button onclick="resetCourse()" class="w-full text-xs text-gray-400 hover:text-red-500 font-medium py-2 transition-colors">
+                Reset All Progress
+            </button>
+        </div>
+    </aside>
+
+    <!-- Content Area -->
+    <main class="flex-1 bg-surface relative overflow-hidden flex flex-col">
+        <!-- Floating Code Button -->
+        <button onclick="viewSource()" class="absolute bottom-6 right-6 w-12 h-12 bg-gray-900 text-white rounded-full shadow-lg flex items-center justify-center hover:scale-110 transition-transform z-30" title="View Source Code">
+            <span class="material-symbols-rounded">code</span>
+        </button>
+
+        <!-- DASHBOARD VIEW -->
+        <div id="view-dashboard" class="absolute inset-0 p-8 overflow-y-auto fade-enter hidden">
+            <div class="max-w-4xl mx-auto">
+                <div class="mb-8">
+                    <h2 class="font-serif text-3xl font-bold text-gray-900 mb-2">Grade 6 Advanced Curriculum</h2>
+                    <p class="text-gray-600">Complete all 50+ steps in each module to earn your certification.</p>
                 </div>
-<h1 style="color: var(--primary); margin-bottom: 1rem;">Certificate of Excellence</h1>
-<p>This certifies that the student has successfully mastered the</p>
-<h2 style="font-size: 2rem; margin: 1rem 0;">Grade 6 Advanced Grammar</h2>
-<p class="text-muted">Demonstrating expert proficiency in Nouns, Pronouns, and Adjectives.</p>
-<div style="margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
-<button class="btn btn-primary" onclick="resetProgress()" style="width: auto; padding: 0.75rem 2rem;">Restart Course</button>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <!-- Module 1 -->
+                    <div onclick="startModule('noun')" class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm hover:shadow-md hover:border-primary transition-all cursor-pointer group relative overflow-hidden">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <span class="material-symbols-rounded text-8xl text-primary">category</span>
+                        </div>
+                        <div class="w-12 h-12 rounded-xl bg-blue-100 text-primary flex items-center justify-center mb-4 text-2xl">
+                            <span class="material-symbols-rounded">category</span>
+                        </div>
+                        <h3 class="font-bold text-lg text-gray-900 mb-1">1. Noun Mastery</h3>
+                        <p class="text-sm text-gray-500 mb-4">Proper, Abstract, Cases &amp; Functions.</p>
+                        <div class="w-full bg-gray-100 h-2 rounded-full overflow-hidden">
+                            <div id="dash-progress-noun" class="h-full bg-primary w-0"></div>
+                        </div>
+                    </div>
+
+                    <!-- Module 2 -->
+                    <div id="card-pronoun" onclick="startModule('pronoun')" class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm transition-all relative overflow-hidden opacity-60 cursor-not-allowed">
+                        <div class="w-12 h-12 rounded-xl bg-emerald-100 text-emerald-600 flex items-center justify-center mb-4 text-2xl">
+                            <span class="material-symbols-rounded">group</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900 mb-1">2. Pronoun Power</h3>
+                                <p class="text-sm text-gray-500 mb-4">Reflexive, Relative &amp; Distributive.</p>
+                            </div>
+                            <span class="material-symbols-rounded text-gray-400">lock</span>
+                        </div>
+                    </div>
+
+                    <!-- Module 3 -->
+                    <div id="card-adjective" onclick="startModule('adjective')" class="bg-white p-6 rounded-2xl border border-gray-200 shadow-sm transition-all relative overflow-hidden opacity-60 cursor-not-allowed">
+                        <div class="w-12 h-12 rounded-xl bg-amber-100 text-amber-600 flex items-center justify-center mb-4 text-2xl">
+                            <span class="material-symbols-rounded">palette</span>
+                        </div>
+                        <div class="flex justify-between items-start">
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-900 mb-1">3. Adjective Arts</h3>
+                                <p class="text-sm text-gray-500 mb-4">Order, Degrees &amp; Formation.</p>
+                            </div>
+                            <span class="material-symbols-rounded text-gray-400">lock</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- LESSON VIEW -->
+        <div id="view-lesson" class="absolute inset-0 p-4 md:p-8 overflow-y-auto bg-surface">
+            <div class="max-w-3xl mx-auto w-full pb-20"> <!-- Padding bottom for scroll space -->
+                <div id="lesson-content" class="bg-white rounded-2xl shadow-sm border border-gray-200 p-8 min-h-[400px] fade-enter"><div class="fade-enter"><h2 class="font-serif text-2xl font-bold text-gray-900 mb-6 border-b border-gray-100 pb-2">1. The Essence of Nouns</h2><div class="prose text-gray-600 mb-6"><p>A <strong>Noun</strong> is the linguistic label we apply to reality. It names a <span class="highlight">person, place, thing, or idea</span>.</p>
+         <p>In advanced grammar, we look at nouns not just as names, but as <strong>functional units</strong> within a sentence. They can act as subjects (doers), objects (receivers), or complements.</p>
+         <div class="example-card">
+            <strong>Key Categories:</strong><br>
+            • Visible: Apple, Mountain, Computer (Concrete)<br>
+            • Invisible: Freedom, Hunger, Physics (Abstract)
+         </div></div></div></div>
+            </div>
+        </div>
+
+        <!-- CERTIFICATE VIEW -->
+        <div id="view-cert" class="absolute inset-0 flex items-center justify-center hidden bg-surface p-4">
+            <div class="bg-white p-10 rounded-2xl shadow-xl border-4 double border-primary max-w-2xl w-full text-center fade-enter relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-2 bg-gradient-to-r from-blue-500 via-indigo-500 to-purple-500"></div>
+                <div class="w-24 h-24 bg-yellow-100 text-yellow-600 rounded-full flex items-center justify-center mx-auto mb-6 text-5xl border-4 border-white shadow-lg">
+                    🎓
+                </div>
+                <h1 class="font-serif text-4xl font-bold text-gray-900 mb-2">Certificate of Mastery</h1>
+                <p class="text-gray-500 uppercase tracking-widest text-sm font-bold mb-8">Grammar Academy Pro • Grade 6</p>
+                
+                <p class="text-lg text-gray-600 mb-2">This officially certifies that</p>
+                <div class="text-3xl font-serif font-bold text-primary mb-6 border-b border-gray-200 pb-2 inline-block px-12">Student</div>
+                <p class="text-gray-600 mb-8 leading-relaxed">Has successfully completed the advanced curriculum covering Noun Analysis, Pronoun Classifications, and Adjective Theory with a score of <span class="font-bold text-green-600">100%</span>.</p>
+                
+                <button onclick="goHome()" class="bg-gray-900 text-white px-8 py-3 rounded-lg font-bold hover:bg-black transition-colors">Return to Dashboard</button>
+            </div>
+        </div>
+
+    </main>
 </div>
-</div>
-</div>
-</main>
-</div>
-<!-- Float Code Button -->
-<button class="float-btn" onclick="openCode()">
-<span class="material-symbols-rounded">code</span>
-</button>
+
 <!-- Code Modal -->
-<div class="code-modal" id="code-modal">
-<div class="code-window">
-<div class="code-header">
-<span style="font-weight: 700; display:flex; gap:0.5rem; align-items:center;"><span class="material-symbols-rounded">html</span> Source Code</span>
-<div style="display:flex; gap:0.5rem;">
-<button class="btn btn-primary" onclick="copyCode()" style="padding:0.25rem 1rem; font-size:0.8rem;">Copy</button>
-<button class="btn" onclick="closeCode()" style="background:#444; color:white; padding:0.25rem 1rem; font-size:0.8rem;">Close</button>
+<div id="code-modal" class="fixed inset-0 z-50 hidden items-center justify-center bg-black/50 backdrop-blur-sm p-4">
+    <div class="bg-white w-full max-w-4xl h-[80vh] rounded-xl shadow-2xl flex flex-col overflow-hidden">
+        <div class="flex justify-between items-center p-4 border-b border-gray-200 bg-gray-50">
+            <h3 class="font-bold text-gray-700">Source Code</h3>
+            <div class="flex gap-2">
+                <button onclick="copyCode()" class="px-4 py-2 bg-primary text-white rounded text-sm font-bold hover:bg-blue-700">Copy All</button>
+                <button onclick="closeCode()" class="px-4 py-2 bg-gray-200 text-gray-700 rounded text-sm font-bold hover:bg-gray-300">Close</button>
+            </div>
+        </div>
+        <textarea id="source-area" class="flex-1 p-4 font-mono text-xs bg-slate-900 text-slate-300 resize-none focus:outline-none" readonly=""></textarea>
+    </div>
 </div>
-</div>
-<textarea class="source-code" id="source-code" readonly=""></textarea>
-</div>
-</div>
+
 <script>
-    // --- Data Model ---
-    const curriculum = {
-        nouns: [
-            {
-                type: "read",
-                title: "Chapter 1: Defining Nouns",
-                content: `
-                    <p>A <b>Noun</b> is the name of a person, place, animal, thing, or idea. It is the most basic building block of a sentence.</p>
-                    <div class="example-box">
-                        <ul class="bullet-list">
-                            <li><strong>Person:</strong> Teacher, Pilot, Mom</li>
-                            <li><strong>Place:</strong> School, Paris, Kitchen</li>
-                            <li><strong>Thing:</strong> Pencil, Sandwich, Tree</li>
-                            <li><strong>Idea:</strong> Justice, Love, Speed</li>
-                        </ul>
-                    </div>
-                `,
-                guide: "Let's start with the basics. Read about what nouns are."
-            },
-            {
-                type: "quiz",
-                question: "Which word is a noun representing an 'Idea'?",
-                context: "The boy shouted with joy.",
-                options: [
-                    { text: "Boy", correct: false },
-                    { text: "Joy", correct: true },
-                    { text: "Shouted", correct: false },
-                    { text: "With", correct: false }
-                ],
-                explanation: "'Joy' is an abstract idea or emotion.",
-                guide: "Find the abstract concept."
-            },
-            {
-                type: "read",
-                title: "Common vs. Proper Nouns",
-                content: `
-                    <p><b>Common Nouns</b> are general names (city, dog). They are not capitalized unless they start a sentence.</p>
-                    <p><b>Proper Nouns</b> are specific names (London, Fido). They are <strong>always</strong> capitalized.</p>
-                `,
-                guide: "Proper nouns are specific and capitalized."
-            },
-            {
-                type: "quiz",
-                question: "Identify the Proper Noun.",
-                options: [
-                    { text: "ocean", correct: false },
-                    { text: "Pacific", correct: true },
-                    { text: "river", correct: false },
-                    { text: "mountain", correct: false }
-                ],
-                explanation: "'Pacific' is the specific name of an ocean.",
-                guide: "Which one names a specific place?"
-            }
-        ],
-        // EXPANDED PRONOUNS SECTION
-        pronouns: [
-            {
-                type: "read",
-                title: "1. Personal Pronouns",
-                content: `
-                    <p><b>Personal Pronouns</b> stand in for persons or things. They change form depending on whether they are the subject or object.</p>
-                    <ul class="bullet-list">
-                        <li><strong>Subject (Doer):</strong> I, We, You, He, She, It, They. <br><em>"<span class="highlight">She</span> runs fast."</em></li>
-                        <li><strong>Object (Receiver):</strong> Me, Us, You, Him, Her, It, Them. <br><em>"Give it to <span class="highlight">him</span>."</em></li>
-                    </ul>
-                `,
-                guide: "Personal pronouns change based on their job (subject vs object)."
-            },
-            {
-                type: "quiz",
-                question: "Choose the correct pronoun: '____ and I are friends.'",
-                options: [
-                    { text: "Him", correct: false },
-                    { text: "He", correct: true },
-                    { text: "His", correct: false },
-                    { text: "Himself", correct: false }
-                ],
-                explanation: "Correct! You need a Subject pronoun here.",
-                guide: "Who is the subject? Use a Subject pronoun."
-            },
-            {
-                type: "read",
-                title: "2. Possessive Pronouns",
-                content: `
-                    <p><b>Possessive Pronouns</b> show ownership. They stand alone and do not need a noun after them.</p>
-                    <div class="example-box">
-                        Mine, Ours, Yours, His, Hers, Theirs.<br>
-                        <em>"This book is <span class="highlight">mine</span>."</em>
-                    </div>
-                    <p><strong>Note:</strong> Don't confuse them with Possessive <em>Adjectives</em> (My, Our, Your) which come <em>before</em> a noun ("My book").</p>
-                `,
-                guide: "Possessive pronouns stand alone to show ownership."
-            },
-            {
-                type: "quiz",
-                question: "Which sentence uses a Possessive Pronoun?",
-                options: [
-                    { text: "This is my car.", correct: false },
-                    { text: "The car is mine.", correct: true },
-                    { text: "I drive the car.", correct: false },
-                    { text: "It is a red car.", correct: false }
-                ],
-                explanation: "'Mine' stands alone and shows ownership.",
-                guide: "Find the word that shows ownership without a noun following it."
-            },
-            {
-                type: "read",
-                title: "3. Reflexive vs. Emphatic",
-                content: `
-                    <p>Both end in <em>-self</em> or <em>-selves</em> (myself, yourself, himself, etc.), but their jobs are different.</p>
-                    <ul class="bullet-list">
-                        <li><strong>Reflexive:</strong> The action reflects back to the subject. Essential to meaning. <br><em>"I cut <span class="highlight">myself</span>."</em> (Subject and object are the same).</li>
-                        <li><strong>Emphatic:</strong> Emphasizes the noun. Can be removed without changing the main meaning. <br><em>"I <span class="highlight">myself</span> locked the door."</em> (I did it, not someone else).</li>
-                    </ul>
-                `,
-                guide: "Reflexive reflects action. Emphatic adds stress."
-            },
-            {
-                type: "quiz",
-                question: "Is the bold word Reflexive or Emphatic? 'She <b>herself</b> told me the news.'",
-                options: [
-                    { text: "Reflexive", correct: false },
-                    { text: "Emphatic", correct: true }
-                ],
-                explanation: "Correct! You could remove 'herself' and the sentence 'She told me the news' still makes sense. It is used for emphasis.",
-                guide: "Can you remove it from the sentence? If yes, it's Emphatic."
-            },
-            {
-                type: "read",
-                title: "4. Demonstrative Pronouns",
-                content: `
-                    <p>These point out specific people or things. <b>This, That, These, Those.</b></p>
-                    <div class="example-box">
-                        <em>"<span class="highlight">This</span> is my house."</em> (Pronoun)<br>
-                        <em>"<span class="highlight">This</span> house is mine."</em> (Adjective)
-                    </div>
-                    <p>If it stands alone, it is a Demonstrative Pronoun.</p>
-                `,
-                guide: "Demonstratives point things out."
-            },
-            {
-                type: "read",
-                title: "5. Interrogative & Relative",
-                content: `
-                    <p><strong>Interrogative Pronouns</strong> ask questions: <em>Who, Whom, Whose, Which, What</em>.<br>
-                    <em>"<span class="highlight">Who</span> is there?"</em></p>
-                    <p><strong>Relative Pronouns</strong> relate a clause to a noun used earlier: <em>Who, Which, That, Whom, Whose</em>.<br>
-                    <em>"The man <span class="highlight">who</span> called is here."</em></p>
-                `,
-                guide: "Interrogative asks. Relative connects."
-            },
-            {
-                type: "quiz",
-                question: "Identify the Relative Pronoun.",
-                context: "The book that I bought is interesting.",
-                options: [
-                    { text: "The", correct: false },
-                    { text: "Book", correct: false },
-                    { text: "That", correct: true },
-                    { text: "Is", correct: false }
-                ],
-                explanation: "'That' connects the clause 'I bought' to 'The book'.",
-                guide: "Find the connecting word."
-            },
-            {
-                type: "read",
-                title: "6. Indefinite & Distributive",
-                content: `
-                    <p><strong>Indefinite Pronouns</strong> refer to non-specific people or things: <em>Someone, Everybody, None, Few, Many, All.</em></p>
-                    <p><strong>Distributive Pronouns</strong> refer to persons or things one at a time: <em>Each, Either, Neither.</em> They are always singular.</p>
-                    <div class="example-box">
-                        <em>"<span class="highlight">Each</span> of the boys got a prize."</em>
-                    </div>
-                `,
-                guide: "Indefinite is vague. Distributive separates."
-            }
-        ],
-        // ADJECTIVES SECTION (From previous)
-        adjectives: [
-            {
-                type: "read",
-                title: "Adjective Types 1: Quality & Quantity",
-                content: `
-                    <p><b>Adjectives of Quality</b> describe the kind/shape/color. <br><em>"A <span class="highlight">brave</span> soldier."</em></p>
-                    <p><b>Adjectives of Quantity</b> answer 'How much?' (for uncountable nouns). <br><em>"Some rice, little water."</em></p>
-                `,
-                guide: "Quality describes. Quantity measures (uncountable)."
-            },
-            {
-                type: "read",
-                title: "Adjective Types 2: Number & Demonstrative",
-                content: `
-                    <p><b>Adjectives of Number</b> answer 'How many?' (for countable nouns). <br><em>"Two hands, many days."</em></p>
-                    <p><b>Demonstrative Adjectives</b> point out a noun. <br><em>"This book, those birds."</em></p>
-                `,
-                guide: "Number counts. Demonstrative points."
-            },
-            {
-                type: "read",
-                title: "Adjective Types 3: Interrogative & Possessive",
-                content: `
-                    <p><b>Interrogative Adjectives</b> ask questions with a noun. <br><em>"Which way? Whose bag?"</em></p>
-                    <p><b>Possessive Adjectives</b> show ownership before a noun. <br><em>"My car, Your house."</em></p>
-                `,
-                guide: "Interrogative asks. Possessive owns."
-            },
-            {
-                type: "read",
-                title: "Order of Adjectives",
-                content: `
-                    <p><b>OSASCOMP:</b> Opinion, Size, Age, Shape, Color, Origin, Material, Purpose.</p>
-                    <p>Example: <em>"A <span class="highlight">lovely small old red</span> car."</em></p>
-                `,
-                guide: "Remember OSASCOMP for ordering multiple adjectives."
-            },
-            {
-                type: "quiz",
-                question: "Choose the correct order.",
-                options: [
-                    { text: "A leather comfortable chair", correct: false },
-                    { text: "A comfortable leather chair", correct: true } // Opinion -> Material
-                ],
-                explanation: "Opinion (Comfortable) comes before Material (Leather).",
-                guide: "Opinion comes first."
-            },
-            {
-                type: "read",
-                title: "Degrees of Comparison",
-                content: `
-                    <ul class="bullet-list">
-                        <li><strong>Positive:</strong> Big</li>
-                        <li><strong>Comparative:</strong> Bigger (Comparing 2)</li>
-                        <li><strong>Superlative:</strong> Biggest (Comparing 3+)</li>
-                    </ul>
-                `,
-                guide: "Use Comparative for 2, Superlative for 3 or more."
-            }
-        ]
+    // --- Course Data Engine ---
+    // Instead of writing 150 static objects, we will use a generator pattern for exercises
+    // mixed with static detailed reading sections.
+
+    const courseContent = {
+        noun: {
+            title: "Noun Mastery",
+            steps: []
+        },
+        pronoun: {
+            title: "Pronoun Power",
+            steps: []
+        },
+        adjective: {
+            title: "Adjective Arts",
+            steps: []
+        }
     };
 
-    // --- State Management ---
-    let state = {
-        currentModuleId: null,
-        stepIndex: 0,
-        xp: 0,
-        unlocked: { nouns: true, pronouns: false, adjectives: false }
-    };
-
-    // --- Logic ---
-
-    function updateXP(amount) {
-        state.xp += amount;
-        document.getElementById('xp-display').innerText = state.xp + " XP";
-        const pill = document.querySelector('.xp-pill');
-        pill.style.transform = "scale(1.1)";
-        setTimeout(() => pill.style.transform = "scale(1)", 200);
+    // Helper to add Reading Step
+    function addRead(module, title, htmlContent, guideMsg) {
+        courseContent[module].steps.push({
+            type: 'read',
+            title: title,
+            content: htmlContent,
+            guide: guideMsg || "Read the material carefully. Click continue when ready."
+        });
     }
 
-    function switchView(viewId) {
-        document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
-        document.getElementById(viewId).classList.add('active');
+    // Helper to add Quiz Step
+    function addQuiz(module, question, options, correctIndex, explanation) {
+        courseContent[module].steps.push({
+            type: 'quiz',
+            question: question,
+            options: options,
+            correct: correctIndex,
+            explanation: explanation,
+            guide: "Select the best answer based on what you've learned."
+        });
+    }
+
+    // --- POPULATING CONTENT (50+ Steps per Module) ---
+
+    // ================= NOUNS =================
+    // 1. Definition
+    addRead('noun', '1. The Essence of Nouns', 
+        `<p>A <strong>Noun</strong> is the linguistic label we apply to reality. It names a <span class="highlight">person, place, thing, or idea</span>.</p>
+         <p>In advanced grammar, we look at nouns not just as names, but as <strong>functional units</strong> within a sentence. They can act as subjects (doers), objects (receivers), or complements.</p>
+         <div class="example-card">
+            <strong>Key Categories:</strong><br>
+            • Visible: Apple, Mountain, Computer (Concrete)<br>
+            • Invisible: Freedom, Hunger, Physics (Abstract)
+         </div>`, 
+        "Let's begin by grounding ourselves in the definition.");
+    
+    // 5 Drill Questions on Identification
+    const nounIdSentences = [
+        ["The <b>cat</b> sat on the mat.", "Thing/Animal"],
+        ["<b>London</b> is calling.", "Place"],
+        ["Her <b>bravery</b> amazed us.", "Idea"],
+        ["Dr. <b>Smith</b> arrived.", "Person"],
+        ["The <b>water</b> is cold.", "Thing"]
+    ];
+    nounIdSentences.forEach((item, i) => {
+        addQuiz('noun', `Identify the category of the bold noun: "${item[0]}"`, 
+        ['Person', 'Place', 'Thing/Animal', 'Idea'], 
+        ['Person', 'Place', 'Thing/Animal', 'Idea'].indexOf(item[1]), 
+        `Correct! It represents a ${item[1]}.`);
+    });
+
+    // 2. Common vs Proper
+    addRead('noun', '2. Specificity: Common vs. Proper', 
+        `<p><strong>Common Nouns</strong> are generic labels (e.g., <em>city, man, planet</em>). They are not capitalized unless starting a sentence.</p>
+         <p><strong>Proper Nouns</strong> are specific identifiers (e.g., <em>Paris, Albert Einstein, Mars</em>). They are <strong>always</strong> capitalized.</p>
+         <p><strong>Pro Tip:</strong> 'Mom' is capitalized when used as a name ("Hi Mom!") but not when used generally ("My mom is here").</p>`);
+    
+    // 10 Drill Questions Common vs Proper
+    const properCommonData = [
+        {w: "Toyota", t: "Proper"}, {w: "car", t: "Common"},
+        {w: "Pepsi", t: "Proper"}, {w: "soda", t: "Common"},
+        {w: "Monday", t: "Proper"}, {w: "day", t: "Common"},
+        {w: "Zeus", t: "Proper"}, {w: "god", t: "Common"},
+        {w: "Harry Potter", t: "Proper"}, {w: "wizard", t: "Common"}
+    ];
+    properCommonData.forEach(d => {
+        addQuiz('noun', `Is "<b>${d.w}</b>" Common or Proper?`, ['Common', 'Proper'], d.t === 'Common' ? 0 : 1, `${d.w} is a ${d.t} noun.`);
+    });
+
+    // 3. Concrete vs Abstract
+    addRead('noun', '3. Tangibility: Concrete vs. Abstract',
+        `<p><strong>Concrete Nouns</strong> engage the five senses. You can see, touch, hear, smell, or taste them (e.g., <em>smoke, velvet, thunder</em>).</p>
+         <p><strong>Abstract Nouns</strong> represent concepts, qualities, or states of being (e.g., <em>truth, danger, childhood</em>). They exist only in the mind.</p>`);
+    
+    // 5 Drills
+    addQuiz('noun', 'Select the Abstract Noun.', ['Table', 'Noise', 'Wisdom', 'Perfume'], 2, 'Wisdom is a concept, not a physical object.');
+    addQuiz('noun', 'Select the Concrete Noun.', ['Dreams', 'Cloud', 'Hope', 'Logic'], 1, 'You can see a Cloud.');
+    addQuiz('noun', 'Which is Abstract?', ['Flag', 'Patriotism', 'Soldier', 'Anthem'], 1, 'Patriotism is a feeling/idea.');
+    addQuiz('noun', 'Which is Concrete?', ['Heat', 'Anger', 'Hatred', 'Soul'], 0, 'Heat can be felt physically.');
+    addQuiz('noun', 'Is "Music" Concrete or Abstract?', ['Concrete', 'Abstract'], 0, 'Concrete! You can hear it.');
+
+    // 4. Countable vs Uncountable
+    addRead('noun', '4. Quantifiability',
+        `<p><strong>Countable Nouns</strong> have singular and plural forms. You can use numbers with them (e.g., <em>one apple, two apples</em>).</p>
+         <p><strong>Uncountable (Mass) Nouns</strong> usually have only a singular form. You cannot count them directly (e.g., <em>water, rice, information</em>). You need a unit to measure them (<em>a glass of water</em>).</p>`);
+    
+    // 10 Drills
+    const countData = ['Rice:Uncountable', 'Chair:Countable', 'Advice:Uncountable', 'Idea:Countable', 'News:Uncountable', 'Bottle:Countable', 'Milk:Uncountable', 'Coin:Countable', 'Money:Uncountable', 'Furniture:Uncountable'];
+    countData.forEach(item => {
+        const [word, type] = item.split(':');
+        addQuiz('noun', `Is "<b>${word}</b>" Countable or Uncountable?`, ['Countable', 'Uncountable'], type === 'Countable' ? 0 : 1, `${word} is ${type}.`);
+    });
+
+    // 5. Collective Nouns
+    addRead('noun', '5. Collective Nouns',
+        `<p>These names groups of people, animals, or things as a single unit. Examples: <em>Team, Family, Flock, Bunch</em>.</p>
+         <p><strong>Grammar Rule:</strong> Even though they contain many members, they usually take a <strong>singular verb</strong> (e.g., "The team <em>is</em> winning").</p>`);
+    
+    addQuiz('noun', 'A ______ of lions.', ['Herd', 'Pride', 'Pack', 'School'], 1, 'A Pride of lions.');
+    addQuiz('noun', 'A ______ of ships.', ['Fleet', 'Flight', 'Crew', 'Gang'], 0, 'A Fleet of ships.');
+    addQuiz('noun', 'A ______ of musicians.', ['Cast', 'Band', 'Panel', 'Crowd'], 1, 'A Band.');
+    addQuiz('noun', 'A ______ of fish.', ['School', 'Class', 'Swarm', 'Pack'], 0, 'A School of fish.');
+    addQuiz('noun', 'A ______ of grapes.', ['Bunch', 'Bundle', 'Batch', 'Bouquet'], 0, 'A Bunch.');
+
+    // 6. Noun Gender
+    addRead('noun', '6. Gender in Nouns',
+        `<p>English nouns fall into four gender categories:</p>
+         <ul class="list-disc pl-5">
+            <li><strong>Masculine:</strong> Boy, King, Rooster.</li>
+            <li><strong>Feminine:</strong> Girl, Queen, Hen.</li>
+            <li><strong>Common:</strong> Parent, Teacher, Friend (Could be either).</li>
+            <li><strong>Neuter:</strong> Table, Tree, Book (Neither).</li>
+         </ul>`);
+    
+    // 5 Drills
+    addQuiz('noun', 'What gender is "Doctor"?', ['Masculine', 'Feminine', 'Common', 'Neuter'], 2, 'Doctor can be male or female, so it is Common.');
+    addQuiz('noun', 'What gender is "Empress"?', ['Masculine', 'Feminine', 'Common', 'Neuter'], 1, 'Feminine.');
+    addQuiz('noun', 'What gender is "Laptop"?', ['Masculine', 'Feminine', 'Common', 'Neuter'], 3, 'Neuter (no gender).');
+    addQuiz('noun', 'What gender is "Bull"?', ['Masculine', 'Feminine', 'Common', 'Neuter'], 0, 'Masculine.');
+    addQuiz('noun', 'What gender is "Student"?', ['Masculine', 'Feminine', 'Common', 'Neuter'], 2, 'Common.');
+
+    // 7. Noun Cases
+    addRead('noun', '7. The Case System',
+        `<p>The case tells us the noun's job in the sentence.</p>
+         <ul class="list-disc pl-5">
+            <li><strong>Nominative Case:</strong> The Subject (Doer). <em>"<strong>John</strong> ate."</em></li>
+            <li><strong>Objective (Accusative) Case:</strong> The Object (Receiver). <em>"I saw <strong>John</strong>."</em></li>
+            <li><strong>Possessive (Genitive) Case:</strong> Shows ownership. <em>"<strong>John's</strong> car."</em></li>
+         </ul>`);
+    
+    // 5 Drills
+    addQuiz('noun', 'Identify the case of "Cat": "The <b>cat</b> slept."', ['Nominative (Subject)', 'Objective (Object)', 'Possessive'], 0, 'It is the subject doing the sleeping.');
+    addQuiz('noun', 'Identify the case of "Ball": "He kicked the <b>ball</b>."', ['Nominative', 'Objective', 'Possessive'], 1, 'It receives the action.');
+    addQuiz('noun', 'Identify the case of "Mary\'s": "This is <b>Mary\'s</b> book."', ['Nominative', 'Objective', 'Possessive'], 2, 'It shows ownership.');
+    
+    // Total Noun steps ~50+ including reading.
+
+    // ================= PRONOUNS =================
+    // 1. Personal Pronouns
+    addRead('pronoun', '1. Personal Pronouns', 
+        `<p><strong>Personal Pronouns</strong> represent specific people or things. They change form based on case:</p>
+         <div class="grid grid-cols-2 gap-4 text-sm mt-2">
+            <div class="bg-blue-50 p-2 rounded"><strong>Subject (Nominative)</strong><br>I, You, He, She, It, We, They</div>
+            <div class="bg-green-50 p-2 rounded"><strong>Object (Accusative)</strong><br>Me, You, Him, Her, It, Us, Them</div>
+         </div>`);
+    
+    const persProDrills = [
+        {q: "____ am happy.", a: ["I", "Me"], c: 0},
+        {q: "She told ____ a secret.", a: ["We", "Us"], c: 1},
+        {q: "____ are going home.", a: ["Them", "They"], c: 1},
+        {q: "Give ____ the book.", a: ["Him", "He"], c: 0},
+        {q: "____ played football.", a: ["Us", "We"], c: 1}
+    ];
+    persProDrills.forEach(d => addQuiz('pronoun', `Choose: "${d.q}"`, d.a, d.c, `Correct.`));
+
+    // 2. Possessive Pronouns
+    addRead('pronoun', '2. Possessive Pronouns',
+        `<p>These show ownership. Unlike adjectives (my, your), these stand alone: <em>Mine, Yours, His, Hers, Ours, Theirs</em>.</p>
+         <p class="example-card">"That is my bag." (Adjective)<br>"That bag is <strong>mine</strong>." (Pronoun)</p>`);
+    
+    // 5 Drills
+    addQuiz('pronoun', 'Select the Possessive Pronoun.', ['My', 'Mine', 'Me', 'I'], 1, 'Mine stands alone.');
+    addQuiz('pronoun', 'Select the Possessive Pronoun.', ['Their', 'Them', 'Theirs', 'They'], 2, 'Theirs stands alone.');
+    addQuiz('pronoun', '"The house is ____."', ['Our', 'Ours', 'Us', 'We'], 1, 'Ours.');
+    addQuiz('pronoun', '"Is this pen ____?"', ['Your', 'You', 'Yours', 'You\'re'], 2, 'Yours.');
+    addQuiz('pronoun', '"It is ____."', ['Her', 'Hers', 'She', 'Herself'], 1, 'Hers.');
+
+    // 3. Reflexive vs Emphatic
+    addRead('pronoun', '3. Reflexive vs. Emphatic',
+        `<p>Both end in <em>-self/selves</em>.
+         <br><strong>Reflexive:</strong> Action reflects back. Essential grammar. <em>"I cut <strong>myself</strong>."</em>
+         <br><strong>Emphatic:</strong> Adds stress. Optional grammar. <em>"I <strong>myself</strong> did it."</em></p>`);
+    
+    // 5 Drills
+    addQuiz('pronoun', '"He hurt <b>himself</b>." - Type?', ['Reflexive', 'Emphatic'], 0, 'The action reflects back.');
+    addQuiz('pronoun', '"The queen <b>herself</b> visited." - Type?', ['Reflexive', 'Emphatic'], 1, 'It emphasizes the queen.');
+    addQuiz('pronoun', '"They enjoyed <b>themselves</b>." - Type?', ['Reflexive', 'Emphatic'], 0, 'Reflexive.');
+    addQuiz('pronoun', '"I will do it <b>myself</b>." - Type?', ['Reflexive', 'Emphatic'], 1, 'Emphatic (Emphasis).');
+    addQuiz('pronoun', '"Know <b>thyself</b>." - Type?', ['Reflexive', 'Emphatic'], 0, 'Reflexive.');
+
+    // 4. Demonstrative
+    addRead('pronoun', '4. Demonstrative Pronouns',
+        `<p>Point out specific things. <em>This, That, These, Those</em>.</p>
+         <p><strong>Rule:</strong> If it's followed by a verb, it's a pronoun (<em>"<strong>This</strong> is good"</em>). If followed by a noun, it's an adjective (<em>"<strong>This</strong> cake is good"</em>).</p>`);
+    
+    // 5 Drills
+    addQuiz('pronoun', 'Identify "That": "<b>That</b> is my friend."', ['Pronoun', 'Adjective'], 0, 'Followed by verb "is".');
+    addQuiz('pronoun', 'Identify "These": "<b>These</b> shoes fit."', ['Pronoun', 'Adjective'], 1, 'Followed by noun "shoes".');
+    addQuiz('pronoun', 'Fill in: "____ are my books." (Plural, Near)', ['This', 'That', 'These', 'Those'], 2, 'These.');
+    addQuiz('pronoun', 'Fill in: "____ is a star." (Singular, Far)', ['This', 'That', 'These', 'Those'], 1, 'That.');
+    addQuiz('pronoun', 'Identify "Those": "I want <b>those</b>."', ['Pronoun', 'Adjective'], 0, 'Stands alone.');
+
+    // 5. Interrogative
+    addRead('pronoun', '5. Interrogative Pronouns',
+        `<p>Used to ask questions: <em>Who, Whom, Whose, Which, What</em>.</p>
+         <p>Example: <em>"<strong>Who</strong> is calling?"</em></p>`);
+    
+    // 5 Drills
+    addQuiz('pronoun', '____ did you say?', ['Who', 'What', 'Which', 'Whose'], 1, 'What.');
+    addQuiz('pronoun', '____ is knocking?', ['Who', 'What', 'Which', 'Whose'], 0, 'Who.');
+    addQuiz('pronoun', '____ is yours?', ['Who', 'What', 'Which', 'Whose'], 2, 'Which.');
+    addQuiz('pronoun', '____ bag is this? (Careful, Adjective here!)', ['Who', 'What', 'Which', 'Whose'], 3, 'Whose.');
+    addQuiz('pronoun', 'To ____ did you speak?', ['Who', 'Whom', 'What', 'Which'], 1, 'Whom (Object form).');
+
+    // 6. Relative Pronouns
+    addRead('pronoun', '6. Relative Pronouns',
+        `<p>They relate a clause to a noun mentioned earlier. <em>Who, Which, That, Whom, Whose</em>.</p>
+         <p><em>"The man <strong>who</strong> sings is here."</em></p>`);
+    
+    // 5 Drills
+    addQuiz('pronoun', 'The book ____ I read.', ['Who', 'Whom', 'That', 'Whose'], 2, 'That.');
+    addQuiz('pronoun', 'The boy ____ won.', ['Which', 'Who', 'Whose', 'Whom'], 1, 'Who.');
+    addQuiz('pronoun', 'The house ____ roof is red.', ['That', 'Who', 'Whose', 'Which'], 2, 'Whose (Possession).');
+    addQuiz('pronoun', 'The car ____ crashed.', ['Who', 'Which', 'Whom', 'Whose'], 1, 'Which.');
+    addQuiz('pronoun', 'The person to ____ I wrote.', ['Who', 'Whom', 'Which', 'That'], 1, 'Whom.');
+
+    // 7. Indefinite & Distributive
+    addRead('pronoun', '7. Indefinite & Distributive',
+        `<p><strong>Indefinite:</strong> Vague reference (Someone, Anybody, None, All).</p>
+         <p><strong>Distributive:</strong> Single items (Each, Either, Neither).</p>`);
+    
+    // 5 Drills
+    addQuiz('pronoun', '"<b>Each</b> took a turn." - Type?', ['Indefinite', 'Distributive'], 1, 'Distributive.');
+    addQuiz('pronoun', '"<b>Someone</b> is here." - Type?', ['Indefinite', 'Distributive'], 0, 'Indefinite.');
+    addQuiz('pronoun', '"<b>Neither</b> passed." - Type?', ['Indefinite', 'Distributive'], 1, 'Distributive.');
+    addQuiz('pronoun', '"<b>Few</b> know the truth." - Type?', ['Indefinite', 'Distributive'], 0, 'Indefinite.');
+    addQuiz('pronoun', '"<b>Everybody</b> laughed." - Type?', ['Indefinite', 'Distributive'], 0, 'Indefinite.');
+
+    // ================= ADJECTIVES =================
+    // 1. Types Intro
+    addRead('adjective', '1. Adjective Types',
+        `<p>Adjectives describe nouns. We classify them by function.</p>
+         <ul class="list-disc pl-5">
+            <li><strong>Quality:</strong> Big, Blue, Good.</li>
+            <li><strong>Quantity:</strong> Some, Little, Much (Uncountable).</li>
+            <li><strong>Number:</strong> One, First, Many (Countable).</li>
+         </ul>`);
+    
+    const adjTypeDrills = [
+        {w: "Heavy", t: "Quality"}, {w: "Third", t: "Number"}, 
+        {w: "Enough (sugar)", t: "Quantity"}, {w: "Red", t: "Quality"},
+        {w: "Few (boys)", t: "Number"}
+    ];
+    adjTypeDrills.forEach(d => {
+        addQuiz('adjective', `Classify "<b>${d.w}</b>"`, ['Quality', 'Quantity', 'Number'], 
+        d.t === 'Quality' ? 0 : d.t === 'Quantity' ? 1 : 2, `${d.w} is an Adjective of ${d.t}.`);
+    });
+
+    // 2. Demo, Interrogative, Possessive
+    addRead('adjective', '2. Functional Adjectives',
+        `<p>These look like pronouns but come <strong>before a noun</strong>.</p>
+         <ul class="list-disc pl-5">
+            <li><strong>Demonstrative:</strong> <em>This</em> pen.</li>
+            <li><strong>Interrogative:</strong> <em>Which</em> pen?</li>
+            <li><strong>Possessive:</strong> <em>My</em> pen.</li>
+         </ul>`);
+    
+    // 5 Drills
+    addQuiz('adjective', '"<b>My</b> book." - Type?', ['Demonstrative', 'Interrogative', 'Possessive'], 2, 'Possessive.');
+    addQuiz('adjective', '"<b>Which</b> road?" - Type?', ['Demonstrative', 'Interrogative', 'Possessive'], 1, 'Interrogative.');
+    addQuiz('adjective', '"<b>That</b> star." - Type?', ['Demonstrative', 'Interrogative', 'Possessive'], 0, 'Demonstrative.');
+    addQuiz('adjective', '"<b>Their</b> house." - Type?', ['Demonstrative', 'Interrogative', 'Possessive'], 2, 'Possessive.');
+    addQuiz('adjective', '"<b>What</b> time?" - Type?', ['Demonstrative', 'Interrogative', 'Possessive'], 1, 'Interrogative.');
+
+    // 3. Proper & Emphasizing
+    addRead('adjective', '3. Proper & Emphasizing',
+        `<p><strong>Proper Adjectives:</strong> From proper nouns (<em>Indian</em> tea, <em>French</em> fries).</p>
+         <p><strong>Emphasizing Adjectives:</strong> Stress the noun (<em>Very, Own</em>). E.g., "My <em>own</em> eyes."</p>`);
+    
+    // 5 Drills
+    addQuiz('adjective', '<b>American</b> flag.', ['Proper', 'Emphasizing'], 0, 'From America.');
+    addQuiz('adjective', 'The <b>very</b> man.', ['Proper', 'Emphasizing'], 1, 'Emphasis.');
+    addQuiz('adjective', '<b>Chinese</b> food.', ['Proper', 'Emphasizing'], 0, 'From China.');
+    addQuiz('adjective', 'My <b>own</b> room.', ['Proper', 'Emphasizing'], 1, 'Emphasis.');
+    addQuiz('adjective', '<b>Victorian</b> era.', ['Proper', 'Emphasizing'], 0, 'From Victoria.');
+
+    // 4. Formation
+    addRead('adjective', '4. Formation of Adjectives',
+        `<p>We make adjectives using suffixes.</p>
+         <div class="grid grid-cols-2 gap-2 text-sm">
+            <div>Noun → Adj</div>
+            <div>Boy → Boy<strong>ish</strong></div>
+            <div>Care → Care<strong>ful</strong></div>
+            <div>Danger → Danger<strong>ous</strong></div>
+            <div>Dirt → Dirt<strong>y</strong></div>
+         </div>`);
+    
+    // 5 Drills
+    addQuiz('adjective', 'Adjective form of "Hope"?', ['Hopeness', 'Hopeful', 'Hoping', 'Hopely'], 1, 'Hopeful.');
+    addQuiz('adjective', 'Adjective form of "Gold"?', ['Golden', 'Goldish', 'Goldy', 'Goldful'], 0, 'Golden.');
+    addQuiz('adjective', 'Adjective form of "Fool"?', ['Foolsome', 'Foolic', 'Foolish', 'Fooly'], 2, 'Foolish.');
+    addQuiz('adjective', 'Adjective form of "Talk"?', ['Talkous', 'Talkative', 'Talkful', 'Talky'], 1, 'Talkative.');
+    addQuiz('adjective', 'Adjective form of "Artist"?', ['Artisty', 'Artistic', 'Artistal', 'Artistful'], 1, 'Artistic.');
+
+    // 5. Order of Adjectives
+    addRead('adjective', '5. The Royal Order (OSASCOMP)',
+        `<p>When multiple adjectives modify a noun, they follow a specific order:</p>
+         <ol class="list-decimal pl-5 font-mono text-sm bg-gray-100 p-2 rounded">
+            <li>Opinion (Lovely)</li>
+            <li>Size (Small)</li>
+            <li>Age (Old)</li>
+            <li>Shape (Round)</li>
+            <li>Color (Red)</li>
+            <li>Origin (German)</li>
+            <li>Material (Wooden)</li>
+            <li>Purpose (Sleeping)</li>
+         </ol>`);
+    
+    // 5 Drills
+    addQuiz('adjective', 'Correct Order:', ['Red big ball', 'Big red ball'], 1, 'Size before Color.');
+    addQuiz('adjective', 'Correct Order:', ['Old Italian lady', 'Italian old lady'], 0, 'Age before Origin.');
+    addQuiz('adjective', 'Correct Order:', ['Wooden beautiful table', 'Beautiful wooden table'], 1, 'Opinion before Material.');
+    addQuiz('adjective', 'Correct Order:', ['Round small coin', 'Small round coin'], 1, 'Size before Shape.');
+    addQuiz('adjective', 'Correct Order:', ['Leather racing gloves', 'Racing leather gloves'], 0, 'Material before Purpose.');
+
+    // 6. Degrees of Comparison
+    addRead('adjective', '6. Degrees of Comparison',
+        `<p><strong>Positive:</strong> Base form (Big).
+         <br><strong>Comparative:</strong> Compares 2 (Bigger).
+         <br><strong>Superlative:</strong> Compares 3+ (Biggest).</p>
+         <p>For long words, use <em>More/Most</em> (Beautiful, More Beautiful, Most Beautiful).</p>`);
+    
+    // 10 Drills
+    addQuiz('adjective', 'Good, ____, Best', ['Gooder', 'Better', 'More Good', 'Bestest'], 1, 'Better.');
+    addQuiz('adjective', 'Bad, Worse, ____', ['Badder', 'Worser', 'Worst', 'Baddest'], 2, 'Worst.');
+    addQuiz('adjective', 'Happy, ____, Happiest', ['Happyer', 'Happier', 'More Happy', 'Happyest'], 1, 'Happier (y changes to i).');
+    addQuiz('adjective', 'Expensive, ____, Most Expensive', ['Expensiver', 'More Expensive'], 1, 'More Expensive.');
+    addQuiz('adjective', 'Big, Bigger, ____', ['Bigest', 'Biggest'], 1, 'Biggest (double g).');
+    addQuiz('adjective', 'Comparative of "Little"?', ['Littler', 'Less', 'More Little', 'Small'], 1, 'Less.');
+    addQuiz('adjective', 'Superlative of "Far"?', ['Farrest', 'Farthest', 'Most Far', 'Farther'], 1, 'Farthest.');
+    addQuiz('adjective', 'She is the ____ of the two.', ['Taller', 'Tallest'], 0, 'Comparative for two.');
+    addQuiz('adjective', 'He is the ____ in class.', ['Smartest', 'Smarter'], 0, 'Superlative for group.');
+    addQuiz('adjective', 'This is ____ interesting.', ['More', 'Morer'], 0, 'More interesting.');
+
+    // ================= APP LOGIC =================
+
+    let currentModuleKey = '';
+    let currentStepIndex = 0;
+    let xp = 0;
+    let unlocked = { noun: true, pronoun: false, adjective: false };
+
+    function goHome() {
+        document.getElementById('view-lesson').classList.add('hidden');
+        document.getElementById('view-cert').classList.add('hidden');
+        document.getElementById('view-dashboard').classList.remove('hidden');
+        document.getElementById('lesson-progress-container').classList.add('hidden');
+        document.getElementById('guide-text').innerHTML = "Welcome back to the dashboard. Choose your next path.";
+        document.getElementById('next-btn').disabled = true;
+        document.getElementById('next-btn').classList.add('opacity-50', 'cursor-not-allowed');
+    }
+
+    function startModule(key) {
+        if (!unlocked[key]) return;
+        currentModuleKey = key;
+        currentStepIndex = 0;
         
-        if(viewId === 'view-dashboard') {
-            updateSidebar("Welcome back to the dashboard. Choose your next path.", true);
-        }
-    }
-
-    function updateSidebar(text, disableBtn, btnText = "Continue", btnAction = null) {
-        const guideText = document.getElementById('guide-text');
-        const btn = document.getElementById('main-action-btn');
-        
-        guideText.style.opacity = 0;
-        setTimeout(() => {
-            guideText.innerHTML = text;
-            guideText.style.opacity = 1;
-        }, 200);
-
-        if (disableBtn) {
-            btn.classList.add('btn-disabled');
-            btn.classList.remove('btn-primary');
-            btn.disabled = true;
-            btn.innerText = btnText;
-            btn.onclick = null;
-        } else {
-            btn.classList.remove('btn-disabled');
-            btn.classList.add('btn-primary');
-            btn.disabled = false;
-            btn.innerText = btnText;
-            btn.onclick = btnAction;
-        }
-    }
-
-    function startModule(id) {
-        if (!state.unlocked[id]) return;
-        state.currentModuleId = id;
-        state.stepIndex = 0;
-        switchView('view-lesson');
+        document.getElementById('view-dashboard').classList.add('hidden');
+        document.getElementById('view-lesson').classList.remove('hidden');
+        document.getElementById('lesson-progress-container').classList.remove('hidden'); // Show progress bar
         renderStep();
     }
 
     function renderStep() {
-        const module = curriculum[state.currentModuleId];
+        const module = courseContent[currentModuleKey];
         
-        if (state.stepIndex >= module.length) {
+        // Progress Update
+        const pct = Math.round(((currentStepIndex) / module.steps.length) * 100);
+        document.getElementById('progress-bar-fill').style.width = `${pct}%`;
+        document.getElementById('step-counter').innerText = `${currentStepIndex + 1}/${module.steps.length}`;
+
+        // Completion Check
+        if (currentStepIndex >= module.steps.length) {
             completeModule();
             return;
         }
 
-        const step = module[state.stepIndex];
-        const container = document.getElementById('view-lesson');
-        container.innerHTML = ''; 
+        const step = module.steps[currentStepIndex];
+        const container = document.getElementById('lesson-content');
+        const guideText = document.getElementById('guide-text');
+        const nextBtn = document.getElementById('next-btn');
 
-        updateSidebar(step.guide, step.type === "quiz", "Next Step", nextStep);
+        // Update Sidebar
+        guideText.innerHTML = step.guide;
+        
+        // Reset Next Button
+        nextBtn.disabled = true;
+        nextBtn.classList.add('opacity-50', 'cursor-not-allowed');
 
-        const card = document.createElement('div');
-        card.className = "lesson-card fade-in";
-
-        const header = document.createElement('div');
-        header.className = "lesson-header";
-        header.innerHTML = `
-            <span class="lesson-tag">Module: ${state.currentModuleId.toUpperCase()} • Step ${state.stepIndex + 1}/${module.length}</span>
-            <h2>${step.type === 'read' ? step.title : "Knowledge Check"}</h2>
-        `;
-        card.appendChild(header);
-
-        const content = document.createElement('div');
-        if (step.type === 'read') {
-            content.innerHTML = step.content;
-        } else {
-            content.innerHTML = `<p style="font-size:1.2rem; font-weight:600; margin-bottom:1.5rem;">${step.question}</p>`;
-            if (step.context) {
-                content.innerHTML += `<p style="background:#f3f4f6; padding:1rem; border-radius:8px; font-style:italic; border-left:4px solid #9ca3af;">"${step.context}"</p>`;
-            }
-            
-            const optionsDiv = document.createElement('div');
-            optionsDiv.className = "quiz-options";
-            
-            step.options.forEach(opt => {
-                const btn = document.createElement('button');
-                btn.className = "option-btn";
-                btn.innerText = opt.text;
-                btn.onclick = () => handleAnswer(btn, opt.correct, step.explanation);
-                optionsDiv.appendChild(btn);
-            });
-            content.appendChild(optionsDiv);
+        // Render Content
+        let html = `<div class="fade-enter">`;
+        
+        // Title
+        if (step.title) {
+            html += `<h2 class="font-serif text-2xl font-bold text-gray-900 mb-6 border-b border-gray-100 pb-2">${step.title}</h2>`;
         }
-        card.appendChild(content);
-        container.appendChild(card);
-        document.querySelector('main').scrollTop = 0;
+
+        // Body
+        if (step.type === 'read') {
+            html += `<div class="prose text-gray-600 mb-6">${step.content}</div>`;
+            // Enable next button automatically for read steps
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
+        } else if (step.type === 'quiz') {
+            html += `
+                <div class="mb-6">
+                    <p class="text-lg font-medium text-gray-800 mb-4">${step.question}</p>
+                    ${step.context ? `<div class="bg-gray-50 border-l-4 border-gray-300 p-4 mb-4 italic text-gray-600">"${step.context}"</div>` : ''}
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-3">
+                        ${step.options.map((opt, i) => `
+                            <button onclick="checkAnswer(${i}, ${step.correct}, '${step.explanation.replace(/'/g, "\\'")}')" class="option-btn text-left p-4 rounded-lg border border-gray-200 hover:bg-blue-50 hover:border-blue-300 transition-all font-medium text-gray-700">
+                                ${opt}
+                            </button>
+                        `).join('')}
+                    </div>
+                    <div id="feedback-area" class="mt-4 hidden p-4 rounded-lg text-sm font-bold"></div>
+                </div>
+            `;
+        }
+        
+        html += `</div>`;
+        container.innerHTML = html;
+        container.parentElement.scrollTop = 0; // Scroll to top
     }
 
-    function handleAnswer(btn, isCorrect, explanation) {
-        const allBtns = document.querySelectorAll('.option-btn');
-        allBtns.forEach(b => b.disabled = true);
+    function checkAnswer(selectedIdx, correctIdx, explanation) {
+        const btns = document.querySelectorAll('.option-btn');
+        const feedback = document.getElementById('feedback-area');
+        const nextBtn = document.getElementById('next-btn');
 
-        if (isCorrect) {
-            btn.classList.add('correct');
-            updateXP(50);
-            updateSidebar(`<strong>Correct!</strong> ${explanation}`, false, "Continue", nextStep);
+        btns.forEach((btn, idx) => {
+            btn.disabled = true;
+            if (idx === correctIdx) btn.classList.add('correct');
+            else if (idx === selectedIdx) btn.classList.add('wrong');
+        });
+
+        feedback.classList.remove('hidden');
+        if (selectedIdx === correctIdx) {
+            feedback.className = "mt-4 p-4 rounded-lg text-sm font-bold bg-green-50 text-green-700 border border-green-200";
+            feedback.innerHTML = `<span class="material-symbols-rounded align-bottom mr-1">check_circle</span> Correct! ${explanation}`;
+            xp += 10;
+            document.getElementById('xp-display').innerText = `${xp} XP`;
+            // Enable Next
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         } else {
-            btn.classList.add('wrong');
-            updateSidebar(`<strong>Not quite.</strong> ${explanation}`, false, "Continue", nextStep);
+            feedback.className = "mt-4 p-4 rounded-lg text-sm font-bold bg-red-50 text-red-700 border border-red-200";
+            feedback.innerHTML = `<span class="material-symbols-rounded align-bottom mr-1">error</span> Incorrect. The right answer was marked. ${explanation}`;
+            // Enable Next (allow progression even if wrong, for flow)
+            nextBtn.disabled = false;
+            nextBtn.classList.remove('opacity-50', 'cursor-not-allowed');
         }
     }
 
     function nextStep() {
-        state.stepIndex++;
+        currentStepIndex++;
         renderStep();
     }
 
     function completeModule() {
-        if (state.currentModuleId === 'nouns') {
-            state.unlocked.pronouns = true;
-            document.getElementById('card-pronouns').classList.remove('locked');
-            document.getElementById('card-pronouns').querySelector('.locked-text').style.display = 'none';
-            document.getElementById('bar-nouns').style.width = '100%';
-        } else if (state.currentModuleId === 'pronouns') {
-            state.unlocked.adjectives = true;
-            document.getElementById('card-adjectives').classList.remove('locked');
-            document.getElementById('card-adjectives').querySelector('.locked-text').style.display = 'none';
-        } else if (state.currentModuleId === 'adjectives') {
-            switchView('view-certificate');
-            updateSidebar("Congratulations! You have completed the curriculum. You are now a Grammar Master.", true, "Reset Course", resetProgress);
+        document.getElementById('view-lesson').classList.add('hidden');
+        document.getElementById('view-dashboard').classList.remove('hidden');
+        document.getElementById('lesson-progress-container').classList.add('hidden');
+
+        // Update Dashboard UI
+        if (currentModuleKey === 'noun') {
+            document.getElementById('dash-progress-noun').style.width = '100%';
+            unlocked.pronoun = true;
+            const pCard = document.getElementById('card-pronoun');
+            pCard.classList.remove('opacity-60', 'cursor-not-allowed');
+            pCard.querySelector('.material-symbols-rounded.text-gray-400').innerText = 'lock_open'; // Unlock icon
+            pCard.querySelector('.material-symbols-rounded.text-gray-400').classList.add('text-emerald-500');
+        } else if (currentModuleKey === 'pronoun') {
+            unlocked.adjective = true;
+            const aCard = document.getElementById('card-adjective');
+            aCard.classList.remove('opacity-60', 'cursor-not-allowed');
+            aCard.querySelector('.material-symbols-rounded.text-gray-400').innerText = 'lock_open';
+            aCard.querySelector('.material-symbols-rounded.text-gray-400').classList.add('text-amber-500');
+        } else if (currentModuleKey === 'adjective') {
+            document.getElementById('view-dashboard').classList.add('hidden');
+            document.getElementById('view-cert').classList.remove('hidden');
             return;
         }
-
-        switchView('view-dashboard');
     }
 
-    function resetProgress() {
-        state.currentModuleId = null;
-        state.stepIndex = 0;
-        state.xp = 0;
-        state.unlocked = { nouns: true, pronouns: false, adjectives: false };
-
+    function resetCourse() {
+        unlocked = { noun: true, pronoun: false, adjective: false };
+        xp = 0;
         document.getElementById('xp-display').innerText = "0 XP";
+        document.getElementById('dash-progress-noun').style.width = '0';
+        
+        // Relock UI
+        const pCard = document.getElementById('card-pronoun');
+        pCard.classList.add('opacity-60', 'cursor-not-allowed');
+        pCard.querySelector('.material-symbols-rounded.text-emerald-500').innerText = 'lock';
+        pCard.querySelector('.material-symbols-rounded.text-emerald-500').classList.replace('text-emerald-500', 'text-gray-400');
 
-        const pCard = document.getElementById('card-pronouns');
-        pCard.classList.add('locked');
-        pCard.querySelector('.locked-text').style.display = 'flex';
+        const aCard = document.getElementById('card-adjective');
+        aCard.classList.add('opacity-60', 'cursor-not-allowed');
+        aCard.querySelector('.material-symbols-rounded.text-amber-500').innerText = 'lock';
+        aCard.querySelector('.material-symbols-rounded.text-amber-500').classList.replace('text-amber-500', 'text-gray-400');
 
-        const aCard = document.getElementById('card-adjectives');
-        aCard.classList.add('locked');
-        aCard.querySelector('.locked-text').style.display = 'flex';
-
-        document.getElementById('bar-nouns').style.width = '0%';
-
-        switchView('view-dashboard');
-        updateSidebar("Progress reset. Ready for a fresh start?", true);
+        goHome();
     }
 
     // --- Source Code Tools ---
-    function openCode() {
-        const ta = document.getElementById('source-code');
-        ta.value = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-        document.getElementById('code-modal').classList.add('active');
+    function viewSource() {
+        const modal = document.getElementById('code-modal');
+        const area = document.getElementById('source-area');
+        area.value = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+        modal.classList.remove('hidden');
+        modal.classList.add('flex');
     }
+    
     function closeCode() {
-        document.getElementById('code-modal').classList.remove('active');
+        document.getElementById('code-modal').classList.add('hidden');
+        document.getElementById('code-modal').classList.remove('flex');
     }
+
     function copyCode() {
-        const ta = document.getElementById('source-code');
-        ta.select();
+        const area = document.getElementById('source-area');
+        area.select();
         document.execCommand('copy');
-        alert("Copied to clipboard");
+        alert("Copied to clipboard!");
     }
 
 </script>
