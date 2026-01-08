@@ -757,8 +757,25 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     }
 
     function nextStep() {
+        // Guard: ensure a module is active before advancing
+        if (!currentModuleKey || !courseContent[currentModuleKey]) {
+            console.warn('nextStep: no active module to advance');
+            return;
+        }
+
+        const module = courseContent[currentModuleKey];
+        // If already past last step, complete the module
+        if (currentStepIndex >= module.steps.length) {
+            completeModule();
+            return;
+        }
+
         currentStepIndex++;
-        renderStep();
+        try {
+            renderStep();
+        } catch (err) {
+            console.error('Error while rendering next step:', err);
+        }
     }
 
     function completeModule() {
