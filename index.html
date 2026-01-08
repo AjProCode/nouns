@@ -39,482 +39,473 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grammar Academy - Grade 6</title>
-<!-- Google Fonts & Icons -->
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&amp;family=Roboto+Slab:wght@700&amp;display=swap" rel="stylesheet">
+<title>Grammar Academy Pro - Grade 6</title>
+<!-- Fonts & Icons -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;800&amp;family=Merriweather:ital,wght@0,300;0,700;1,400&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded:opsz,wght,FILL,GRAD@48,400,1,0" rel="stylesheet">
 
 <style>
     :root {
-        --primary: #4285f4; /* Google Blueish */
-        --primary-dark: #3367d6;
-        --secondary: #34a853; /* Green */
-        --accent: #fbbc05; /* Yellow */
-        --danger: #ea4335; /* Red */
-        --text: #202124;
-        --text-light: #5f6368;
-        --bg: #f8f9fa;
-        --card-bg: #ffffff;
-        --border: #dadce0;
-        --shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
-        --radius: 12px;
+        --primary: #2563eb; /* Royal Blue */
+        --primary-light: #eff6ff;
+        --secondary: #059669; /* Emerald */
+        --secondary-light: #ecfdf5;
+        --accent: #d97706; /* Amber */
+        --bg-body: #f3f4f6;
+        --bg-card: #ffffff;
+        --text-main: #1f2937;
+        --text-muted: #6b7280;
+        --border: #e5e7eb;
+        --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+        --shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        --shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        --radius: 16px;
     }
 
-    * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
-        font-family: 'Nunito', sans-serif;
-        background-color: var(--bg);
-        color: var(--text);
+        font-family: 'Inter', sans-serif;
+        background-color: var(--bg-body);
+        color: var(--text-main);
         height: 100vh;
         display: flex;
         flex-direction: column;
-        overflow: hidden; /* Prevent body scroll, use inner scroll */
+        overflow: hidden;
     }
+
+    /* --- Typography --- */
+    h1, h2, h3 { font-family: 'Merriweather', serif; color: #111827; }
+    p { line-height: 1.7; margin-bottom: 1rem; font-size: 1.05rem; }
+    .text-sm { font-size: 0.875rem; }
+    .font-bold { font-weight: 700; }
 
     /* --- Header --- */
     header {
-        background: var(--card-bg);
+        background: var(--bg-card);
         border-bottom: 1px solid var(--border);
-        padding: 0.75rem 1.5rem;
+        padding: 0.75rem 2rem;
         display: flex;
         justify-content: space-between;
         align-items: center;
-        z-index: 10;
-        box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        z-index: 20;
     }
 
-    .logo {
+    .brand {
         display: flex;
         align-items: center;
-        gap: 0.75rem;
-        font-family: 'Roboto Slab', serif;
-        font-size: 1.5rem;
-        color: var(--text);
-    }
-
-    .logo span {
+        gap: 0.5rem;
+        font-size: 1.25rem;
+        font-weight: 800;
         color: var(--primary);
     }
 
-    .progress-container {
+    .status-bar {
         display: flex;
+        gap: 1.5rem;
         align-items: center;
-        gap: 1rem;
     }
 
-    .xp-badge {
-        background: #fff8e1;
-        color: #f57f17;
-        padding: 0.25rem 0.75rem;
-        border-radius: 20px;
-        font-weight: 800;
+    .xp-pill {
+        background: #fffbeb;
+        color: #b45309;
+        border: 1px solid #fcd34d;
+        padding: 0.25rem 1rem;
+        border-radius: 99px;
+        font-weight: 700;
         display: flex;
         align-items: center;
         gap: 0.25rem;
-        border: 1px solid #ffecb3;
     }
 
-    /* --- Layout --- */
-    .main-layout {
+    /* --- Main Layout --- */
+    .app-container {
         display: flex;
         flex: 1;
         overflow: hidden;
     }
 
-    /* --- Sidebar (Guide) --- */
-    .sidebar {
-        width: 320px;
+    /* --- Sidebar (The Professor) --- */
+    aside {
+        width: 350px;
         background: white;
         border-right: 1px solid var(--border);
         display: flex;
         flex-direction: column;
         padding: 1.5rem;
-        overflow-y: auto;
         flex-shrink: 0;
+        z-index: 10;
+        box-shadow: 4px 0 24px rgba(0,0,0,0.02);
     }
 
-    .guide-avatar {
-        width: 120px;
-        height: 120px;
+    .prof-profile {
+        text-align: center;
+        margin-bottom: 1.5rem;
+    }
+
+    .prof-img {
+        width: 100px;
+        height: 100px;
         border-radius: 50%;
-        background-color: #e8f0fe;
-        margin: 0 auto 1rem;
+        background: #e0e7ff;
+        margin: 0 auto 0.75rem;
+        border: 4px solid white;
+        box-shadow: var(--shadow-md);
         display: flex;
         align-items: center;
         justify-content: center;
-        border: 4px solid white;
-        box-shadow: var(--shadow);
+        font-size: 3rem;
     }
 
-    .guide-avatar img {
-        width: 100%;
-        height: 100%;
-        border-radius: 50%;
-        object-fit: cover;
-    }
-
-    .dialogue-box {
-        background: #f1f3f4;
+    .prof-bubble {
+        background: #f8fafc;
+        border: 1px solid var(--border);
         border-radius: var(--radius);
-        border-bottom-left-radius: 0;
+        border-top-left-radius: 0;
         padding: 1.25rem;
         position: relative;
-        margin-top: 0.5rem;
-        box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+        box-shadow: var(--shadow-sm);
+        flex-grow: 1;
+        overflow-y: auto;
     }
 
-    .dialogue-box::before {
-        content: '';
+    .prof-bubble::before {
+        content: "";
         position: absolute;
-        bottom: -10px;
-        left: 0;
-        width: 20px;
-        height: 20px;
-        background: #f1f3f4; /* Match bubble */
-        clip-path: polygon(0 0, 100% 0, 0 100%);
+        top: 0; left: -10px;
+        width: 0; height: 0;
+        border-top: 10px solid #f8fafc; /* Match bubble bg */
+        border-left: 10px solid transparent;
+        /* Note: border hack for speech bubble triangle */
     }
 
-    .guide-name {
-        font-weight: 800;
-        color: var(--primary-dark);
-        margin-bottom: 0.25rem;
-        text-align: center;
+    .sidebar-footer {
+        margin-top: 1.5rem;
     }
 
-    .action-btn {
-        background: var(--primary);
-        color: white;
+    .btn {
+        width: 100%;
+        padding: 0.875rem;
+        border-radius: 8px;
         border: none;
-        padding: 0.75rem 1.5rem;
-        border-radius: 50px;
-        font-weight: 700;
+        font-weight: 600;
         font-size: 1rem;
         cursor: pointer;
-        width: 100%;
-        margin-top: 1rem;
-        transition: transform 0.1s, background 0.2s;
+        transition: all 0.2s;
         display: flex;
         align-items: center;
         justify-content: center;
         gap: 0.5rem;
-        box-shadow: 0 4px 6px rgba(66, 133, 244, 0.2);
     }
 
-    .action-btn:hover {
-        background: var(--primary-dark);
-        transform: translateY(-1px);
+    .btn-primary {
+        background: var(--primary);
+        color: white;
+        box-shadow: 0 4px 6px rgba(37, 99, 235, 0.2);
     }
-
-    .action-btn:active {
-        transform: translateY(1px);
+    .btn-primary:hover { background: #1d4ed8; transform: translateY(-1px); }
+    
+    .btn-disabled {
+        background: #9ca3af;
+        color: white;
+        cursor: not-allowed;
     }
 
     /* --- Content Area --- */
-    .content-area {
+    main {
         flex: 1;
-        padding: 2rem;
         overflow-y: auto;
-        background-color: var(--bg);
+        padding: 2rem;
         display: flex;
-        flex-direction: column;
-        align-items: center;
+        justify-content: center;
+        position: relative;
     }
 
-    .screen {
+    .container {
         width: 100%;
         max-width: 800px;
-        display: none; /* Hidden by default */
-        flex-direction: column;
-        gap: 1.5rem;
-        animation: fadeIn 0.4s ease-out;
     }
 
-    .screen.active {
-        display: flex;
-    }
+    /* --- Views --- */
+    .view { display: none; animation: fadeIn 0.4s ease-out; }
+    .view.active { display: block; }
 
     @keyframes fadeIn {
         from { opacity: 0; transform: translateY(10px); }
         to { opacity: 1; transform: translateY(0); }
     }
 
-    /* --- Cards & UI Elements --- */
-    .card {
-        background: white;
-        border-radius: var(--radius);
-        padding: 2rem;
-        box-shadow: var(--shadow);
-        border: 1px solid var(--border);
-    }
-
-    .topic-grid {
+    /* Dashboard */
+    .module-grid {
         display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
         gap: 1.5rem;
     }
 
-    .topic-card {
+    .module-card {
         background: white;
-        border: 2px solid var(--border);
+        border: 1px solid var(--border);
         border-radius: var(--radius);
         padding: 1.5rem;
-        text-align: center;
-        cursor: pointer;
         transition: all 0.2s;
+        cursor: pointer;
         position: relative;
         overflow: hidden;
     }
 
-    .topic-card:hover {
-        border-color: var(--primary);
+    .module-card:hover:not(.locked) {
         transform: translateY(-4px);
-        box-shadow: 0 4px 12px rgba(66, 133, 244, 0.15);
+        box-shadow: var(--shadow-lg);
+        border-color: var(--primary);
     }
 
-    .topic-card.locked {
-        opacity: 0.6;
+    .module-card.locked {
+        opacity: 0.7;
+        background: #f9fafb;
         cursor: not-allowed;
-        background: #f1f3f4;
     }
 
-    .topic-icon {
-        font-size: 3rem;
+    .module-icon {
+        width: 48px; height: 48px;
+        border-radius: 12px;
+        display: flex; align-items: center; justify-content: center;
+        color: white;
         margin-bottom: 1rem;
-        display: block;
+        font-size: 1.5rem;
+    }
+
+    .progress-bar {
+        height: 6px;
+        background: #e5e7eb;
+        border-radius: 3px;
+        margin-top: 1rem;
+        overflow: hidden;
+    }
+    .progress-fill { height: 100%; width: 0%; transition: width 0.5s ease; }
+
+    /* Lesson Content Styling */
+    .lesson-card {
+        background: white;
+        border-radius: var(--radius);
+        padding: 3rem;
+        box-shadow: var(--shadow-md);
+        border: 1px solid var(--border);
+        margin-bottom: 2rem;
+    }
+
+    .lesson-header {
+        border-bottom: 2px solid #f3f4f6;
+        padding-bottom: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .lesson-tag {
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        font-weight: 700;
         color: var(--primary);
+        margin-bottom: 0.5rem;
+        display: block;
     }
 
-    .topic-title {
-        font-weight: 800;
-        font-size: 1.25rem;
-        color: var(--text);
-        margin-bottom: 0.25rem;
+    .example-box {
+        background: var(--secondary-light);
+        border-left: 4px solid var(--secondary);
+        padding: 1.5rem;
+        border-radius: 4px;
+        margin: 1.5rem 0;
+        color: #064e3b;
     }
 
-    /* Interactive Elements */
-    .option-grid {
+    .highlight {
+        background: #fef3c7;
+        padding: 0 4px;
+        border-radius: 2px;
+        font-weight: 600;
+        color: #92400e;
+    }
+
+    /* Quiz Interactions */
+    .quiz-options {
         display: grid;
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 1rem;
+        margin-top: 2rem;
     }
 
     .option-btn {
+        text-align: left;
+        padding: 1.25rem;
         background: white;
         border: 2px solid var(--border);
-        padding: 1rem;
-        border-radius: var(--radius);
-        font-size: 1.1rem;
-        font-weight: 600;
-        color: var(--text);
+        border-radius: 12px;
+        font-size: 1rem;
+        font-weight: 500;
         cursor: pointer;
         transition: all 0.2s;
-        text-align: left;
     }
 
-    .option-btn:hover {
-        border-color: var(--primary);
-        background: #f8fbff;
-    }
+    .option-btn:hover { border-color: var(--primary); background: var(--primary-light); }
+    .option-btn.correct { border-color: var(--secondary); background: #d1fae5; color: #065f46; }
+    .option-btn.wrong { border-color: #ef4444; background: #fee2e2; color: #991b1b; }
 
-    .option-btn.correct {
-        background: #e6f4ea;
-        border-color: var(--secondary);
-        color: #137333;
-    }
-
-    .option-btn.wrong {
-        background: #fce8e6;
-        border-color: var(--danger);
-        color: #c5221f;
-    }
-
-    .info-box {
-        background: #e8f0fe;
-        border-left: 4px solid var(--primary);
-        padding: 1rem;
-        border-radius: 4px;
-        margin-bottom: 1rem;
-    }
-
-    /* --- Code Modal --- */
-    .modal-overlay {
+    /* Code Modal */
+    .code-modal {
         position: fixed;
-        top: 0; left: 0; right: 0; bottom: 0;
-        background: rgba(0,0,0,0.5);
+        inset: 0;
+        background: rgba(0,0,0,0.6);
+        backdrop-filter: blur(4px);
         z-index: 100;
         display: none;
         align-items: center;
         justify-content: center;
+        padding: 2rem;
     }
-
-    .modal-window {
-        background: white;
-        width: 90%;
-        max-width: 900px;
-        height: 80vh;
+    .code-modal.active { display: flex; }
+    .code-window {
+        background: #1e1e1e;
+        width: 100%; max-width: 900px; height: 85vh;
         border-radius: var(--radius);
-        display: flex;
-        flex-direction: column;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+        display: flex; flex-direction: column;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
     }
-
-    .modal-header {
+    .code-header {
+        background: #252526;
         padding: 1rem;
-        border-bottom: 1px solid var(--border);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        background: #f8f9fa;
+        display: flex; justify-content: space-between; align-items: center;
+        border-bottom: 1px solid #333;
+        color: #ccc;
     }
-
-    .modal-content {
+    textarea.source-code {
         flex: 1;
-        padding: 0;
-        overflow: hidden;
-    }
-
-    textarea.code-view {
-        width: 100%;
-        height: 100%;
-        border: none;
-        padding: 1rem;
-        font-family: 'Consolas', 'Monaco', monospace;
+        background: #1e1e1e; color: #d4d4d4;
+        border: none; padding: 1.5rem;
+        font-family: 'Fira Code', monospace;
         font-size: 0.9rem;
         resize: none;
-        background: #282c34;
-        color: #abb2bf;
     }
-
-    /* --- Utilities --- */
-    .hidden { display: none !important; }
-    
-    .code-float-btn {
-        position: fixed;
-        bottom: 2rem;
-        right: 2rem;
-        width: 56px;
-        height: 56px;
-        background: var(--text);
-        color: white;
+    .float-btn {
+        position: fixed; bottom: 2rem; right: 2rem;
+        width: 56px; height: 56px;
         border-radius: 50%;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+        background: #111827; color: white;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: var(--shadow-lg);
         cursor: pointer;
-        z-index: 50;
         border: none;
+        z-index: 50;
         transition: transform 0.2s;
     }
-    
-    .code-float-btn:hover {
-        transform: scale(1.1);
-    }
+    .float-btn:hover { transform: scale(1.1); }
 
-    /* Mobile */
-    @media (max-width: 768px) {
-        .main-layout { flex-direction: column; }
-        .sidebar { width: 100%; height: 200px; padding: 1rem; border-right: none; border-bottom: 1px solid var(--border); }
-        .content-area { padding: 1rem; }
-        .guide-avatar { width: 60px; height: 60px; margin: 0 auto; }
-        .option-grid { grid-template-columns: 1fr; }
+    /* Responsive */
+    @media(max-width: 800px) {
+        .app-container { flex-direction: column; overflow-y: auto; }
+        aside { width: 100%; height: auto; border-right: none; border-bottom: 1px solid var(--border); padding: 1rem; flex-direction: row; align-items: center; gap: 1rem; }
+        .prof-profile { display: flex; text-align: left; align-items: center; gap: 1rem; margin: 0; }
+        .prof-img { width: 50px; height: 50px; font-size: 1.5rem; margin: 0; }
+        .sidebar-footer { margin: 0; width: 150px; }
+        main { padding: 1rem; }
+        .lesson-card { padding: 1.5rem; }
     }
 </style>
 </head>
 <body>
 
-<!-- Header -->
 <header>
-    <div class="logo">
-        <span class="material-symbols-rounded" style="font-size: 2rem;">school</span>
-        Grammar<span>Academy</span>
+    <div class="brand">
+        <span class="material-symbols-rounded" style="color:var(--primary); font-size: 2rem;">school</span>
+        Grammar Academy Pro
     </div>
-    <div class="progress-container">
-        <div class="xp-badge">
+    <div class="status-bar">
+        <div class="xp-pill">
             <span class="material-symbols-rounded">bolt</span>
             <span id="xp-display">0 XP</span>
         </div>
     </div>
 </header>
 
-<!-- Main App Layout -->
-<div class="main-layout">
-    
-    <!-- Sidebar: The Guide -->
-    <aside class="sidebar">
-        <div class="guide-avatar">
-            <img src="https://api.dicebear.com/7.x/avataaars/svg?seed=Professor&amp;backgroundColor=e8f0fe" alt="Professor">
+<div class="app-container">
+    <!-- Sidebar -->
+    <aside>
+        <div class="prof-profile">
+            <div class="prof-img">👨‍🏫</div>
+            <h3 style="font-size: 1.1rem; margin-bottom: 0.25rem;">Prof. Lexicon</h3>
+            <div class="text-sm text-muted" style="color:var(--text-muted)">Your Guide</div>
         </div>
-        <div class="guide-name">Professor Lexicon</div>
-        <div class="dialogue-box">
-            <p id="guide-text">Please select the 'Nouns' module to begin your journey.</p>
+        <div class="prof-bubble">
+            <p id="guide-text" class="text-sm" style="opacity: 1;">Analyze the sentence. Find the abstract concept.</p>
         </div>
-        <div id="guide-controls"></div>
+        <div class="sidebar-footer">
+            <button id="main-action-btn" class="btn btn-disabled" disabled="">Next Step</button>
+        </div>
     </aside>
 
-    <!-- Main Content Area -->
-    <main class="content-area">
+    <!-- Main Content -->
+    <main>
         
-        <!-- DASHBOARD VIEW -->
-        <div id="view-dashboard" class="screen active">
-            <div class="card">
-                <h2 style="margin-bottom: 1.5rem; color: var(--text);">Grade 6 Curriculum</h2>
-                <div class="topic-grid">
-                    
-                    <!-- Module 1 -->
-                    <div class="topic-card" onclick="loadModule('nouns')">
-                        <span class="material-symbols-rounded topic-icon">category</span>
-                        <div class="topic-title">Nouns</div>
-                        <div style="color: var(--text-light); font-size: 0.9rem;">Naming the World</div>
-                        <div style="margin-top: 1rem; height: 6px; background: #e0e0e0; border-radius: 3px;">
-                            <div id="progress-nouns" style="width: 0%; height: 100%; background: var(--secondary); border-radius: 3px;"></div>
-                        </div>
+        <!-- DASHBOARD -->
+        <div id="view-dashboard" class="view container">
+            <h2 style="margin-bottom: 0.5rem;">Grade 6 Curriculum</h2>
+            <p style="color: var(--text-muted); margin-bottom: 2rem;">Select a topic to start learning.</p>
+            
+            <div class="module-grid">
+                <!-- Nouns Module -->
+                <div class="module-card" onclick="startModule('nouns')">
+                    <div class="module-icon" style="background: var(--primary);">
+                        <span class="material-symbols-rounded">category</span>
                     </div>
+                    <h3>Nouns: The Foundation</h3>
+                    <p class="text-sm text-muted" style="margin-top:0.5rem;">Proper, Common, Abstract, Concrete.</p>
+                    <div class="progress-bar"><div id="bar-nouns" class="progress-fill" style="background: var(--primary);"></div></div>
+                </div>
 
-                    <!-- Module 2 -->
-                    <div id="card-pronouns" class="topic-card locked" onclick="loadModule('pronouns')">
-                        <span class="material-symbols-rounded topic-icon" style="color: var(--text-light);">group</span>
-                        <div class="topic-title">Pronouns</div>
-                        <div style="color: var(--text-light); font-size: 0.9rem;">Replacing Names</div>
-                        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--danger); font-weight: bold;">
-                            <span class="material-symbols-rounded" style="font-size: 1rem; vertical-align: middle;">lock</span> Locked
-                        </div>
+                <!-- Pronouns Module -->
+                <div id="card-pronouns" class="module-card locked" onclick="startModule('pronouns')">
+                    <div class="module-icon" style="background: var(--secondary);">
+                        <span class="material-symbols-rounded">group</span>
                     </div>
-
-                    <!-- Module 3 -->
-                    <div id="card-adjectives" class="topic-card locked" onclick="loadModule('adjectives')">
-                        <span class="material-symbols-rounded topic-icon" style="color: var(--text-light);">palette</span>
-                        <div class="topic-title">Adjectives</div>
-                        <div style="color: var(--text-light); font-size: 0.9rem;">Describing Things</div>
-                        <div style="margin-top: 0.5rem; font-size: 0.8rem; color: var(--danger); font-weight: bold;">
-                            <span class="material-symbols-rounded" style="font-size: 1rem; vertical-align: middle;">lock</span> Locked
-                        </div>
+                    <h3>Pronouns: The Replacers</h3>
+                    <p class="text-sm text-muted" style="margin-top:0.5rem;">Subject, Object, Reflexive.</p>
+                    <div style="margin-top:1rem; font-size:0.8rem; font-weight:700; color:#9ca3af; display:flex; gap:0.25rem;">
+                        <span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
                     </div>
+                </div>
 
+                <!-- Adjectives Module -->
+                <div id="card-adjectives" class="module-card locked" onclick="startModule('adjectives')">
+                    <div class="module-icon" style="background: var(--accent);">
+                        <span class="material-symbols-rounded">palette</span>
+                    </div>
+                    <h3>Adjectives: The Artists</h3>
+                    <p class="text-sm text-muted" style="margin-top:0.5rem;">Description, Order, Comparison.</p>
+                    <div style="margin-top:1rem; font-size:0.8rem; font-weight:700; color:#9ca3af; display:flex; gap:0.25rem;">
+                        <span class="material-symbols-rounded" style="font-size:1rem;">lock</span> Locked
+                    </div>
                 </div>
             </div>
         </div>
 
-        <!-- LESSON VIEW -->
-        <div id="view-lesson" class="screen">
-            <!-- Dynamic Content Injected Here -->
-        </div>
+        <!-- LESSON CONTAINER -->
+        <div id="view-lesson" class="view container active"><div class="lesson-card fade-in"><div class="lesson-header">
+            <span class="lesson-tag">Module: nouns • Step 2/6</span>
+            <h2>Knowledge Check</h2>
+        </div><div><p style="font-size:1.2rem; font-weight:600; margin-bottom:1.5rem;">Which word in this sentence is a Noun representing an 'Idea'?</p><p style="background:#f3f4f6; padding:1rem; border-radius:8px; font-style:italic; border-left:4px solid #9ca3af;">"The boy shouted with joy."</p><div class="quiz-options"><button class="option-btn">The</button><button class="option-btn">Boy</button><button class="option-btn">Shouted</button><button class="option-btn">Joy</button></div></div></div></div>
 
-        <!-- CERTIFICATE VIEW -->
-        <div id="view-cert" class="screen">
-            <div class="card" style="text-align: center; border: 8px double var(--primary); padding: 3rem;">
-                <span class="material-symbols-rounded" style="font-size: 5rem; color: var(--accent);">workspace_premium</span>
-                <h1 style="color: var(--primary-dark); font-size: 2.5rem; margin: 1rem 0;">Certificate of Mastery</h1>
-                <p style="font-size: 1.25rem; color: var(--text-light);">This is to certify that</p>
-                <h2 style="font-size: 2rem; margin: 1rem 0; border-bottom: 2px solid var(--border); display: inline-block; padding: 0 2rem;">Student Name</h2>
-                <p style="font-size: 1.1rem; color: var(--text);">Has successfully completed the <b>Grade 6 Grammar Course</b>.</p>
-                <div style="margin-top: 2rem;">
-                    <button class="action-btn" style="width: auto; display: inline-flex;" onclick="location.reload()">Restart Course</button>
+        <!-- CERTIFICATE CONTAINER -->
+        <div id="view-certificate" class="view container">
+            <div class="lesson-card" style="text-align: center; border-top: 8px solid var(--primary);">
+                <div style="width: 80px; height: 80px; background: #fef3c7; color: #d97706; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-size: 3rem;">
+                    🏆
+                </div>
+                <h1 style="color: var(--primary); margin-bottom: 1rem;">Certificate of Excellence</h1>
+                <p>This certifies that the student has successfully mastered the</p>
+                <h2 style="font-size: 2rem; margin: 1rem 0;">Grade 6 Grammar Course</h2>
+                <p class="text-muted">Demonstrating proficiency in Nouns, Pronouns, and Adjectives.</p>
+                
+                <div style="margin-top: 3rem; display: flex; justify-content: center; gap: 1rem;">
+                    <button class="btn btn-primary" style="width: auto; padding: 0.75rem 2rem;" onclick="location.reload()">Restart Course</button>
                 </div>
             </div>
         </div>
@@ -522,227 +513,341 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
     </main>
 </div>
 
-<!-- Source Code Float Button -->
-<button class="code-float-btn" onclick="openCode()" title="View Source Code">
+<!-- Float Code Button -->
+<button class="float-btn" onclick="openCode()">
     <span class="material-symbols-rounded">code</span>
 </button>
 
 <!-- Code Modal -->
-<div class="modal-overlay" id="code-modal">
-    <div class="modal-window">
-        <div class="modal-header">
-            <h3 style="margin:0;">Source Code</h3>
-            <div style="display:flex; gap: 0.5rem;">
-                <button onclick="copyCode()" style="padding: 0.5rem 1rem; border:1px solid var(--border); background:white; cursor:pointer; border-radius:4px; font-weight:bold;">Copy</button>
-                <button onclick="closeCode()" style="padding: 0.5rem 1rem; border:1px solid var(--border); background:var(--danger); color:white; cursor:pointer; border-radius:4px; font-weight:bold;">Close</button>
+<div id="code-modal" class="code-modal">
+    <div class="code-window">
+        <div class="code-header">
+            <span style="font-weight: 700; display:flex; gap:0.5rem; align-items:center;"><span class="material-symbols-rounded">html</span> Source Code</span>
+            <div style="display:flex; gap:0.5rem;">
+                <button onclick="copyCode()" class="btn btn-primary" style="padding:0.25rem 1rem; font-size:0.8rem;">Copy</button>
+                <button onclick="closeCode()" class="btn" style="background:#444; color:white; padding:0.25rem 1rem; font-size:0.8rem;">Close</button>
             </div>
         </div>
-        <div class="modal-content">
-            <textarea id="code-area" class="code-view" readonly=""></textarea>
-        </div>
+        <textarea id="source-code" class="source-code" readonly=""></textarea>
     </div>
 </div>
 
 <script>
-    // --- Course Data ---
-    // structured as a sequence of steps for 1-1 interaction
-    const courseData = {
+    // --- Data Model ---
+    // Steps can be "read" (informational) or "quiz" (interactive)
+    const curriculum = {
         nouns: [
             {
-                guide: "Let's start with the basics. A <b>Noun</b> is a person, place, animal, or thing. Look at the card on the screen. Which one represents a 'Place'?",
-                type: "grid",
-                options: [
-                    { text: "Teacher", icon: "school", type: "Person" },
-                    { text: "School", icon: "apartment", type: "Place", correct: true },
-                    { text: "Pencil", icon: "edit", type: "Thing" },
-                    { text: "Happiness", icon: "sentiment_satisfied", type: "Idea" }
-                ]
+                type: "read",
+                title: "What is a Noun?",
+                content: `
+                    <p>A <b>Noun</b> is one of the most important building blocks of language. Simply put, a noun is a word that names a <span class="highlight">person</span>, <span class="highlight">place</span>, <span class="highlight">thing</span>, or <span class="highlight">idea</span>.</p>
+                    <p>Without nouns, we wouldn't be able to talk about the world around us. Everything you can see, touch, or think about has a name, and that name is a noun.</p>
+                    <div class="example-box">
+                        <strong>Examples:</strong>
+                        <ul style="margin-left: 1.5rem; margin-top: 0.5rem;">
+                            <li>Person: <em>Teacher, Pilot, Mom</em></li>
+                            <li>Place: <em>School, Paris, Kitchen</em></li>
+                            <li>Thing: <em>Computer, Dog, Pencil</em></li>
+                            <li>Idea: <em>Freedom, Happiness, Science</em></li>
+                        </ul>
+                    </div>
+                    <p>Click continue to verify your understanding.</p>
+                `,
+                guide: "Read the definition carefully. Nouns are everywhere! When you are ready, click 'Continue'."
             },
             {
-                guide: "Correct! A School is a place. Now, Nouns can be <b>Common</b> (general) or <b>Proper</b> (specific). Proper nouns always start with a CAPITAL letter. Find the Proper Noun.",
                 type: "quiz",
+                question: "Which word in this sentence is a Noun representing an 'Idea'?",
+                context: "The boy shouted with joy.",
                 options: [
-                    { text: "city", correct: false },
-                    { text: "London", correct: true },
-                    { text: "country", correct: false },
-                    { text: "village", correct: false }
-                ]
+                    { text: "The", correct: false },
+                    { text: "Boy", correct: false }, // It is a noun, but represents a Person
+                    { text: "Shouted", correct: false },
+                    { text: "Joy", correct: true }
+                ],
+                explanation: "Correct! 'Joy' is an emotion or idea. 'Boy' is also a noun, but it represents a person.",
+                guide: "Analyze the sentence. Find the abstract concept."
             },
             {
-                guide: "Well done. 'London' is specific. Now, let's talk about <b>Concrete</b> vs <b>Material</b> nouns. Concrete you can touch (Book). Material is what something is made of (Wood, Gold). Select the MATERIAL noun.",
-                type: "quiz",
-                options: [
-                    { text: "Table", correct: false },
-                    { text: "Chair", correct: false },
-                    { text: "Wood", correct: true },
-                    { text: "Desk", correct: false }
-                ]
+                type: "read",
+                title: "Common vs. Proper Nouns",
+                content: `
+                    <p>Nouns come in two main flavors: <b>Common</b> and <b>Proper</b>.</p>
+                    <p>A <span class="highlight">Common Noun</span> names a general item. It does not start with a capital letter unless it's at the beginning of a sentence (e.g., <em>city, dog, month</em>).</p>
+                    <p>A <span class="highlight">Proper Noun</span> names a <strong>specific</strong> person, place, or organization. It <strong>always</strong> starts with a capital letter (e.g., <em>London, Fido, October</em>).</p>
+                    <div class="example-box">
+                        <strong>Comparison:</strong><br>
+                        Common: <em>The <strong>president</strong> gave a speech.</em><br>
+                        Proper: <em><strong>President Lincoln</strong> gave a speech.</em>
+                    </div>
+                `,
+                guide: "Capitalization is the key clue here. Remember it!"
             },
             {
-                guide: "Excellent. Finally for Nouns: <b>Countable</b> vs <b>Uncountable</b>. If you can say 'one x, two x', it's countable. If it's a liquid or powder, it's usually Uncountable. Which one can you NOT count easily?",
                 type: "quiz",
+                question: "Identify the Proper Noun in the list below.",
                 options: [
-                    { text: "Apples", correct: false },
-                    { text: "Cars", correct: false },
-                    { text: "Milk", correct: true },
-                    { text: "Books", correct: false }
-                ]
+                    { text: "planet", correct: false },
+                    { text: "Mars", correct: true },
+                    { text: "star", correct: false },
+                    { text: "galaxy", correct: false }
+                ],
+                explanation: "Yes! 'Mars' is the specific name of a planet, so it is capitalized.",
+                guide: "Look for the specific name that requires a capital letter."
+            },
+            {
+                type: "read",
+                title: "Concrete vs. Abstract",
+                content: `
+                    <p>Let's dive deeper. Nouns can also be categorized by whether you can detect them with your five senses.</p>
+                    <p><span class="highlight">Concrete Nouns</span> are things you can see, touch, hear, smell, or taste. Examples: <em>pizza, rain, music, velvet</em>.</p>
+                    <p><span class="highlight">Abstract Nouns</span> are ideas, qualities, or conditions. You cannot physically touch them. Examples: <em>courage, time, education, trust</em>.</p>
+                `,
+                guide: "Think: Can I put it in a box? If yes, it's concrete. If no, it's abstract."
+            },
+            {
+                type: "quiz",
+                question: "Select the Abstract Noun.",
+                options: [
+                    { text: "Cloud", correct: false },
+                    { text: "Thunder", correct: false },
+                    { text: "Fear", correct: true },
+                    { text: "Rain", correct: false }
+                ],
+                explanation: "Correct. Fear is an emotion you feel internally; you cannot touch or hold it.",
+                guide: "Which of these exists only in the mind or heart?"
             }
         ],
         pronouns: [
             {
-                guide: "Welcome to Pronouns! These are words that replace nouns so we don't repeat them. Instead of 'John likes John's car', we say 'John likes <b>his</b> car'. Select the Pronoun in this list.",
-                type: "quiz",
-                options: [
-                    { text: "Run", correct: false },
-                    { text: "Blue", correct: false },
-                    { text: "She", correct: true },
-                    { text: "Quickly", correct: false }
-                ]
+                type: "read",
+                title: "The Role of Pronouns",
+                content: `
+                    <p>Imagine if we had to say: <em>'John picked up John's bag because John was leaving.'</em> That sounds repetitive!</p>
+                    <p><b>Pronouns</b> are words that replace nouns to make sentences flow better. The noun being replaced is called the <strong>antecedent</strong>.</p>
+                    <div class="example-box">
+                        <em>'John picked up <span class="highlight">his</span> bag because <span class="highlight">he</span> was leaving.'</em>
+                    </div>
+                    <p>Common pronouns: <em>he, she, it, they, we, us, them</em>.</p>
+                `,
+                guide: "Pronouns are the stunt doubles of the grammar movie. They stand in for the main stars (nouns)."
             },
             {
-                guide: "There are <b>Subject Pronouns</b> (I, He, She, We, They) who DO the action. And <b>Object Pronouns</b> (Me, Him, Her, Us, Them) who RECEIVE the action. Fill in the blank: '____ went to the park.'",
                 type: "quiz",
+                question: "What is the pronoun in this sentence?",
+                context: "Sarah forgot her keys on the table.",
+                options: [
+                    { text: "Sarah", correct: false },
+                    { text: "Her", correct: true },
+                    { text: "Keys", correct: false },
+                    { text: "Table", correct: false }
+                ],
+                explanation: "Right! 'Her' replaces 'Sarah's'.",
+                guide: "Find the word referring back to Sarah."
+            },
+            {
+                type: "read",
+                title: "Subject vs. Object Pronouns",
+                content: `
+                    <p>Pronouns change form depending on their job in the sentence.</p>
+                    <ul>
+                        <li><b>Subject Pronouns</b> (I, He, She, We, They): They <strong>do</strong> the action. <br><em><span class="highlight">She</span> ate the cake.</em></li>
+                        <li><b>Object Pronouns</b> (Me, Him, Her, Us, Them): They <strong>receive</strong> the action. <br><em>The dog chased <span class="highlight">him</span>.</em></li>
+                    </ul>
+                    <p>A common mistake is saying 'Me and him went out'. It should be 'He and I went out' because they are subjects!</p>
+                `,
+                guide: "If it's doing the verb, it's a Subject. If the verb happens to it, it's an Object."
+            },
+            {
+                type: "quiz",
+                question: "Choose the correct pronoun to complete the sentence.",
+                context: "____ and I are going to the movies.",
                 options: [
                     { text: "Him", correct: false },
-                    { text: "Her", correct: false },
-                    { text: "They", correct: true },
-                    { text: "Them", correct: false }
-                ]
-            },
-            {
-                guide: "Good! Now <b>Reflexive Pronouns</b> reflect back to the subject (Myself, Yourself, Themselves). Which is correct: 'The cat cleaned ____.'",
-                type: "quiz",
-                options: [
-                    { text: "Himself", correct: false },
-                    { text: "Itself", correct: true },
-                    { text: "It", correct: false },
-                    { text: "Myself", correct: false }
-                ]
+                    { text: "He", correct: true },
+                    { text: "His", correct: false },
+                    { text: "Himself", correct: false }
+                ],
+                explanation: "Correct! 'He' is a subject doing the action (going).",
+                guide: "Who is doing the going? We need a Subject pronoun."
             }
         ],
         adjectives: [
             {
-                guide: "Adjectives describe nouns! They tell us about color, size, age, or opinion. In the phrase 'The <b>big</b> dog', which word is the adjective?",
-                type: "quiz",
-                options: [
-                    { text: "The", correct: false },
-                    { text: "Big", correct: true },
-                    { text: "Dog", correct: false },
-                    { text: "Bark", correct: false }
-                ]
+                type: "read",
+                title: "What is an Adjective?",
+                content: `
+                    <p><b>Adjectives</b> are describing words. They modify nouns or pronouns to give us more information about them.</p>
+                    <p>They answer questions like: <em>What kind? Which one? How many?</em></p>
+                    <div class="example-box">
+                        The <span class="highlight">angry</span> bear.<br>
+                        <span class="highlight">Three</span> blind mice.<br>
+                        The <span class="highlight">blue</span> sky.
+                    </div>
+                `,
+                guide: "Adjectives add color and detail to our black and white nouns."
             },
             {
-                guide: "Adjectives have a strict order! <b>Opinion</b> comes first, then <b>Fact</b>. Which sounds correct?",
-                type: "quiz",
-                options: [
-                    { text: "A beautiful red dress", correct: true },
-                    { text: "A red beautiful dress", correct: false }
-                ]
+                type: "read",
+                title: "Order of Adjectives",
+                content: `
+                    <p>Did you know English has a strict rule for the order of adjectives? Native speakers do it naturally, but there is a specific order:</p>
+                    <ol style="margin-left:1.5rem; margin-bottom:1rem;">
+                        <li><b>Opinion</b> (Beautiful, Ugly)</li>
+                        <li><b>Size</b> (Big, Small)</li>
+                        <li><b>Age</b> (Old, Young)</li>
+                        <li><b>Color</b> (Red, Blue)</li>
+                        <li><b>Material</b> (Wooden, Metal)</li>
+                    </ol>
+                    <p>We say "A <span class="highlight">lovely little old red</span> car", not "A red old little lovely car".</p>
+                `,
+                guide: "Opinion first, facts later. Remember that rule!"
             },
             {
-                guide: "Last step: <b>Comparison</b>. <br>1 item: Big.<br>2 items: Bigg<b>er</b>.<br>3+ items: Bigg<b>est</b>.<br>Which is correct for comparing 3 mountains?",
                 type: "quiz",
+                question: "Which sentence uses the correct adjective order?",
                 options: [
-                    { text: "High", correct: false },
-                    { text: "Higher", correct: false },
-                    { text: "Highest", correct: true },
-                    { text: "Highness", correct: false }
-                ]
+                    { text: "A leather comfortable chair.", correct: false },
+                    { text: "A comfortable leather chair.", correct: true } // Opinion (Comfortable) before Material (Leather)
+                ],
+                explanation: "Correct! Opinion (comfortable) must come before Material (leather).",
+                guide: "Check: Opinion vs Material. Which comes first?"
             }
         ]
     };
 
-    // --- State ---
+    // --- State Management ---
     let state = {
-        currentModule: null,
+        currentModuleId: null,
         stepIndex: 0,
         xp: 0,
         unlocked: { nouns: true, pronouns: false, adjectives: false }
     };
 
-    // --- Core Functions ---
+    // --- Logic ---
 
-    function startCourse() {
-        document.getElementById('view-dashboard').classList.add('active');
-        updateGuide("Please select the 'Nouns' module to begin your journey.", false);
+    function updateXP(amount) {
+        state.xp += amount;
+        document.getElementById('xp-display').innerText = state.xp + " XP";
+        // Simple visual pulse
+        const pill = document.querySelector('.xp-pill');
+        pill.style.transform = "scale(1.1)";
+        setTimeout(() => pill.style.transform = "scale(1)", 200);
     }
 
-    function loadModule(moduleKey) {
-        if (!state.unlocked[moduleKey]) {
-            updateGuide("That module is locked! You must complete the previous lessons first.", false);
-            return;
+    function switchView(viewId) {
+        document.querySelectorAll('.view').forEach(el => el.classList.remove('active'));
+        document.getElementById(viewId).classList.add('active');
+        
+        // Reset sidebar button on dashboard return
+        if(viewId === 'view-dashboard') {
+            updateSidebar("Welcome back to the dashboard. Choose your next path.", true);
         }
+    }
 
-        state.currentModule = moduleKey;
+    function updateSidebar(text, disableBtn, btnText = "Continue", btnAction = null) {
+        const guideText = document.getElementById('guide-text');
+        const btn = document.getElementById('main-action-btn');
+        
+        guideText.style.opacity = 0;
+        setTimeout(() => {
+            guideText.innerHTML = text;
+            guideText.style.opacity = 1;
+        }, 200);
+
+        if (disableBtn) {
+            btn.classList.add('btn-disabled');
+            btn.classList.remove('btn-primary');
+            btn.disabled = true;
+            btn.innerText = btnText;
+            btn.onclick = null;
+        } else {
+            btn.classList.remove('btn-disabled');
+            btn.classList.add('btn-primary');
+            btn.disabled = false;
+            btn.innerText = btnText;
+            btn.onclick = btnAction;
+        }
+    }
+
+    function startModule(id) {
+        if (!state.unlocked[id]) return; // Locked
+        
+        state.currentModuleId = id;
         state.stepIndex = 0;
-        
-        // Hide dashboard, Show Lesson
-        document.querySelector('.active').classList.remove('active');
-        document.getElementById('view-lesson').classList.add('active');
-        
+        switchView('view-lesson');
         renderStep();
     }
 
     function renderStep() {
-        const module = courseData[state.currentModule];
+        const module = curriculum[state.currentModuleId];
         
-        // Check if finished
+        // Check completion
         if (state.stepIndex >= module.length) {
-            finishModule();
+            completeModule();
             return;
         }
 
         const step = module[state.stepIndex];
-        
-        // 1. Update Guide
-        updateGuide(step.guide, false);
-
-        // 2. Render Content
         const container = document.getElementById('view-lesson');
-        container.innerHTML = ''; // Clear previous
+        container.innerHTML = ''; // Clear
 
-        // Create main card
+        // Update Guide
+        updateSidebar(step.guide, step.type === "quiz", "Next Step", nextStep);
+
         const card = document.createElement('div');
-        card.className = 'card';
-        card.style.width = '100%';
-        card.style.maxWidth = '600px';
+        card.className = "lesson-card fade-in";
 
-        // Render Options based on type
-        const optionsDiv = document.createElement('div');
-        optionsDiv.className = step.type === 'grid' ? 'topic-grid' : 'option-grid';
-        
-        step.options.forEach((opt, idx) => {
-            let btn;
-            if (step.type === 'grid') {
-                btn = document.createElement('div');
-                btn.className = 'topic-card';
-                btn.innerHTML = `<span class="material-symbols-rounded topic-icon">${opt.icon}</span><div class="topic-title">${opt.text}</div>`;
-            } else {
-                btn = document.createElement('button');
-                btn.className = 'option-btn';
-                btn.textContent = opt.text;
+        // Header
+        const header = document.createElement('div');
+        header.className = "lesson-header";
+        header.innerHTML = `
+            <span class="lesson-tag">Module: ${state.currentModuleId} • Step ${state.stepIndex + 1}/${module.length}</span>
+            <h2>${step.type === 'read' ? step.title : "Knowledge Check"}</h2>
+        `;
+        card.appendChild(header);
+
+        // Content
+        const content = document.createElement('div');
+        if (step.type === 'read') {
+            content.innerHTML = step.content;
+        } else {
+            // Quiz Layout
+            content.innerHTML = `<p style="font-size:1.2rem; font-weight:600; margin-bottom:1.5rem;">${step.question}</p>`;
+            if (step.context) {
+                content.innerHTML += `<p style="background:#f3f4f6; padding:1rem; border-radius:8px; font-style:italic; border-left:4px solid #9ca3af;">"${step.context}"</p>`;
             }
-
-            btn.onclick = () => handleAnswer(btn, opt.correct, step.explanation);
-            optionsDiv.appendChild(btn);
-        });
-
-        card.appendChild(optionsDiv);
+            
+            const optionsDiv = document.createElement('div');
+            optionsDiv.className = "quiz-options";
+            
+            step.options.forEach(opt => {
+                const btn = document.createElement('button');
+                btn.className = "option-btn";
+                btn.innerText = opt.text;
+                btn.onclick = () => handleAnswer(btn, opt.correct, step.explanation);
+                optionsDiv.appendChild(btn);
+            });
+            content.appendChild(optionsDiv);
+        }
+        card.appendChild(content);
         container.appendChild(card);
     }
 
-    function handleAnswer(element, isCorrect, explanation) {
+    function handleAnswer(btn, isCorrect, explanation) {
+        // Disable all options
+        const allBtns = document.querySelectorAll('.option-btn');
+        allBtns.forEach(b => b.disabled = true);
+
         if (isCorrect) {
-            // Visuals
-            element.classList.add('correct');
-            // Logic
-            state.xp += 50;
-            updateXP();
-            updateGuide("Correct! " + (explanation || "Well done. Let's proceed."), true, "Next Step", nextStep);
+            btn.classList.add('correct');
+            updateXP(50);
+            updateSidebar(`<strong>Correct!</strong> ${explanation}`, false, "Continue", nextStep);
         } else {
-            element.classList.add('wrong');
-            updateGuide("Not quite right. Try again!", false);
+            btn.classList.add('wrong');
+            // Highlight correct one (optional, or force retry. Here we just explain and move on for flow)
+            updateSidebar(`<strong>Not quite.</strong> ${explanation}`, false, "Continue", nextStep);
         }
     }
 
@@ -751,76 +856,40 @@ a);requestAnimationFrame(function(){g(document.body)})})}var l=["material-icons"
         renderStep();
     }
 
-    function finishModule() {
-        // Logic to unlock next
-        if (state.currentModule === 'nouns') {
+    function completeModule() {
+        // Unlock Logic
+        if (state.currentModuleId === 'nouns') {
             state.unlocked.pronouns = true;
             document.getElementById('card-pronouns').classList.remove('locked');
-            document.querySelector('#card-pronouns .material-symbols-rounded').style.color = '#34a853'; // visual unlock
-            document.querySelector('#card-pronouns .topic-icon').style.color = '#34a853';
-            document.getElementById('progress-nouns').style.width = "100%";
-        } else if (state.currentModule === 'pronouns') {
+            document.getElementById('card-pronouns').querySelector('.text-muted').nextElementSibling.style.display = 'none'; // hide locked text
+            document.getElementById('bar-nouns').style.width = '100%';
+        } else if (state.currentModuleId === 'pronouns') {
             state.unlocked.adjectives = true;
             document.getElementById('card-adjectives').classList.remove('locked');
-            document.querySelector('#card-adjectives .topic-icon').style.color = '#fbbc05';
-        } else if (state.currentModule === 'adjectives') {
-            // Course finished
-            showCertificate();
+            document.getElementById('card-adjectives').querySelector('.text-muted').nextElementSibling.style.display = 'none';
+        } else if (state.currentModuleId === 'adjectives') {
+            switchView('view-certificate');
+            updateSidebar("You did it! I am so proud. Here is your certificate.", true);
             return;
         }
 
-        // Return to dashboard
-        document.getElementById('view-lesson').classList.remove('active');
-        document.getElementById('view-dashboard').classList.add('active');
-        updateGuide("Module Complete! Great job. Select the next module.", false);
+        switchView('view-dashboard');
     }
 
-    function showCertificate() {
-        document.getElementById('view-lesson').classList.remove('active');
-        document.getElementById('view-cert').classList.add('active');
-        updateGuide("Congratulations! You have mastered the curriculum.", false);
-    }
-
-    // --- Helper Functions ---
-
-    function updateGuide(text, showButton, btnText, btnAction) {
-        document.getElementById('guide-text').innerHTML = text;
-        const controls = document.getElementById('guide-controls');
-        controls.innerHTML = '';
-        
-        if (showButton) {
-            const btn = document.createElement('button');
-            btn.className = 'action-btn';
-            btn.innerHTML = `${btnText} <span class="material-symbols-rounded">arrow_forward</span>`;
-            btn.onclick = btnAction;
-            controls.appendChild(btn);
-        }
-    }
-
-    function updateXP() {
-        const xp = document.getElementById('xp-display');
-        xp.innerText = state.xp + " XP";
-        xp.parentElement.style.transform = "scale(1.2)";
-        setTimeout(() => xp.parentElement.style.transform = "scale(1)", 200);
-    }
-
-    // --- Code Viewer Functions ---
+    // --- Source Code Tools ---
     function openCode() {
-        const modal = document.getElementById('code-modal');
-        const area = document.getElementById('code-area');
-        area.value = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
-        modal.style.display = 'flex';
+        const ta = document.getElementById('source-code');
+        ta.value = "<!DOCTYPE html>\n" + document.documentElement.outerHTML;
+        document.getElementById('code-modal').classList.add('active');
     }
-
     function closeCode() {
-        document.getElementById('code-modal').style.display = 'none';
+        document.getElementById('code-modal').classList.remove('active');
     }
-
     function copyCode() {
-        const area = document.getElementById('code-area');
-        area.select();
+        const ta = document.getElementById('source-code');
+        ta.select();
         document.execCommand('copy');
-        alert("Code copied to clipboard!");
+        alert("Copied to clipboard");
     }
 
 </script>
